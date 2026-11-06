@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this versioned SAR-Transport resource and its upstream sources."
+type: software
+title: "SAR-Transport: Paired-assay tasks for analogue selection and reference acquisition"
+version: 1.0.0
+authors:
+  - family-names: Tong
+    given-names: Siyuan
+    affiliation: "Independent Researcher, Wuhan, China"
+  - family-names: Wang
+    given-names: Yuxuan
+    affiliation: "Faculty of Engineering, The University of New South Wales, Sydney, Australia"
+license: MIT
+abstract: "Code is MIT; ChEMBL-derived task data and numerical results are separately CC-BY-SA-3.0. See LICENSE.md."
+repository-code: "https://github.com/DCarchimonde/SAR-Transport"
+url: "https://github.com/DCarchimonde/SAR-Transport"

@@ -1,0 +1,1738 @@
+{
+  "task_id": "fixed_c8_v1::CHEMBL1000620__CHEMBL1000621",
+  "track_id": "fixed_c8_v1",
+  "legacy_task_id": "CHEMBL1000620__CHEMBL1000621",
+  "group_id": "CHEMBL1000620",
+  "source_assay": "CHEMBL1000620",
+  "target_assay": "CHEMBL1000621",
+  "endpoint": "IC50",
+  "potency_unit": "pIC50",
+  "target_chembl_id": "CHEMBL5145",
+  "compounds": [
+    {
+      "compound_id": "CHEMBL487717",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)Nc4cccc(C(F)(F)F)c4)c4ccccc34)c21",
+      "source_potency": 8.0
+    },
+    {
+      "compound_id": "CHEMBL487718",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)Nc4cccc(SC(F)(F)F)c4)c4ccccc34)c21",
+      "source_potency": 7.62
+    },
+    {
+      "compound_id": "CHEMBL487719",
+      "canonical_smiles": "Cn1c(=O)[nH]c2c(Oc3ccc(NC(=O)Nc4ccc(Cl)c(C(F)(F)F)c4)c4ccccc34)ccnc21",
+      "source_potency": 6.81
+    },
+    {
+      "compound_id": "CHEMBL489856",
+      "canonical_smiles": "Cn1c(=O)[nH]c2c(Oc3ccc(NC(=O)Nc4cc(C(F)(F)F)ccc4F)c4ccccc34)ccnc21",
+      "source_potency": 6.78
+    },
+    {
+      "compound_id": "CHEMBL495801",
+      "canonical_smiles": "CS(=O)(=O)c1cc(Oc2ccnc3[nH]c(=O)[nH]c23)ccc1NC(=O)Nc1ccc(Cl)c(C(F)(F)F)c1",
+      "source_potency": 7.05
+    },
+    {
+      "compound_id": "CHEMBL496009",
+      "canonical_smiles": "CSc1cc(Oc2ccnc3[nH]c(=O)[nH]c23)ccc1NC(=O)Nc1cccc(C(F)(F)F)c1",
+      "source_potency": 9.0
+    },
+    {
+      "compound_id": "CHEMBL496019",
+      "canonical_smiles": "COc1cc(NC(=O)Nc2ccc(Cl)c(C(F)(F)F)c2)ccc1Oc1ccnc2[nH]c(=O)[nH]c12",
+      "source_potency": 7.6
+    },
+    {
+      "compound_id": "CHEMBL496020",
+      "canonical_smiles": "O=C(Nc1ccc(Cl)c(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1F",
+      "source_potency": 8.1
+    },
+    {
+      "compound_id": "CHEMBL496073",
+      "canonical_smiles": "CC(C)(C)c1cccc(NC(=O)Nc2ccc(Oc3ccnc4[nH]c(=O)[nH]c34)c3ccccc23)c1",
+      "source_potency": 7.1
+    },
+    {
+      "compound_id": "CHEMBL496081",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)Nc4cccc(C(C)(C)C)c4)c4ccccc34)c21",
+      "source_potency": 7.43
+    },
+    {
+      "compound_id": "CHEMBL496184",
+      "canonical_smiles": "CN(C)c1cc(Oc2ccnc3[nH]c(=O)[nH]c23)ccc1NC(=O)Nc1ccc(Cl)c(C(F)(F)F)c1",
+      "source_potency": 5.0
+    },
+    {
+      "compound_id": "CHEMBL496185",
+      "canonical_smiles": "O=C(Nc1ccc(Cl)c(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1C(F)(F)F",
+      "source_potency": 7.66
+    },
+    {
+      "compound_id": "CHEMBL496201",
+      "canonical_smiles": "CSc1cc(Oc2ccnc3[nH]c(=O)[nH]c23)ccc1NC(=O)Nc1ccc(Cl)c(C(F)(F)F)c1",
+      "source_potency": 9.0
+    },
+    {
+      "compound_id": "CHEMBL496202",
+      "canonical_smiles": "CSc1cc(Oc2ccnc3[nH]c(=O)[nH]c23)ccc1NC(=O)Nc1cc(C(F)(F)F)ccc1F",
+      "source_potency": 7.92
+    },
+    {
+      "compound_id": "CHEMBL496203",
+      "canonical_smiles": "COc1cc(NC(=O)Nc2cccc(C(F)(F)F)c2)ccc1Oc1ccnc2[nH]c(=O)[nH]c12",
+      "source_potency": 7.8
+    },
+    {
+      "compound_id": "CHEMBL496410",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)c4cccc(OC(F)(F)F)c4)c4ccccc34)c21",
+      "source_potency": 5.28
+    },
+    {
+      "compound_id": "CHEMBL496414",
+      "canonical_smiles": "O=C(Nc1cccc(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1F",
+      "source_potency": 7.92
+    },
+    {
+      "compound_id": "CHEMBL496612",
+      "canonical_smiles": "O=C(Nc1cc(F)cc(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1F",
+      "source_potency": 8.15
+    },
+    {
+      "compound_id": "CHEMBL497017",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)c4cccc(SC(F)(F)F)c4)c4ccccc34)c21",
+      "source_potency": 5.34
+    },
+    {
+      "compound_id": "CHEMBL498024",
+      "canonical_smiles": "O=C(Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c(F)c1)Nc1ccc(Cl)c(C(F)(F)F)c1",
+      "source_potency": 7.33
+    },
+    {
+      "compound_id": "CHEMBL498025",
+      "canonical_smiles": "O=C(Nc1ccc(Cl)c(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1Cl",
+      "source_potency": 7.68
+    },
+    {
+      "compound_id": "CHEMBL498112",
+      "canonical_smiles": "O=C(Nc1cc(C(F)(F)F)ccc1F)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c2ccccc12",
+      "source_potency": 7.43
+    },
+    {
+      "compound_id": "CHEMBL498458",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)Nc4ccc(Cl)c(C(F)(F)F)c4)c(F)c3)c21",
+      "source_potency": 6.2
+    },
+    {
+      "compound_id": "CHEMBL498459",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)Nc4ccc(Cl)c(C(F)(F)F)c4)c4ccccc34)c21",
+      "source_potency": 7.64
+    },
+    {
+      "compound_id": "CHEMBL501686",
+      "canonical_smiles": "O=C(Nc1cc(C(F)(F)F)ccc1N1CCOCC1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c2ccccc12",
+      "source_potency": 7.85
+    },
+    {
+      "compound_id": "CHEMBL514688",
+      "canonical_smiles": "O=C(Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1)Nc1ccc(Cl)c(C(F)(F)F)c1",
+      "source_potency": 7.64
+    },
+    {
+      "compound_id": "CHEMBL521725",
+      "canonical_smiles": "O=C(Nc1ccc(Cl)c(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c2ccccc12",
+      "source_potency": 7.52
+    },
+    {
+      "compound_id": "CHEMBL522072",
+      "canonical_smiles": "O=C(Nc1cccc(SC(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)cc1F",
+      "source_potency": 8.15
+    },
+    {
+      "compound_id": "CHEMBL522724",
+      "canonical_smiles": "Cc1cc(NC(=O)Nc2ccc(Cl)c(C(F)(F)F)c2)ccc1Oc1ccnc2[nH]c(=O)[nH]c12",
+      "source_potency": 7.64
+    },
+    {
+      "compound_id": "CHEMBL523753",
+      "canonical_smiles": "O=C(Nc1cccc(C(F)(F)F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c2ccccc12",
+      "source_potency": 8.22
+    },
+    {
+      "compound_id": "CHEMBL523905",
+      "canonical_smiles": "Cc1c(NC(=O)Nc2ccc(Cl)c(C(F)(F)F)c2)ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c1C",
+      "source_potency": 7.25
+    },
+    {
+      "compound_id": "CHEMBL523907",
+      "canonical_smiles": "Cn1c(=O)[nH]c2c(Oc3ccc(NC(=O)Nc4cccc(C(C)(C)C)c4)c4ccccc34)ccnc21",
+      "source_potency": 6.37
+    },
+    {
+      "compound_id": "CHEMBL524068",
+      "canonical_smiles": "Cn1c(=O)[nH]c2nccc(Oc3ccc(NC(=O)Nc4cc(C(F)(F)F)ccc4F)c4ccccc34)c21",
+      "source_potency": 7.77
+    },
+    {
+      "compound_id": "CHEMBL524801",
+      "canonical_smiles": "Cc1cc(Oc2ccnc3[nH]c(=O)[nH]c23)ccc1NC(=O)Nc1ccc(Cl)c(C(F)(F)F)c1",
+      "source_potency": 7.43
+    },
+    {
+      "compound_id": "CHEMBL526838",
+      "canonical_smiles": "O=C(Nc1cccc(F)c1)Nc1ccc(Oc2ccnc3[nH]c(=O)[nH]c23)c2ccccc12",
+      "source_potency": 7.43
+    }
+  ],
+  "reference_pool_ids": [
+    "CHEMBL487717",
+    "CHEMBL514688",
+    "CHEMBL496202",
+    "CHEMBL501686",
+    "CHEMBL496203",
+    "CHEMBL522072",
+    "CHEMBL526838",
+    "CHEMBL498458"
+  ],
+  "reference_labels": [
+    {
+      "compound_id": "CHEMBL487717",
+      "target_potency": 6.22
+    },
+    {
+      "compound_id": "CHEMBL514688",
+      "target_potency": 5.62
+    },
+    {
+      "compound_id": "CHEMBL496202",
+      "target_potency": 5.51
+    },
+    {
+      "compound_id": "CHEMBL501686",
+      "target_potency": 6.46
+    },
+    {
+      "compound_id": "CHEMBL496203",
+      "target_potency": 4.53
+    },
+    {
+      "compound_id": "CHEMBL522072",
+      "target_potency": 5.38
+    },
+    {
+      "compound_id": "CHEMBL526838",
+      "target_potency": 6.67
+    },
+    {
+      "compound_id": "CHEMBL498458",
+      "target_potency": 5.8
+    }
+  ],
+  "query_ids": [
+    "CHEMBL487718",
+    "CHEMBL487719",
+    "CHEMBL489856",
+    "CHEMBL495801",
+    "CHEMBL496009",
+    "CHEMBL496019",
+    "CHEMBL496020",
+    "CHEMBL496073",
+    "CHEMBL496081",
+    "CHEMBL496184",
+    "CHEMBL496185",
+    "CHEMBL496201",
+    "CHEMBL496410",
+    "CHEMBL496414",
+    "CHEMBL496612",
+    "CHEMBL497017",
+    "CHEMBL498024",
+    "CHEMBL498025",
+    "CHEMBL498112",
+    "CHEMBL498459",
+    "CHEMBL521725",
+    "CHEMBL522724",
+    "CHEMBL523753",
+    "CHEMBL523905",
+    "CHEMBL523907",
+    "CHEMBL524068",
+    "CHEMBL524801"
+  ],
+  "query_edges": [
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL487719",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL489856",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL496009",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL496020",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487718",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00360082304526749
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL489856",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL495801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496009",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496019",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496020",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL487719",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL495801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496009",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496019",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496020",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL489856",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496009",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496019",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496020",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL495801",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496019",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496020",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496009",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496020",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496019",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496073",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496020",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL496081",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496073",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL496184",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496081",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL496185",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496184",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL496201",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496185",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL496414",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.0032206119162640906
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496201",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496410",
+      "compound_b": "CHEMBL497017",
+      "weight": 0.07407407407407408
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL496612",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496414",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL498024",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL496612",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL498025",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498024",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL498112",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498025",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL498459",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498112",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL521725",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL498459",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL521725",
+      "compound_b": "CHEMBL522724",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL521725",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL521725",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL521725",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL521725",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL521725",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL522724",
+      "compound_b": "CHEMBL523753",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL522724",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL522724",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL522724",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL522724",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL523753",
+      "compound_b": "CHEMBL523905",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL523753",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL523753",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL523753",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL523905",
+      "compound_b": "CHEMBL523907",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL523905",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL523905",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.003153515834675255
+    },
+    {
+      "compound_a": "CHEMBL523907",
+      "compound_b": "CHEMBL524068",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL523907",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    },
+    {
+      "compound_a": "CHEMBL524068",
+      "compound_b": "CHEMBL524801",
+      "weight": 0.00308641975308642
+    }
+  ]
+}

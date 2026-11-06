@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+code/build/
+code/*.egg-info/
+*.aux
+*.log
+*.fdb_latexmk
+*.fls

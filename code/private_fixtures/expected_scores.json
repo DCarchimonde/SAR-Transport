@@ -1,0 +1,45 @@
+{
+  "task_id": "fixed_c8_v1::CHEMBL1000620__CHEMBL1000621",
+  "expected_from_original_PER_TASK_METRICS": {
+    "source": {
+      "L": 0.16634057971014493,
+      "MAE": 1.895925925925926,
+      "delta_MSE": 0.9773189278046165
+    },
+    "tanimoto": {
+      "L": 0.11500648595455362,
+      "MAE": 0.4464097520195387,
+      "delta_MSE": 0.47681155454901963
+    }
+  },
+  "actual": {
+    "source": {
+      "task_id": "fixed_c8_v1::CHEMBL1000620__CHEMBL1000621",
+      "group_id": "CHEMBL1000620",
+      "query_signature": "76cfc2a8efdfab93ae1e88c5b81728d900a16cda696eb81625a16a385fe5cec4",
+      "L": 0.16634057971014493,
+      "MAE": 1.8959259259259258,
+      "delta_MSE": 0.9773189278046164
+    },
+    "tanimoto": {
+      "task_id": "fixed_c8_v1::CHEMBL1000620__CHEMBL1000621",
+      "group_id": "CHEMBL1000620",
+      "query_signature": "76cfc2a8efdfab93ae1e88c5b81728d900a16cda696eb81625a16a385fe5cec4",
+      "L": 0.11500648595455361,
+      "MAE": 0.4464097520195387,
+      "delta_MSE": 0.4768115545490197
+    }
+  },
+  "absolute_differences": {
+    "source": {
+      "L": 0.0,
+      "MAE": 2.220446049250313e-16,
+      "delta_MSE": 1.1102230246251565e-16
+    },
+    "tanimoto": {
+      "L": 1.3877787807814457e-17,
+      "MAE": 0.0,
+      "delta_MSE": 5.551115123125783e-17
+    }
+  }
+}

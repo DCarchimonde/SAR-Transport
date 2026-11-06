@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-05T03:33:08.576218+00:00",
+  "source_expanded_rows": 36189,
+  "raw_Final_keys": 6628,
+  "canonical_Final_keys": 6518,
+  "eligible_unique_observations_before_group_removal": 6433,
+  "excluded_key_reasons": {
+    "canonical_key_multiple_values": 85
+  },
+  "cache_same_key_rows_checked": 6610,
+  "structural_row_exclusions": {
+    "structure_ineligible": 248,
+    "pair_identity_mismatch": 37
+  },
+  "retained_pre_numeric_groups_never_split": true,
+  "tracks": {
+    "fixed_c8_v1": {
+      "tasks": 64,
+      "groups": 50,
+      "targets": 39,
+      "query_edges": 7873,
+      "query_task_points": 1111,
+      "formal_run_authorized": true
+    },
+    "acquisition_sentinel_v1": {
+      "tasks": 64,
+      "groups": 50,
+      "targets": 39,
+      "query_edges": 3369,
+      "query_task_points": 788,
+      "formal_run_authorized": true
+    }
+  }
+}

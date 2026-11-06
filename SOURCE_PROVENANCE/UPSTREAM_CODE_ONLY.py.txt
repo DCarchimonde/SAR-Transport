@@ -1,0 +1,1068 @@
+# General imports
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+import pickle
+import gzip
+import os
+
+from tqdm import tqdm
+
+from collections import defaultdict
+
+%load_ext sql
+%matplotlib inline
+
+plt.style.use('tableau-colorblind10')
+plt.rcParams['font.size'] = '16'
+
+
+# Adapted from https://github.com/rinikerlab/overlapping_assays/blob/main/ChEMBL32_OverlappingIC50s-paper.ipynb
+def gather_data(standard_type,curationProcedure,maxMatch=True,includeAssayType=True,
+                minOverlap=5,minAssaySize=20,maxAssaySize=100,
+                includeActivityCuration=True,onlyDocs=True,removeMutants=True,noDuplicateDocs=True,
+                onlyHighConfidence=True,pruneAssayList=[], pruneTargetList=[],outpath=""):
+    
+    # postgresql link to the chembl_32 database
+    connection_string = f"postgresql://username:password@localhost:5432/chembl_32"
+
+    %config SqlMagic.feedback = False
+
+    %sql $connection_string \
+        drop table if exists temp_assays
+
+    assayPairs = []
+    assaysDict = defaultdict(set)
+    
+    conditionsDict = {}
+
+    pruneAssaySet = set(pruneAssayList)
+    pruneTargetSet = set(pruneTargetList)
+
+    prunedAwayAssayIDs = set()
+
+    if standard_type in ('Ki','IC50'):
+        %sql \
+        select assay_id,assays.chembl_id assay_chembl_id,description,tid,targets.chembl_id target_chembl_id,\
+                  count(distinct(molregno)) cnt,pref_name,assays.doc_id doc_id,docs.year doc_date,variant_id \
+                into temporary table temp_assays  \
+                from activities  \
+                join assays using(assay_id)  \
+                join docs on (assays.doc_id = docs.doc_id)  \
+                join target_dictionary as targets using (tid) \
+                where pchembl_value is not null   \
+                and standard_type=:standard_type \
+                and standard_units = 'nM'  \
+                and data_validity_comment is null  \
+                and standard_relation = '=' \
+                and target_type = 'SINGLE PROTEIN' \
+                group by (assay_id,assays.chembl_id,description,tid,targets.chembl_id,pref_name,\
+                          assays.doc_id,docs.year,variant_id) \
+                order by cnt desc; 
+    else:
+        raise NotImplementedError('Only Ki and IC50 are currently supported')
+
+    # Now remove rows for assays which are not compatible with our
+    # curation steps
+    if onlyDocs:
+        %sql \
+        delete from temp_assays where doc_date is null;
+    if removeMutants:
+        %sql \
+        delete from temp_assays where variant_id is not null or lower(description) like '%mutant%' \
+          or lower(description) like '%mutation%' or lower(description) like '%variant%';      
+    if onlyHighConfidence:
+        %sql \
+          alter table temp_assays rename to temp_assays_1;
+        %sql \
+          select ta1.* into temporary table temp_assays \
+            from temp_assays_1 ta1 join assays using(assay_id) \
+            where confidence_score = 9;
+        %sql \
+           drop table temp_assays_1;
+
+        
+    # select activities from the assays we've identified which have between 
+    # minAssaySize and maxAssaySize tested compounds
+    print('goldilocks')
+    %sql \
+        drop table if exists goldilocks
+    %sql \
+    select assay_id,tid,molregno,pchembl_value,temp_assays.doc_id,standard_type,activity_id,cid.chembl_id compound_chembl_id,canonical_smiles\
+    into temporary table goldilocks \
+    from activities \
+    join temp_assays using (assay_id) \
+    join chembl_id_lookup cid on (entity_type='COMPOUND' and molregno=entity_id) \
+    join compound_structures using (molregno) \
+    where pchembl_value is not null   \
+    and standard_units = 'nM'  \
+    and data_validity_comment is null  \
+    and standard_relation = '=' \
+    and cnt>=:minAssaySize and cnt<=:maxAssaySize;
+
+    if standard_type in ('Ki','IC50'):
+        %sql \
+        delete from goldilocks where standard_type != :standard_type;
+            
+            
+    # calculate the overlap (number of compounds tested in common) between each pair 
+    # of those assays
+    print('goldilocks_ovl')
+    %sql \
+        drop table if exists goldilocks_ovl
+    if includeActivityCuration:
+        %sql \
+        select c1.tid,c1.assay_id aid1,c2.assay_id aid2,count(distinct c1.molregno) ovl,\
+           c1.doc_id doc_id1, c2.doc_id doc_id2 \
+        into temporary table goldilocks_ovl \
+        from goldilocks c1 cross join goldilocks c2 \
+        where c1.assay_id>c2.assay_id and c1.tid=c2.tid  and c1.molregno=c2.molregno \
+        and c1.pchembl_value != c2.pchembl_value \
+        and abs(c1.pchembl_value - c2.pchembl_value)!=3.0 \
+        group by (c1.tid,c1.assay_id,c2.assay_id,c1.doc_id,c2.doc_id) order by ovl desc;
+    else:
+        %sql \
+        select c1.tid,c1.assay_id aid1,c2.assay_id aid2,count(distinct c1.molregno) ovl, \
+           c1.doc_id doc_id1, c2.doc_id doc_id2 \
+        into temporary table goldilocks_ovl \
+        from goldilocks c1 cross join goldilocks c2 \
+        where c1.assay_id>c2.assay_id and c1.tid=c2.tid  and c1.molregno=c2.molregno \
+        group by (c1.tid,c1.assay_id,c2.assay_id,c1.doc_id,c2.doc_id) order by ovl desc;
+
+    if noDuplicateDocs:
+        %sql \
+        delete from goldilocks_ovl where doc_id1=doc_id2;
+
+
+    # limit the pairs to those which include at least minOverlap compounds in common
+    #  and include the number of distinct compounds in each of the two overlapping assays
+    print('goldilocks_ovl2')
+    %sql \
+        drop table if exists goldilocks_ovl2
+    %sql \
+    select ovl.*,count(distinct a1.molregno) a1cnt,count(distinct a2.molregno) a2cnt \
+    into temporary table goldilocks_ovl2 \
+    from goldilocks_ovl ovl \
+      join goldilocks a1 on (aid1=a1.assay_id) join goldilocks a2 on (aid2=a2.assay_id)  \
+    where ovl>:minOverlap \
+        group by (ovl.tid,ovl.aid1,ovl.aid2,ovl.ovl,ovl.doc_id1,ovl.doc_id2);
+
+    # augment the table with the chembl ids of the target and assays
+    print('goldilocks_ovl3')
+    %sql \
+        drop table if exists goldilocks_ovl3
+    %sql \
+    select lu3.chembl_id target_chembl_id,lu1.chembl_id assay1_chembl_id,lu2.chembl_id assay2_chembl_id,\
+          ovl,a1cnt,a2cnt,aid1,aid2 \
+    into temporary table goldilocks_ovl3 \
+    from goldilocks_ovl2 \
+    join chembl_id_lookup lu1 on (aid1=lu1.entity_id and lu1.entity_type='ASSAY') \
+    join chembl_id_lookup lu2 on (aid2=lu2.entity_id and lu2.entity_type='ASSAY') \
+    join chembl_id_lookup lu3 on (tid=lu3.entity_id and lu3.entity_type='TARGET');
+
+    # pull the information for the pairs of assays we're going to consider
+    # going forward. Depending on our curation settings, we may do a bit more curation 
+    # at this step
+    print('get assays')
+    if maxMatch:
+        d = %sql \
+        select ovl3.*,a1.assay_organism a1_s,a2.assay_organism a2_s,md5(textin(record_out((a1.assay_type,a1.assay_organism,a1.assay_category,a1.assay_tax_id,\
+              a1.assay_strain,a1.assay_tissue,a1.assay_cell_type,a1.assay_subcellular_fraction,a1.bao_format,a1.variant_id)))) assay_conditions_hash \
+        from goldilocks_ovl3 ovl3 \
+        join assays a1 on (assay1_chembl_id=a1.chembl_id) join assays a2 on (assay2_chembl_id=a2.chembl_id) \
+        where a1.assay_type = a2.assay_type \
+        and a1.assay_organism is not distinct from a2.assay_organism \
+        and a1.assay_category is not distinct from a2.assay_category \
+        and a1.assay_tax_id is not distinct from a2.assay_tax_id \
+        and a1.assay_strain is not distinct from a2.assay_strain \
+        and a1.assay_tissue is not distinct from a2.assay_tissue \
+        and a1.assay_cell_type is not distinct from a2.assay_cell_type \
+        and a1.assay_subcellular_fraction is not distinct from a2.assay_subcellular_fraction \
+        and a1.bao_format is not distinct from a2.bao_format \
+        and a1.variant_id is not distinct from a2.variant_id \
+        order by ovl desc;
+
+        
+    elif includeAssayType:
+        d = %sql \
+        select ovl3.*,a1.assay_organism a1_s,a2.assay_organism a2_s,md5(a1.assay_type::text) assay_conditions_hash \
+        from goldilocks_ovl3 ovl3 \
+        join assays a1 on (assay1_chembl_id=a1.chembl_id) join assays a2 on (assay2_chembl_id=a2.chembl_id) \
+        where a1.assay_type = a2.assay_type \
+        order by ovl desc;
+    else:
+        d = %sql \
+        select ovl3.*,a1.assay_organism a1_s,a2.assay_organism a2_s,md5(a1.tid::text) assay_conditions_hash \
+        from goldilocks_ovl3 ovl3 \
+        join assays a1 on (assay1_chembl_id=a1.chembl_id) join assays a2 on (assay2_chembl_id=a2.chembl_id) \
+        order by ovl desc;
+
+    # Now actually grab the activity data for compounds overlapping between those pairs of assays
+    print(f'retrieving data for {len(d)} assay pairs')
+
+    for row in d:
+        aid1 = row[6]
+        aid2 = row[7]
+   
+        targetChemblID = row[0]
+        
+        assay1ChemblID = row[1]
+        assay2ChemblID = row[2]
+
+        if assay1ChemblID in pruneAssaySet or assay2ChemblID in pruneAssaySet:
+            if assay1ChemblID in pruneAssaySet:
+                prunedAwayAssayIDs.add(assay1ChemblID)
+            if assay2ChemblID in pruneAssaySet:
+                prunedAwayAssayIDs.add(assay2ChemblID)
+            continue
+
+        if targetChemblID in pruneTargetSet:
+            prunedAwayAssayIDs.add(assay1ChemblID)
+            prunedAwayAssayIDs.add(assay2ChemblID)
+            continue
+            
+        assayConditionsHash = row[-1]
+
+        if not targetChemblID in conditionsDict.keys():
+            conditionsDict[targetChemblID] = {}
+
+        if not assayConditionsHash in conditionsDict[targetChemblID].keys():
+            conditionsDict[targetChemblID][assayConditionsHash] = set()
+        
+        assayPairs.append((assay1ChemblID, assay2ChemblID))
+
+        if not includeActivityCuration:
+            ad = %sql \
+            select a1.molregno, a1.compound_chembl_id, a1.canonical_smiles, a1.pchembl_value a1_pchembl,a2.pchembl_value a2_pchembl from \
+            (select * from goldilocks \
+                where assay_id=:aid1 \
+            ) a1 \
+            join (select * from goldilocks \
+                where assay_id=:aid2 \
+            ) a2 \
+            using (molregno) \
+            where a1.standard_type = a2.standard_type;
+        else:
+            ad = %sql \
+            select a1.molregno, a1.compound_chembl_id, a1.canonical_smiles,a1.pchembl_value a1_pchembl,a2.pchembl_value a2_pchembl from \
+            (select * from goldilocks \
+                where assay_id=:aid1 \
+            ) a1 \
+            join (select * from goldilocks \
+                where assay_id=:aid2 \
+            ) a2 \
+            using (molregno) \
+            where a1.standard_type = a2.standard_type \
+                    and a1.pchembl_value != a2.pchembl_value \
+                    and abs(a1.pchembl_value - a2.pchembl_value)!=3.0;
+            
+
+        for row in ad:
+            entry = list(row)
+
+            compoundChemblCode = entry[1]
+            compoundSmiles = entry[2]
+
+            compound1pChembl = entry[3]
+            compound2pChembl = entry[4]
+            
+            assaysDict[assay1ChemblID].add((compoundChemblCode,compoundSmiles,compound1pChembl,assay1ChemblID,targetChemblID))
+            assaysDict[assay2ChemblID].add((compoundChemblCode,compoundSmiles,compound2pChembl,assay2ChemblID,targetChemblID))
+
+            conditionsDict[targetChemblID][assayConditionsHash].add((compoundChemblCode,compoundSmiles,compound1pChembl,assay1ChemblID,targetChemblID,assayConditionsHash))
+            conditionsDict[targetChemblID][assayConditionsHash].add((compoundChemblCode,compoundSmiles,compound2pChembl,assay2ChemblID,targetChemblID,assayConditionsHash))
+
+
+    summaryYaml = [f'''metadata:
+    version: 1
+    creator: 
+        name: Jochem Nelen
+        email: jnelen@ucam.edu
+    Original implementation by Greg Landrum (glandrum@ethz.ch)      
+    summary: Collection of {curationProcedure} datasets with pchembl_values for bioactivity prediction.
+    
+sources:''']
+
+    # Write out the datasets
+    if not os.path.isdir(f'{outpath}{curationProcedure}/Datasets'):
+        os.makedirs(f'{outpath}{curationProcedure}/Datasets')
+        
+    columns = ['assay_chembl_id','compound_chembl_id','canonical_smiles','pchembl_value','assay_conditions_hash']
+        
+    # Save the data per chembl Target and assay Conditions 
+    for target_chembl_id in conditionsDict:
+        for i, assay_conditions_hash in enumerate(conditionsDict[target_chembl_id]):
+            dfList = []
+            for (compound_chembl_id,canonical_smiles,pchembl_value,assay_chembl_id,_,_) in conditionsDict[target_chembl_id][assay_conditions_hash]:
+                dfList.append((assay_chembl_id,compound_chembl_id,canonical_smiles,pchembl_value,assay_conditions_hash))
+                
+            cols = np.array(dfList).transpose()
+            df = pd.DataFrame(dict(zip(columns,cols)))
+            fname = f'{outpath}{curationProcedure}/Datasets/target_{target_chembl_id}-{i+1}_{curationProcedure}.csv.gz'
+            df.to_csv(fname,index=False)
+    
+            # Summarize general information to write to yml file
+            minAct = min(df.pchembl_value)
+            maxAct = max(df.pchembl_value)
+            medAct = np.median(df.pchembl_value)
+            
+            targetd = %sql \
+            select * from target_dictionary  \
+            where chembl_id=:target_chembl_id
+            targetd = dict(targetd[0])    
+            template=f'''    {target_chembl_id}-{i+1}:
+        description: "Target {target_chembl_id}: {targetd['pref_name']}"
+        args:
+            filename: '{fname}'
+            smilesColumn: canonical_smiles
+        metadata:
+            url: https://www.ebi.ac.uk/chembl/target_report_card/{target_chembl_id}/
+            source: ChEMBL_32
+            target_organism: {targetd['organism']}
+            assays_included: {','.join(df['assay_chembl_id'].unique())}
+            num_points: {df.shape[0]}
+            activity_type: {curationProcedure}
+            min pchembl_value: {minAct:.2f}
+            max pchembl_value: {maxAct:.2f}
+            median pchembl_value: {medAct:.2f}
+            driver: intake_rdkit.smiles.SmilesSource
+            '''
+            
+            summaryYaml.append(template)
+
+    # Save the datasets
+    with open(f'{outpath}{curationProcedure}/individual_targets.yml', 'w') as ymlFile:
+        print('\n'.join(summaryYaml),file=ymlFile)
+
+    # Save the relevant data to compressed pkl files for further processing
+    with gzip.open(f'{outpath}{curationProcedure}/{curationProcedure}_assayPairs.pkl.gz', 'wb') as f:
+        pickle.dump(assayPairs, f)
+    
+    with gzip.open(f'{outpath}{curationProcedure}/{curationProcedure}_assaysDict.pkl.gz', 'wb') as f:
+        pickle.dump(assaysDict, f)
+        
+    with gzip.open(f'{outpath}{curationProcedure}/{curationProcedure}_conditionsDict.pkl.gz', 'wb') as f:
+        pickle.dump(conditionsDict, f)
+
+    if len(prunedAwayAssayIDs) > 0:
+        print(f"Pruned away {len(prunedAwayAssayIDs)} assay IDs for {curationProcedure}:\n",list(prunedAwayAssayIDs))
+        
+        with open(f'{outpath}{curationProcedure}/{curationProcedure}_prunedAssayIDs.txt', 'w') as f:
+            f.write("\n".join(prunedAwayAssayIDs))
+        
+    return assayPairs, assaysDict, conditionsDict
+
+
+
+import itertools
+
+import concurrent.futures
+
+from rdkit import Chem
+from rdkit.Chem import rdRascalMCES
+
+# Method to identify similar molecules based on rdRascalMCES
+def pairfinder(ref_mol, query_mol, simcutoff=0.6):
+    """
+
+    Pairfinder looks for MCS pairs. Returns True if the final Johnson similarity is above a set threshold.
+
+    Inputs:
+    - ref_mol: reference molecule as rdkit molecule
+    - query_mol: query molecule as rdkit molecule
+    - simcutoff: similarity cutoff
+
+    """
+
+    opts = rdRascalMCES.RascalOptions()
+    opts.singleLargestFrag = True
+    opts.similarityThreshold = simcutoff
+    opts.completeAromaticRings = False
+
+    opts.maxBondMatchPairs = 1500
+
+    res = rdRascalMCES.FindMCES(ref_mol, query_mol, opts)
+
+    if len(res) < 1:
+        return False
+    else:
+        # Check if the final Johnson Similarity is larger or equal to the simcutoff
+        if res[0].similarity >= simcutoff:
+            return True
+        else:
+            return False
+
+# Identifies if 2 compounds are similar enough to form a pair (using rdRascalMCES)
+def findIntraAssayPair(combination,rdMolDict):
+      
+    molID1 = combination[0][0]
+    molID2 = combination[1][0]
+
+    if not molID1 in rdMolDict:
+        rdMolDict[molID1] = Chem.MolFromSmiles(combination[0][1])
+    if not molID2 in rdMolDict:
+        rdMolDict[molID2] = Chem.MolFromSmiles(combination[1][1])
+
+    if pairfinder(rdMolDict[molID1],rdMolDict[molID2]):
+        # Ensure consistent ordering
+        if combination[0][2] < combination[1][2]:
+            intraAssayPair = [combination[1],combination[0]]
+        else:
+            intraAssayPair = [combination[0],combination[1]]
+    else:
+        intraAssayPair = None
+        
+    return intraAssayPair
+    
+# Loop through the assayPairs and look for exact matched pairs using the earlier identified intra-assay pairs
+def interAssayPairFinder(assayPairs, assaysPairDict):
+    MMPList = []
+    for assayPair in assayPairs:
+        for product in itertools.product(assaysPairDict[assayPair[0]],assaysPairDict[assayPair[1]]):
+            
+            pair1_1 = list(product[0][0])
+            pair1_2 = list(product[0][1])
+            
+            pair2_1 = list(product[1][0])
+            pair2_2 = list(product[1][1])
+
+            if pair1_1[0] == pair2_1[0]:
+                if pair1_2[0] == pair2_2[0]:
+                    MMPList.append({'pair1_1': pair1_1, 'pair1_2': pair1_2, 'pair2_1': pair2_1, 'pair2_2': pair2_2})   
+
+            elif pair1_1[0] == pair2_2[0]:
+                if pair1_2[0] == pair2_1[0]:
+                    MMPList.append({'pair1_1': pair1_1, 'pair1_2': pair1_2, 'pair2_1': pair2_2, 'pair2_2': pair2_1})   
+
+    return MMPList
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+
+from matplotlib.ticker import LogLocator, AutoLocator
+from matplotlib.patches import Rectangle
+from matplotlib.ticker import ScalarFormatter
+
+import gzip
+import pickle
+
+import numpy as np
+
+from sklearn.metrics import median_absolute_error
+
+# Pads the labels of the figures so they are more consistent
+def pad_tick_labels(length, direction='left'):
+    def formatter(value, pos):
+        label = f"{int(value):d}"
+        if direction == 'left':
+            return label.rjust(length)
+        elif direction == 'right':
+            return label.ljust(length)
+        else:
+            raise ValueError("Direction must be either 'left' or 'right'")
+    return formatter
+    
+# Adapted from https://github.com/rinikerlab/overlapping_assays/blob/main/ChEMBL32_OverlappingIC50s-paper.ipynb
+def draw_figure(data_list, titles, outputPath=None, boxes=None, centerTitle=True, startChar='A'):
+    gradientColor = 'plasma'
+    lineColor = 'gray'
+    
+    # Determine the number of datasets
+    num_datasets = len(data_list)
+    fig, axes = plt.subplots(num_datasets, 2, figsize=(12, 6 * num_datasets), constrained_layout=True)
+
+    # Ensure axes are in the correct format
+    if not type(axes[0]) is np.ndarray:
+        axes=np.expand_dims(axes,axis=0)
+
+    # Draw a figure for every input entry
+    for i, (pts, titl) in enumerate(zip(data_list, titles)):
+        
+        xp = np.array([x[0] for x in pts])
+        yp = np.array([x[1] for x in pts])
+
+        ax1 = axes[i, 0]
+        ax2 = axes[i, 1]
+
+        # Draw hexbin Plot
+        xMax = 5.5
+        binGridSize = 50
+
+        ax1.plot((0, xMax), (0, xMax), "-", color=lineColor)
+        ax1.plot((0, xMax), (-1, xMax-1), "--", color=lineColor)
+        ax1.plot((0, xMax), (1, xMax+1), "--", color=lineColor)
+        ax1.plot((0, xMax), (-0.3, xMax-0.3), "-.", color=lineColor)
+        ax1.plot((0, xMax), (0.3, xMax+0.3), "-.", color=lineColor)
+
+        ax1.set_xlabel("Pair1 pChEMBL difference")
+        ax1.set_ylabel("Pair2 pChEMBL difference")
+
+        ax1.set_xlim(-0.2, 5.5)
+        ax1.set_ylim(-5.6, 5.5)
+
+        hb = ax1.hexbin(xp, yp, bins="log", cmap=gradientColor, gridsize=binGridSize, extent=(0, 5.5, -5.6, 5.5))
+
+        counts = hb.get_array()
+        max_count = counts.max()
+
+        if max_count < 10:
+            hb.set_clim(vmax=10)
+
+        cb = fig.colorbar(hb, ax=ax1, format="{x:.0f}")
+        
+        cb.ax.yaxis.set_major_formatter(plt.FuncFormatter(pad_tick_labels(5,direction="right")))
+
+        if not centerTitle:
+            ax1.set_title(titl.replace("_", " "))
+            
+        if boxes is not None:
+            for box in boxes:
+                rect = Rectangle(box[0], box[1], box[2], ec="red", lw=2, fc="none")
+                ax1.add_patch(rect)
+
+        # Draw histogram Plot
+        delts = np.abs(xp - yp)
+        ax2.set_xlim(-0.2, 5)
+        bins = 25
+        
+        # Plot histogram
+        counts, bins, patches = ax2.hist(delts, bins=bins, rwidth=1, color=plt.get_cmap(gradientColor)(0), range=(0, 5))
+
+        ax2.set_xlabel("ΔΔpChEMBL")
+        ax2.set_ylabel("Counts")
+        
+        # Create a range of x values
+        x_vals = np.linspace(0, 5, 1000)
+
+        if not centerTitle:
+            ax2.set_title(titl.replace("_", " "))
+
+        if centerTitle:
+
+            fig.get_layout_engine().set(h_pad=0.25)
+            
+            if num_datasets > 1:
+                plt.figtext(0.04, 1-(i*(1/num_datasets))-0.005, chr(ord(startChar)+i), ha='center',va='center',fontsize="xx-large",weight='bold')
+            plt.figtext(0.5, 1-(i*(1/num_datasets))-0.005, titl.replace('_', ' '), ha='center',va='center',fontsize='large')
+
+
+    if outputPath is None:
+        outputPath = f"{titles[0]}/{titles[0]}_plots.png"
+
+    dirPath = os.path.dirname(outputPath)
+    if not os.path.isdir(dirPath):
+        os.makedirs(dirPath)
+
+    plt.savefig(outputPath, bbox_inches="tight")
+    plt.show()
+
+# Calculate the pairwise statistics
+def calculate_statistics(pts,titl,outputPath=None):
+
+    xp = np.array([x[0] for x in pts])
+    yp = np.array([x[1] for x in pts])
+    
+    delts = np.abs(xp - yp)
+    
+    aps = set([(x[-2], x[-1]) for x in pts])
+
+    assayLst1 = [x[-2].strip() for x in pts]
+    assayLst2 = [x[-1].strip() for x in pts]
+
+    uniqueAssays = len(set(assayLst1 + assayLst2))
+    
+    npts = len(delts)
+    frac1 = sum(delts > 0.3) / npts
+    frac2 = sum(delts > 1) / npts
+    
+    if outputPath is None:
+        outputPath = f"{titl}/"
+        
+    if not os.path.isdir(outputPath):
+        os.makedirs(outputPath)
+    
+    # Print and write the output statistics
+    outputStatistics = f"{titl} Statistics:\nMAE={median_absolute_error(xp,yp):.2f}, Fraction > 0.3: {frac1:.2f}, fraction > 1.0: {frac2:.2f}\n{len(aps)} assay pairs. {npts} points, {uniqueAssays} unique assay IDs."
+    print(outputStatistics)
+    
+    with open(f"{outputPath}/{titl}_Statistics.txt", "w") as outputFile:
+        outputFile.write(outputStatistics)    
+
+def load_points(curationProcedure,path=""):
+    try:
+        with gzip.open(f"{path}{curationProcedure}/{curationProcedure}_pts.pkl.gz", 'rb') as file:
+            pts = pickle.load(file)
+    except (FileNotFoundError, OSError) as e:
+        raise RuntimeError(f"Could not load data for {curationProcedure}. Ensure the gatherData function was used with this ID.") from e
+       
+    return pts
+
+
+import concurrent.futures
+from multiprocessing import Manager
+
+# This function processes the gathered data, looks for matched pairs,performs the final statistics and generates the figures
+def processGatheredData(curationProcedure, outpath=""):
+    
+    # Automatically load the data based on the curationProcedure ID
+    try:
+        assayPairs = pickle.load(gzip.open(f"{outpath}{curationProcedure}/{curationProcedure}_assayPairs.pkl.gz"))
+        assaysDict = pickle.load(gzip.open(f"{outpath}{curationProcedure}/{curationProcedure}_assaysDict.pkl.gz"))
+        conditionsDict = pickle.load(gzip.open(f"{outpath}{curationProcedure}/{curationProcedure}_conditionsDict.pkl.gz"))
+    except (FileNotFoundError, OSError) as e:
+        raise RuntimeError(f"Could not load data for {curationProcedure}. Ensure the gatherData function was used with this ID.") from e
+        
+    outputDir = f"{outpath}{curationProcedure}/"
+    
+    if not os.path.isdir(outputDir):
+        os.makedirs(outputDir)
+
+    columns = ['assay_chembl_id','compound_chembl_id','canonical_smiles','pchembl_value','assay_conditions_hash']
+
+    # Identify intra-assay pairs
+    with Manager() as manager:
+        rdMolDict = manager.dict()
+        assaysPairDict = defaultdict(list)
+
+        for assayID in tqdm(assaysDict):
+            # Use ThreadPoolExecutor to speed up intra-assay pair search
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                futures = [
+                    executor.submit(
+                        findIntraAssayPair,
+                        combination,
+                        rdMolDict
+                    )
+                    for combination in itertools.combinations(assaysDict[assayID], 2)
+                ]
+
+                # Wait for the calculations to complete and process the results
+                for future in concurrent.futures.as_completed(futures):
+                    result = future.result()
+
+                    if result is not None:
+                        assaysPairDict[assayID].append(result)
+
+    # Identify Matched Pairs
+    MMPlist = interAssayPairFinder(assayPairs, assaysPairDict)
+
+    # Process the Matched pair data into a final CSV file
+    columnNames = [
+        "pair1_compoundID_1",
+        "pair1_pchembl_value_1",
+        "pair1_compoundID_2",
+        "pair1_pchembl_value_2",
+        "pair1_assay_ID",
+        "pair2_compoundID_1",
+        "pair2_pchembl_value_1",
+        "pair2_compoundID_2",
+        "pair2_pchembl_value_2",
+        "pair2_assay_ID",
+        "Target_Name",
+    ]
+    
+    finalList = []
+    
+    for MMPdict in MMPlist:
+        pair1_1 = MMPdict["pair1_1"]
+        pair1_2 = MMPdict["pair1_2"]
+    
+        pair2_1 = MMPdict["pair2_1"]
+        pair2_2 = MMPdict["pair2_2"]
+    
+        finalList.append([pair1_1[0],pair1_1[2],pair1_2[0],pair1_2[2], pair1_1[3], pair2_1[0],pair2_1[2],pair2_2[0],pair2_2[2], pair2_1[3], pair1_1[-1]])
+    
+    df = pd.DataFrame(finalList, columns=columnNames)
+        
+    # Calculate the difference bretween matched pairs
+    df["diff_pair1"] = df["pair1_pchembl_value_1"] - df["pair1_pchembl_value_2"]
+    df["diff_pair2"] = df["pair2_pchembl_value_1"] - df["pair2_pchembl_value_2"]
+    
+    df["MMP_Diff"] = df["diff_pair1"] - df["diff_pair2"] 
+    
+    # Write out the final dataset to a csv file
+    df.to_csv(f"{outputDir}/{curationProcedure}_Final.csv.gz", index=False)
+
+    with gzip.open(f'{outputDir}/{curationProcedure}_pts.pkl.gz', 'wb') as f:
+        pickle.dump(list(zip(
+                df["diff_pair1"],
+                df["diff_pair2"],
+                df["pair1_assay_ID"],
+                df["pair2_assay_ID"],
+            )), f)
+    
+
+curationProcedure = "IC50_MinimalCuration"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,noDuplicateDocs=False,removeMutants=False,
+                       maxMatch=False,includeAssayType=False,includeActivityCuration=True,
+                       onlyDocs=False, onlyHighConfidence=False)
+
+curationProcedure = "IC50_MinimalCuration"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "IC50_MinimalCuration"
+
+IC50_minCur_pts = load_points(curationProcedure)
+
+draw_figure([IC50_minCur_pts],[curationProcedure])
+calculate_statistics(IC50_minCur_pts,curationProcedure)
+
+curationProcedure = "IC50_MaximalCuration"
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0], curationProcedure)
+
+curationProcedure = "IC50_MaximalCuration"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "IC50_MaximalCuration"
+
+IC50_maxCur_pts = load_points(curationProcedure)
+
+draw_figure([IC50_maxCur_pts],[curationProcedure])
+calculate_statistics(IC50_maxCur_pts,curationProcedure)
+
+IC50_minCur_pts = load_points("IC50_MinimalCuration")
+IC50_maxCur_pts = load_points("IC50_MaximalCuration")
+
+draw_figure([IC50_minCur_pts,IC50_maxCur_pts],["IC50_Minimal_Curation","IC50_Maximal_Curation"],outputPath="Figures/IC50_Composite.png")
+
+curationProcedure = "Ki_MinimalCuration_Unpruned"
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,noDuplicateDocs=False,removeMutants=False,
+                       maxMatch=False,includeAssayType=False,includeActivityCuration=True,
+                       onlyDocs=False, onlyHighConfidence=False)
+
+curationProcedure = "Ki_MinimalCuration_Unpruned"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "Ki_MinimalCuration_Unpruned"
+
+Ki_minCurUnpruned_pts = load_points(curationProcedure)
+
+draw_figure([Ki_minCurUnpruned_pts],[curationProcedure])
+calculate_statistics(Ki_minCurUnpruned_pts,curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_Unpruned"
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_Unpruned"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_Unpruned"
+
+Ki_maxCurUnpruned_pts = load_points(curationProcedure)
+
+draw_figure([Ki_maxCurUnpruned_pts],[curationProcedure])
+calculate_statistics(Ki_maxCurUnpruned_pts,curationProcedure)
+
+Ki_minCurUnpruned_pts = load_points("Ki_MinimalCuration_Unpruned")
+Ki_maxCurUnpruned_pts = load_points("Ki_MaximalCuration_Unpruned")
+
+draw_figure([Ki_minCurUnpruned_pts,Ki_maxCurUnpruned_pts],["Ki_Minimal_Curation_Unpruned","Ki_Maximal_Curation_Unpruned"],outputPath="Figures/Ki_Unpruned_Composite.png")
+
+# All Chembl assay IDs associated with Carbonic Anhydrase pruned away in the reference manuscript
+# Taken from https://pubs.acs.org/doi/suppl/10.1021/acs.jcim.4c00049/suppl_file/ci4c00049_si_001.pdf
+CA_AssayList = ['CHEMBL3101211', 'CHEMBL2445070', 'CHEMBL2327206', 'CHEMBL2327942', 'CHEMBL3407119', 'CHEMBL3407118', 'CHEMBL3407117', 'CHEMBL3407116', 'CHEMBL3367569', 'CHEMBL3367568', 'CHEMBL3367567', 'CHEMBL3367566', 'CHEMBL3367565', 'CHEMBL3270420', 'CHEMBL3270419', 'CHEMBL3270418', 'CHEMBL3270416', 'CHEMBL3270415', 'CHEMBL3102349', 'CHEMBL3102348', 'CHEMBL3101213', 'CHEMBL3101212', 'CHEMBL3101210', 'CHEMBL3789760', 'CHEMBL3782912', 'CHEMBL3782911', 'CHEMBL3782910', 'CHEMBL3782909', 'CHEMBL3767552', 'CHEMBL3767551', 'CHEMBL3767550', 'CHEMBL3767549', 'CHEMBL3767548', 'CHEMBL3761242', 'CHEMBL3761241', 'CHEMBL3761240', 'CHEMBL3760464', 'CHEMBL2327205', 'CHEMBL3404500', 'CHEMBL3404499', 'CHEMBL3404498', 'CHEMBL3407120', 'CHEMBL4035751', 'CHEMBL4035750', 'CHEMBL4035749', 'CHEMBL4035748', 'CHEMBL4427979', 'CHEMBL4427978', 'CHEMBL3607055', 'CHEMBL3607054', 'CHEMBL3607053', 'CHEMBL3607052', 'CHEMBL3425083', 'CHEMBL3395808', 'CHEMBL4427980', 'CHEMBL3395806', 'CHEMBL3395807', 'CHEMBL4001628', 'CHEMBL4001627', 'CHEMBL4001626', 'CHEMBL4001625', 'CHEMBL3749744', 'CHEMBL3749743', 'CHEMBL3748431', 'CHEMBL3748430', 'CHEMBL2185518', 'CHEMBL1645695', 'CHEMBL1645694', 'CHEMBL993110', 'CHEMBL1015321', 'CHEMBL1015322', 'CHEMBL1015327', 'CHEMBL1063125', 'CHEMBL1063126', 'CHEMBL1063127', 'CHEMBL1063128', 'CHEMBL1038577', 'CHEMBL1038578', 'CHEMBL1038579', 'CHEMBL1063842', 'CHEMBL1063843', 'CHEMBL1947439', 'CHEMBL1815994', 'CHEMBL1815993', 'CHEMBL1815988', 'CHEMBL1815987', 'CHEMBL1645698', 'CHEMBL1645697', 'CHEMBL1645696', 'CHEMBL1002983', 'CHEMBL1002984', 'CHEMBL1002985', 'CHEMBL1002986', 'CHEMBL993108', 'CHEMBL993109', 'CHEMBL1947440', 'CHEMBL1947441', 'CHEMBL2049250', 'CHEMBL2049249', 'CHEMBL1031357', 'CHEMBL898699', 'CHEMBL2379886', 'CHEMBL1031353', 'CHEMBL1031354', 'CHEMBL1031355', 'CHEMBL2049253', 'CHEMBL1031356', 'CHEMBL2049251', 'CHEMBL1678663', 'CHEMBL1064389', 'CHEMBL1678662', 'CHEMBL1678666', 'CHEMBL1678667', 'CHEMBL2380058', 'CHEMBL2380059', 'CHEMBL2380060', 'CHEMBL2380061', 'CHEMBL865638', 'CHEMBL895192', 'CHEMBL895191', 'CHEMBL862664', 'CHEMBL863824', 'CHEMBL863823', 'CHEMBL861561', 'CHEMBL861560', 'CHEMBL861559', 'CHEMBL864357', 'CHEMBL896308', 'CHEMBL896309', 'CHEMBL911283', 'CHEMBL862670', 'CHEMBL911284', 'CHEMBL911285', 'CHEMBL862669', 'CHEMBL911286', 'CHEMBL862671', 'CHEMBL829846', 'CHEMBL827186', 'CHEMBL829640', 'CHEMBL829822', 'CHEMBL828815', 'CHEMBL658750', 'CHEMBL657039', 'CHEMBL828135', 'CHEMBL657967', 'CHEMBL657825', 'CHEMBL828932', 'CHEMBL830339', 'CHEMBL3789758', 'CHEMBL828071', 'CHEMBL657150', 'CHEMBL3789752', 'CHEMBL3789754', 'CHEMBL3789755', 'CHEMBL828925', 'CHEMBL4513082', 'CHEMBL4495582', 'CHEMBL876689', 'CHEMBL832583', 'CHEMBL838574', 'CHEMBL839013', 'CHEMBL839012', 'CHEMBL658217', 'CHEMBL4651403', 'CHEMBL4731750', 'CHEMBL840160', 'CHEMBL827205', 'CHEMBL827204', 'CHEMBL830313', 'CHEMBL830312', 'CHEMBL876374', 'CHEMBL658042', 'CHEMBL657828', 'CHEMBL657153', 'CHEMBL662724', 'CHEMBL657821', 'CHEMBL1108468', 'CHEMBL657146', 'CHEMBL658749', 'CHEMBL867755', 'CHEMBL870709', 'CHEMBL657028', 'CHEMBL824221', 'CHEMBL3737169', 'CHEMBL873200', 'CHEMBL824219', 'CHEMBL824220', 'CHEMBL657976', 'CHEMBL3737173', 'CHEMBL657848', 'CHEMBL3737172', 'CHEMBL3737170', 'CHEMBL870708', 'CHEMBL657970', 'CHEMBL657149', 'CHEMBL657025', 'CHEMBL4303805', 'CHEMBL827937', 'CHEMBL657824', 'CHEMBL4303810', 'CHEMBL653170', 'CHEMBL658942', 'CHEMBL828069', 'CHEMBL875708', 'CHEMBL839950', 'CHEMBL875538', 'CHEMBL1217310', 'CHEMBL657042', 'CHEMBL1960463', 'CHEMBL1960462', 'CHEMBL1960461', 'CHEMBL659048', 'CHEMBL657145', 'CHEMBL1217308', 'CHEMBL1217309', 'CHEMBL1106525', 'CHEMBL2415808', 'CHEMBL2429043', 'CHEMBL4303819', 'CHEMBL3116664', 'CHEMBL3116665', 'CHEMBL2429044', 'CHEMBL3116666', 'CHEMBL828074', 'CHEMBL2429045', 'CHEMBL2429046', 'CHEMBL2429047', 'CHEMBL3116663', 'CHEMBL2429048', 'CHEMBL3116661', 'CHEMBL657820', 'CHEMBL2415807', 'CHEMBL827065', 'CHEMBL2415806', 'CHEMBL3116662', 'CHEMBL828905', 'CHEMBL828908', 'CHEMBL3562119', 'CHEMBL3561990']
+
+# All Chembl target IDs associated with Carbonic Anhydrase
+# Taken from https://www.ebi.ac.uk/chembl/g/#search_results/targets/query=Carbonic%20anhydrase
+CA_TargetList = ["CHEMBL4295601", "CHEMBL1649055", "CHEMBL5337", "CHEMBL1697676", "CHEMBL281", "CHEMBL2186", "CHEMBL2331045", "CHEMBL4105729", "CHEMBL6185", "CHEMBL4706", "CHEMBL3912", "CHEMBL3745586", "CHEMBL3399914", "CHEMBL6068", "CHEMBL3596083", "CHEMBL3969", "CHEMBL3510", "CHEMBL2401609", "CHEMBL3097982", "CHEMBL5973", "CHEMBL1075028", "CHEMBL2885", "CHEMBL3926", "CHEMBL4211", "CHEMBL3025", "CHEMBL3242", "CHEMBL261", "CHEMBL1944499", "CHEMBL3308990", "CHEMBL2331046", "CHEMBL2420", "CHEMBL5767", "CHEMBL1795125", "CHEMBL1944498", "CHEMBL2283", "CHEMBL5631", "CHEMBL3621035", "CHEMBL3594", "CHEMBL2216", "CHEMBL4105955", "CHEMBL5931", "CHEMBL3689", "CHEMBL2096971", "CHEMBL2111457", "CHEMBL2096906", "CHEMBL3932", "CHEMBL4789", "CHEMBL2326", "CHEMBL205", "CHEMBL2095180", "CHEMBL3729"]
+
+curationProcedure = "Ki_MinimalCuration_RefPruned"
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,noDuplicateDocs=False,removeMutants=False,
+                       maxMatch=False,includeAssayType=False,includeActivityCuration=True,
+                       onlyDocs=False, onlyHighConfidence=False,pruneAssayList=CA_AssayList)
+
+curationProcedure = "Ki_MinimalCuration_RefPruned"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "Ki_MinimalCuration_RefPruned"
+
+Ki_minCurRefPruned_pts = load_points(curationProcedure)
+
+draw_figure([Ki_minCurRefPruned_pts],[curationProcedure])
+calculate_statistics(Ki_minCurRefPruned_pts,curationProcedure)
+
+curationProcedure = "Ki_MinimalCuration_Pruned"
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,noDuplicateDocs=False,removeMutants=False,
+                       maxMatch=False,includeAssayType=False,includeActivityCuration=True,
+                       onlyDocs=False, onlyHighConfidence=False,pruneTargetList=CA_TargetList)
+
+curationProcedure = "Ki_MinimalCuration_Pruned"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "Ki_MinimalCuration_Pruned"
+
+Ki_minCurPruned_pts = load_points(curationProcedure)
+
+draw_figure([Ki_minCurPruned_pts],[curationProcedure])
+calculate_statistics(Ki_minCurPruned_pts,curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_RefPruned"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split("_")[0],curationProcedure,pruneAssayList=CA_AssayList)
+
+curationProcedure = "Ki_MaximalCuration_RefPruned"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_RefPruned"
+
+Ki_maxCurRefPruned_pts = load_points(curationProcedure)
+
+draw_figure([Ki_maxCurRefPruned_pts],[curationProcedure])
+calculate_statistics(Ki_maxCurRefPruned_pts,curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_Pruned"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split("_")[0],curationProcedure,pruneTargetList=CA_TargetList)
+
+curationProcedure = "Ki_MaximalCuration_Pruned"
+
+processGatheredData(curationProcedure)
+
+curationProcedure = "Ki_MaximalCuration_Pruned"
+
+Ki_maxCurPruned_pts = load_points(curationProcedure)
+
+draw_figure([Ki_maxCurPruned_pts],[curationProcedure])
+calculate_statistics(Ki_maxCurPruned_pts,curationProcedure)
+
+Ki_minCurPruned_pts = load_points("Ki_MinimalCuration_Pruned")
+Ki_maxCurPruned_pts = load_points("Ki_MaximalCuration_Pruned")
+
+draw_figure([Ki_minCurPruned_pts,Ki_maxCurPruned_pts],["Ki_Minimal_Curation_Pruned","Ki_Maximal_Curation_Pruned"],outputPath="Figures/Ki_Pruned_Composite.png")
+
+curationProcedure = "IC50_MediumCuration_NoHighConfidence"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,onlyHighConfidence=False,outpath="MediumCuration/")
+
+curationProcedure = "IC50_MediumCuration_NoHighConfidence"
+
+processGatheredData(curationProcedure,outpath="MediumCuration/")
+
+curationProcedure = "IC50_MediumCuration_NoHighConfidence"
+
+draw_figure([load_points(curationProcedure,path=f"MediumCuration/")],[curationProcedure],outputPath=f"MediumCuration/{curationProcedure}/{curationProcedure}_plots.png")
+calculate_statistics(load_points(curationProcedure,path=f"MediumCuration/"),curationProcedure,outputPath=f"MediumCuration/{curationProcedure}/")
+
+curationProcedure = "IC50_MediumCuration_NoMaxMatch"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,maxMatch=False,outpath="MediumCuration/")
+
+curationProcedure = "IC50_MediumCuration_NoMaxMatch"
+
+processGatheredData(curationProcedure,outpath="MediumCuration/")
+
+curationProcedure = "IC50_MediumCuration_NoMaxMatch"
+
+draw_figure([load_points(curationProcedure,path=f"MediumCuration/")],[curationProcedure],outputPath=f"MediumCuration/{curationProcedure}/{curationProcedure}_plots.png")
+calculate_statistics(load_points(curationProcedure,path=f"MediumCuration/"),curationProcedure,outputPath=f"MediumCuration/{curationProcedure}/")
+
+# IC50 Medium Curation SI Figure
+IC50_maxCur_pts = load_points("IC50_MaximalCuration")
+IC50_medCurNoHighConfidence_pts = load_points("IC50_MediumCuration_NoHighConfidence",path=f"MediumCuration/")
+IC50_medCurNoMaxMatch_pts = load_points("IC50_MediumCuration_NoMaxMatch",path=f"MediumCuration/")
+
+draw_figure([IC50_maxCur_pts,IC50_medCurNoHighConfidence_pts,IC50_medCurNoMaxMatch_pts],["IC50_Maximal_Curation_(Reference)","IC50_Medium_Curation_(NoHighConfidence)","IC50_Medium_Curation_(NoMaxMatch)"],outputPath="Figures/IC50_MediumCuration.png")
+
+curationProcedure = "Ki_MediumCuration_NoHighConfidence_Pruned"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,onlyHighConfidence=False,pruneTargetList=CA_TargetList,outpath="MediumCuration/")
+
+curationProcedure = "Ki_MediumCuration_NoHighConfidence_Pruned"
+
+processGatheredData(curationProcedure,outpath="MediumCuration/")
+
+curationProcedure = "Ki_MediumCuration_NoHighConfidence_Pruned"
+
+draw_figure([load_points(curationProcedure,path=f"MediumCuration/")],[curationProcedure],outputPath=f"MediumCuration/{curationProcedure}/{curationProcedure}_plots.png")
+calculate_statistics(load_points(curationProcedure,path=f"MediumCuration/"),curationProcedure,outputPath=f"MediumCuration/{curationProcedure}/")
+
+curationProcedure = "Ki_MediumCuration_NoMaxMatch_Pruned"
+
+assayPairs, assaysDict, conditionsDict = gather_data(curationProcedure.split('_')[0],curationProcedure,maxMatch=False,pruneTargetList=CA_TargetList,outpath="MediumCuration/")
+
+curationProcedure = "Ki_MediumCuration_NoMaxMatch_Pruned"
+
+processGatheredData(curationProcedure,outpath="MediumCuration/")
+
+curationProcedure = "Ki_MediumCuration_NoMaxMatch_Pruned"
+
+draw_figure([load_points(curationProcedure,path=f"MediumCuration/")],[curationProcedure],outputPath=f"MediumCuration/{curationProcedure}/{curationProcedure}_plots.png")
+calculate_statistics(load_points(curationProcedure,path=f"MediumCuration/"),curationProcedure,outputPath=f"MediumCuration/{curationProcedure}/")
+
+# Ki Medium Curation SI Figure
+Ki_maxCur_pts = load_points("Ki_MaximalCuration_Pruned")
+Ki_medCurNoHighConfidence_pts = load_points("Ki_MediumCuration_NoHighConfidence_Pruned",path=f"MediumCuration/")
+Ki_medCurNoMaxMatch_pts = load_points("Ki_MediumCuration_NoMaxMatch_Pruned",path=f"MediumCuration/")
+
+draw_figure([Ki_maxCur_pts,Ki_medCurNoHighConfidence_pts,Ki_medCurNoMaxMatch_pts],["Ki_Pruned_Maximal_Curation_(Reference)","Ki_Pruned_Medium_Curation_(NoHighConfidence)","Ki_Pruned_Medium_Curation_(NoMaxMatch)"],outputPath="Figures/Ki_MediumCuration.png")
+
+
+import os
+
+from rdkit import Chem
+from rdkit.Chem import AllChem
+
+from rdkit.Chem import Draw
+from rdkit.Chem import rdRascalMCES
+from rdkit.Chem.Draw import rdMolDraw2D, rdDepictor
+
+from rdkit.Chem.Draw import IPythonConsole
+from IPython.display import SVG
+
+from rdkit.Geometry.rdGeometry import Point2D
+
+from PIL import Image
+import io
+
+import warnings
+warnings.filterwarnings("ignore", category=SyntaxWarning)
+
+def calcMCES(ref_mol, query_mol, simcutoff=0.0):
+
+    opts = rdRascalMCES.RascalOptions()
+    
+    opts.singleLargestFrag = True
+    opts.similarityThreshold = simcutoff
+    opts.completeAromaticRings = False
+
+    opts.maxBondMatchPairs = 1500
+
+    return rdRascalMCES.FindMCES(ref_mol, query_mol, opts)
+
+
+## Taken from https://greglandrum.github.io/rdkit-blog/posts/2023-11-08-introducingrascalmces.html
+def extractHighlights(res):
+    bondHighlights1 = {}
+    bondHighlights2 = {}
+
+    highlightColor = (0.75, 0.75, 1.0)
+    for bondPair in res.bondMatches():
+        bondHighlights1[bondPair[0]] = highlightColor
+        bondHighlights2[bondPair[1]] = highlightColor
+    atomHighlights1 = {}
+    atomHighlights2 = {}
+    for atomPair in res.atomMatches():
+        atomHighlights1[atomPair[0]] = highlightColor
+        atomHighlights2[atomPair[1]] = highlightColor
+    return bondHighlights1, bondHighlights2, atomHighlights1, atomHighlights2
+
+# Adapted from https://greglandrum.github.io/rdkit-blog/posts/2023-11-08-introducingrascalmces.html
+def drawMCESMatch(mol1, mol2, res):    
+    bondHighlights1, bondHighlights2, atomHighlights1, atomHighlights2 = extractHighlights(res[0])
+    
+    # Get shared scaffold as a mol for alignment
+    scaffoldStruct = Chem.MolFromSmarts(res[0].smartsString)
+    AllChem.Compute2DCoords(scaffoldStruct)
+    
+    drawer = rdMolDraw2D.MolDraw2DCairo(400, 300) # Change the size as needed
+    drawer.drawOptions().addAtomIndices = False
+    drawer.drawOptions().minFontSize = 18
+    drawer.drawOptions().bondLineWidth = 2.0 # Publication ready
+    drawer.drawOptions().useBWAtomPalette() # Black and white atom labels
+    drawer.drawOptions().highlightBondWidthMultiplier = 12 # Larger size
+    
+    AllChem.GenerateDepictionMatching2DStructure(mol1, scaffoldStruct)
+    drawer.DrawMolecule(mol1,highlightAtoms=atomHighlights1.keys(),highlightBonds=bondHighlights1.keys(),
+                   highlightAtomColors=atomHighlights1,highlightBondColors=bondHighlights1, legend=mol1.GetProp("_Name")) 
+    drawer.DrawString(f"Johnson Similarity: {res[0].similarity:.2f}", Point2D(30,30), align=1, rawCoords=True)
+
+    drawer.FinishDrawing()
+    
+    molImage1 = drawer.GetDrawingText()
+
+    drawer.ClearDrawing()
+
+    AllChem.GenerateDepictionMatching2DStructure(mol2, scaffoldStruct)
+    
+    drawer.DrawMolecule(mol2,highlightAtoms=atomHighlights2.keys(),highlightBonds=bondHighlights2.keys(),
+                   highlightAtomColors=atomHighlights2,highlightBondColors=bondHighlights2, legend=mol2.GetProp("_Name"))
+    drawer.FinishDrawing()
+    molImage2 = drawer.GetDrawingText()   
+
+    print(f"The Johnson Similarity between {mol1.GetProp("_Name")} and {mol2.GetProp("_Name")} is {res[0].similarity:.2f}")
+    return [molImage1, molImage2]
+
+def saveRascalFigs(molInput1, molInput2):
+
+    molName1 = molInput1[0]
+    molSmiles1 = molInput1[1]
+    
+    molName2 = molInput2[0]
+    molSmiles2 = molInput2[1]
+    
+    mol1 = Chem.MolFromSmiles(molSmiles1)
+    mol1.SetProp("_Name", molName1)
+    
+    mol2 = Chem.MolFromSmiles(molSmiles2)
+    mol2.SetProp("_Name", molName2)
+    
+    res = calcMCES(mol1, mol2)
+    
+    johnsonSim = res[0].similarity
+    
+    output = drawMCESMatch(mol1, mol2, res)
+
+    # Load images from image data (PNG drawing text)
+    images = [Image.open(io.BytesIO(image_data)) for image_data in output]
+    
+    # Calculate the dimensions for the output image
+    total_width = sum(image.width for image in images)
+    max_height = max(image.height for image in images)
+    stitched_image = Image.new('RGB', (total_width, max_height))
+    
+    current_x = 0
+    for image in images:
+        stitched_image.paste(image, (current_x, 0))
+        current_x += image.width
+
+    return stitched_image
+    
+
+imageList = []
+
+# Generate individual comparison images
+imageList.append(saveRascalFigs(["CHEMBL3659095","Cc1c([C@H]2CN3CCN(C(=O)C4CCc5nc(-n6cnnn6)ncc54)C[C@H]3CO2)ccc2c1COC2=O"],["CHEMBL3659148","[C-]#[N+]c1c(F)ccc([C@H]2CN3CCN(C(=O)C4Cc5cnc(-n6cnnn6)nc5C4)C[C@H]3CO2)c1C"]))
+imageList.append(saveRascalFigs(["CHEMBL3659148","[C-]#[N+]c1c(F)ccc([C@H]2CN3CCN(C(=O)C4Cc5cnc(-n6cnnn6)nc5C4)C[C@H]3CO2)c1C"],["CHEMBL3659174","[C-]#[N+]c1c(F)ccc(C2CN3CCN(C(=O)C4CCc5nc(-n6cnnn6)ccc54)CC3CO2)c1C"]))
+imageList.append(saveRascalFigs(["CHEMBL3659103","[C-]#[N+]c1scc([C@@H]2CN3CCN(C(=O)C4CCc5nc(-n6cnnn6)ccc54)C[C@H]3CO2)c1C"],["CHEMBL3659159","C[C@@H]1Cc2c(ccc([C@@H]3CN4CCN(C(=O)C5CCc6nc(-n7cnnn7)ccc65)C[C@@H]4CO3)c2F)C(=O)O1"]))
+imageList.append(saveRascalFigs(["CHEMBL3659091","C[C@@H]1Cc2cc([C@H]3CN4CCN(C(=O)C5CCc6nc(-n7cnnn7)ccc65)C[C@@H]4CO3)ccc2C(=O)O1"],["CHEMBL3659095","Cc1c([C@H]2CN3CCN(C(=O)C4CCc5nc(-n6cnnn6)ncc54)C[C@H]3CO2)ccc2c1COC2=O"]))
+
+# Stitch the individual comparison images together
+total_height = sum(image.height for image in imageList)
+max_width = max(image.width for image in imageList)
+stitched_image = Image.new('RGB', (max_width, total_height))
+        
+current_y = 0
+for image in imageList:
+    stitched_image.paste(image, (0, current_y))
+    current_y += image.height
+
+# Save the stitched image
+stitched_image.save("Figures/Johnson_Similarity_Composite.png")
+
+Ki_maxCurRefPruned_pts = load_points("Ki_MaximalCuration_RefPruned")
+
+draw_figure([Ki_maxCurRefPruned_pts],["Ki_Maximal_Curation_RefPruned"],outputPath="Figures/Ki_MaximalCuration_RefPruned_Outliers.png",boxes=[[(-0.1,-2.5), 1.5,1.275]],centerTitle=False)
+
+Ki_minCurUnpruned_pts = load_points("Ki_MinimalCuration_Unpruned")
+Ki_minCurRefPruned_pts = load_points("Ki_MinimalCuration_RefPruned")
+Ki_minCurPruned_pts = load_points("Ki_MinimalCuration_Pruned")
+
+draw_figure([Ki_minCurUnpruned_pts,Ki_minCurRefPruned_pts,Ki_minCurPruned_pts],["Ki_Minimal_Curation_Unpruned","Ki_Minimal_Curation_RefPruned","Ki_Minimal_Curation_Pruned"],outputPath="Figures/Ki_MinimalCuration_PruningComparison.png")
+
+Ki_maxCurUnpruned_pts = load_points("Ki_MaximalCuration_Unpruned")
+Ki_maxCurRefPruned_pts = load_points("Ki_MaximalCuration_RefPruned")
+Ki_maxCurPruned_pts = load_points("Ki_MaximalCuration_Pruned")
+
+draw_figure([Ki_maxCurUnpruned_pts,Ki_maxCurRefPruned_pts,Ki_maxCurPruned_pts],["Ki_Maximal_Curation_Unpruned","Ki_Maximal_Curation_RefPruned","Ki_Maximal_Curation_Pruned"],outputPath="Figures/Ki_MaximalCuration_PruningComparison.png")
+

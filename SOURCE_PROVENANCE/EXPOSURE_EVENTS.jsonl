@@ -1,0 +1,6 @@
+{"utc": "2026-11-05T03:33:06.916497+00:00", "event": "numeric_qualification_started", "scope": "Specified new Ki Final and same-key caches; no scientific effects released"}
+{"utc": "2026-11-05T03:33:08.584381+00:00", "event": "numeric_qualification_complete", "effects_released": false, "summary_path": "KI_ELIGIBILITY.json"}
+{"utc": "2026-11-05T03:33:38.027869+00:00", "event": "task_local_reference_predictions_started", "query_truth_loaded_by_predictor": false}
+{"utc": "2026-11-05T03:33:43.251027+00:00", "event": "all_predictions_and_trajectories_frozen", "query_scoring_started": false, "sha256": "0fc2f009819bb04025e82a073dc89d0fb767672d56eb5ac4852b7011c1ed3e25"}
+{"utc": "2026-11-05T03:33:59.160854+00:00", "event": "query_scoring_started", "predictions_freeze_sha256": "5ad0334c83a2efb33147cd8d61d5f5042c2077d6c3717ff97ae28ba86dc2b5c8"}
+{"utc": "2026-11-05T03:34:00.041089+00:00", "event": "query_scoring_complete", "all_Ki_evaluation_outputs_now_exposed": true}

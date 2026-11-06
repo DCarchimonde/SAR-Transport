@@ -1,0 +1,26 @@
+{
+  "name": "SAR-Transport",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Siyuan Tong",
+      "affiliation": "Independent Researcher, Wuhan, China",
+      "email": "siyuan294994@gmail.com"
+    },
+    {
+      "name": "Yuxuan Wang",
+      "affiliation": "Faculty of Engineering, The University of New South Wales, Sydney, Australia",
+      "email": "z5653501@ad.unsw.edu.au",
+      "corresponding_author": true
+    }
+  ],
+  "code_license": "MIT",
+  "code_copyright": "Copyright (c) 2026 Siyuan Tong",
+  "data_license": "CC-BY-SA-3.0",
+  "funding": "This research received no external funding.",
+  "conflicts_of_interest": "The authors declare no competing interests.",
+  "scientific_result_commit": "d5d3227b8a0269e2a896056ba41abf7d502d768f",
+  "rc2_content_commit": "a21719a84edaab3176b65db1d8151ca335ac3a31",
+  "exposure": "All exported IC50 and Ki result outputs are exposed; no blindness is restored by release.",
+  "repository_url": "https://github.com/DCarchimonde/SAR-Transport"
+}

@@ -1,0 +1,206 @@
+{
+  "status": "IMPLEMENTATION_FROZEN_BEFORE_KI_NUMERIC_ACCESS",
+  "date": "2026-11-04",
+  "purpose": "Complete a private reusable benchmark data resource and JCIM Application Note candidate manuscript; no new-algorithm superiority claim.",
+  "baseline_commit": "0b22c0af92a5b9369da987e3e850a275e56949cf",
+  "new_scope": [
+    "resource export and evaluator",
+    "one locked Ki cross-endpoint application",
+    "complete private manuscript and supplement"
+  ],
+  "historical_runs": "Reuse SAR IC50 predictions and completed P0. No rerun of old matrix or P0. No restoration of old sealed outcomes.",
+  "ki_source": {
+    "repository": "Jnelen/ChEMBL_MatchedPairsAnalysis",
+    "commit": "0a77cdd28abf40a1562aadce727d032cd668815c",
+    "file": "Ki_MinimalCuration_Unpruned/Ki_MinimalCuration_Unpruned_Final.csv.gz",
+    "cache_scope": "Same Final assay/compound keys only, author per-target caches, not new activity sources.",
+    "precheck": "66 provisional sentinel tasks / 52 groups / 41 targets / 3479 edges; numeric qualification pending.",
+    "exposure": "IDs, structures, metadata and published aggregates known; no Ki individual potency used for strategy development.",
+    "metadata": "ChEMBL37, distinct from author ChEMBL32 activity snapshot",
+    "separation": "Whole-group exclusion for any overlap with all exposed IC50 assay IDs, raw/canonical compound identities, normalized structures, DOI or document IDs.",
+    "no_claims": [
+      "independent database",
+      "all targets novel",
+      "strict scaffold validation",
+      "prospective experiment"
+    ]
+  },
+  "qualification": {
+    "endpoint": "Ki within each source-target task",
+    "values": "Exact, finite pChEMBL, Ki/nM provenance verified from author SQL/cache fields; no unsupported censoring interpretation.",
+    "conflict": "Decimal numeric identity; exclude conflicted canonical assay-compound key and incident edges, no averaging or effect filtering.",
+    "groups": "Preserve pre-numeric provenance components; never split components after outcome qualification.",
+    "min_participating_compounds": 20,
+    "primary_min_groups_per_track": 30,
+    "min_query_edges": 1,
+    "threshold_interpretation": "Bounded operational criterion, not power guarantee or journal standard.",
+    "sentinel_roles": "Preserve identity-precheck assignments, delete ineligible entities/edges only; no reallocation."
+  },
+  "tracks": {
+    "fixed_c8": {
+      "models": [
+        "source",
+        "affine",
+        "rbf",
+        "tanimoto"
+      ],
+      "c8": "Original deterministic structural max-min on qualified participants, first minimum ID; original edges outside C8.",
+      "primary": "K1 = L(tanimoto) - L(rbf)"
+    },
+    "acquisition_sentinel": {
+      "initial": 4,
+      "total_budget": 8,
+      "fixed_query": true,
+      "pool_disjoint_from_query": true,
+      "initial_method": "pool max-min",
+      "policy_trajectories": [
+        "maxmin",
+        "facility",
+        "point_vopt",
+        "contrast_vopt",
+        "source_spread",
+        "KG",
+        "random17",
+        "random43",
+        "random71"
+      ],
+      "predictor": "P0 fixed Tanimoto residual predictor unchanged",
+      "primary": "K2 = L(maxmin) - mean_seed_metric_L(random17,43,71)",
+      "other_policies": "Complete descriptive benchmarks; no KG superiority hypothesis",
+      "curve_counts": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  "locked_parameters": {
+    "affine_lambda": 1.0,
+    "rbf_lambda": 0.1,
+    "rbf_bandwidth_factor": 2.0,
+    "tanimoto_lambda": 0.1,
+    "P0_tau": 0.3115195915190363,
+    "P0_development_mean": 6.956174367283088,
+    "P0_development_population_sd": 1.2545393278285155,
+    "interpretation": "Preserve original implementation scaling and serialized preprocessors; do not re-estimate Ki global parameters."
+  },
+  "statistics": {
+    "primary": "selection regret L in pKi",
+    "edge_weight": "normalized 1/degree(a)+1/degree(b)",
+    "aggregation": "tasks equal within final group, groups equal",
+    "prediction_tie_tolerance": 1e-08,
+    "tie_resolution": "minimum canonical ID",
+    "bootstrap_draws": 5000,
+    "seed": 20261104,
+    "primary_family": [
+      "K1",
+      "K2"
+    ],
+    "family_coverage": 0.95,
+    "per_contrast_quantiles": [
+      0.0125,
+      0.9875
+    ],
+    "sampling": "Common paired resampling multiplicities over union of final groups; normalize each track on its represented groups. Family remains size2 if one track not run.",
+    "scope": "Conditional on frozen fitted models/policies, not total training or research selection uncertainty."
+  },
+  "freeze_sequence": [
+    "Freeze qualification, predictors, acquisition, statistics and complete budget with code hashes before Ki numeric access",
+    "Run value qualification, expose only count/manifests; record label access",
+    "Run task-isolated predictions/acquisitions; source values and allowed references only",
+    "Freeze all predictions and traces",
+    "Uniformly score query outcomes and report all results"
+  ],
+  "budget": {
+    "new_local_fit_or_solve_operations": 25000,
+    "cpu_hours": 8,
+    "ram_gib": 16,
+    "global_neural_fits": 0,
+    "global_RF_fits": 0,
+    "GPU_hours": 0,
+    "paid_services": 0,
+    "engineering_corrections_max": 1,
+    "reserve": "Reserve whole remaining matrix plus scoring before starting; old ledger unchanged"
+  },
+  "stop_or_shrink": {
+    "insufficient_groups": "No formal result for that track, no rule relaxation or new source search; finish resource and honest draft",
+    "negative_K1_or_K2": "Shrink corresponding claim, no retuning",
+    "resource_overlap_or_no_independent_reuse": "State concrete contribution shortfall, do not declare submission-ready or add model search"
+  },
+  "publication": "No public release, submission or third-party contact in this stage. Private release candidate only.",
+  "deliverables": [
+    "versioned resource candidate",
+    "complete data card and licensing/provenance",
+    "frozen protocol and complete results",
+    "private English Application Note draft",
+    "figures and SI",
+    "word counts under both current official definitions",
+    "planning handoff and copyable prompt"
+  ],
+  "frozen_utc": "2026-11-05T03:28:47.967398+00:00",
+  "execution_head": "39096a9581db0603c53e7ecc1c928b38abc24028",
+  "implementation": {
+    "qualification": "scripts/run_sar_resource_ki.py qualify",
+    "predictions": "scripts/run_sar_resource_ki.py predict",
+    "scoring": "scripts/run_sar_resource_ki.py score",
+    "roles_literal": "reference_pool / sentinel; inherited without reassignment",
+    "candidate_fixed_track": "All precheck non-overlapping groups, original edges after numeric qualification; >=20 participants",
+    "candidate_acquisition_track": "Only precheck identity_sentinel_eligible=True tasks with preserved assignments",
+    "original_P0_policy_label": "pairwise_kg (KG in planning text)",
+    "P0_changes": "Only API extraction, oracle logging and predictions at every budget4..8. Formulas/initialization/ties/random task hashing unchanged.",
+    "bootstrap_implementation": "NumPy default_rng(20261104).multinomial(G,1/G,5000) over sorted union groups; track-restricted normalization.",
+    "input_handling": "Numeric eligibility reads Final and matching cache keys. Output values remain separate from count report. Task predictor only source/pool inputs; query files first loaded by scoring.",
+    "sql_proof": "UPSTREAM_CODE_ONLY.py.txt gather_data: standard_type Ki, standard_units nM, standard_relation =, non-null pChEMBL, validity_comment null. Cached export omits type/units/relation; qualification relies on explicit code/source lineage plus Decimal same-key agreement."
+  },
+  "software": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "rdkit": "2025.03.5"
+  },
+  "code_sha256": {
+    "scripts/run_sar_resource_ki.py": "00b10678b919a17e0be301bc66d6838cf4b5497f97151fc529767a558a842bb5",
+    "scripts/export_sar_resource_ic50.py": "33a5f3920361b6c0ee568efbb418989e17974ba59ceb873601406c71a5a2fbf1",
+    "resources/sar_transport_v1/sar_transport_resource/core.py": "ffe9b352cdb9fff2fcc1a0f5f74176b1e2413c21252c47fcffa6c91b1cce8ba2",
+    "resources/sar_transport_v1/sar_transport_resource/baselines.py": "7b32879353ad68c270ebda8f225ae8164db454d68b6e526e04673c21f0fad550",
+    "resources/sar_transport_v1/sar_transport_resource/__main__.py": "f1f4f3102d878970df7de9a9f1418cdec6cf841aa7b2ab1f772ac0fddc3760ce",
+    "resources/sar_transport_v1/sar_transport_resource/__init__.py": "952106a4f951b8cde877eb7c973368b0fd27f0f8971ad6a9b2a402bd33c7409d",
+    "resources/sar_transport_v1/tests/test_core.py": "004133c260d72d7bf7e6f3498f308ce8d81cf2b27bdbed4b1215fe624cce635f"
+  },
+  "input_sha256": {
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance_precheck.py": "e207d475b94c6874e843853c46ed964ef4d3583126bd351e8ec87dfc61bf0fb2",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/KI_IDENTITY_COVERAGE.json": "1332e800dce4d172eb69c1b92890bc129207d6f0d9e0514a9761628c9c4df5c4",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/DATASET_LIST.json": "30f6f6def8d859ad037e347f5c8490994601d543440a90a2a1f509d4bf6e6d5e",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/Ki_MinimalCuration_RefPruned_IDENTITY_ONLY.tsv.gz": "fb148c4ed446b29cb0c93f776099bb1907a7516a7b104e7039b5f91562be96d9",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/Ki_MinimalCuration_Unpruned_IDENTITY_ONLY.tsv.gz": "41a3f52dca7dd6005dec084c4abbc3b5db99b133a9201cb409639f336c043b7f",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/Ki_MinimalCuration_Pruned_IDENTITY_ONLY.tsv.gz": "d8df328ec724324c8288f0c440f6d2e70a55d837b8dde853502354c0a21e053c",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/GROUPS.tsv": "fb18708963d8537532da42a8d55a29b34164b299b1525c70cf46f76c3d55e876",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/IC50_CANONICAL_COMPATIBILITY_CHANGES.tsv": "8e602f818fe92cb07032ee8bb93e304be4a566af502c47935621fa5dd5ecb52a",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/SOURCE_ID_STRUCTURE_ONLY.tsv.gz": "7ae51673a94174ca59a66725e4fb1d45e45df2e49a0f2d480bf5b69b6d6151d8",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/ASSAY_SOURCE_MAPPING.tsv": "63eda795a3ee4acef3784768d9d389f08d2b37eaf3686847807ee2c1a59000d1",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/CANONICALIZER_VERSION_CHECK.json": "ebbdd90c0847a78d503cffa84dba2bcf30ccc39798c51a82a3e5680bd8749f4a",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/KI_PROVENANCE_SENTINEL_PRECHECK.json": "cb2376d3d71b4ea5603653e6dceece3e3d65524a4d2e7a0b800268efd2eae051",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/TASKS_IDENTITY_SENTINEL.tsv": "83074399eddf9c875dca3ee34889315a1f96a1467974743447c5a2fd901b7cd1",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/COMPOUND_IDENTITY.tsv": "bb714323320052a8b49e7932711d998969a1a2f93306d7c9a8f511c34d744466",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/SENTINEL_EDGES.tsv.gz": "e61430bc18fdea6165b9d32fd736fe475bf807e742d803dc82213941e31ef1d4",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/SENTINEL_POOL_ASSIGNMENT.tsv": "e0e1b4bb9e22c77ab94ede3020e136271d210e0ba2d1169464a89f20f535b575",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/PRECHECK_HANDOFF.md": "7df8f37b1c87b73027f82f30fb45c5c3abf67b4443505da9949f6d70cd30061b",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/MANIFEST.json": "b4c9ac40215cf2fdca46c181e92ebac814350b3b50e3fb531191ee554d85b419",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/ASSAYS.json": "10b58e76f33ad8e13ba5a6084803c3ea3dc60cf8a5010ec493c553939e4f8a4a",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/CHEMBL_STATUS.json": "f4d07ed4cb29cf7042056fddb87fc8dc0da391afb75087727f57da95f424489e",
+    "data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance/DOCUMENTS.json": "6dc7e7487f185724d491913489eb7af83cedb6644d4ada668d90309de87cec17",
+    "data/sar_resource_v1/planning_inputs/reference_policy_p0_20261104/run_pilot.py": "96d7c7d38f4d49ff4f236a9f11d5a84d4beef67245c9642d75261e2ba0015f04",
+    "data/sar_resource_v1/planning_inputs/reference_policy_p0_20261104/PROTOCOL.json": "bb4008dfc7950d9d4872ec1efa4562e545081f9c7047f44625a8f8af2b78a37b",
+    "reports/sar_resource_v1/UPSTREAM_CODE_ONLY.py.txt": "fce2e15701c51fa7c259d60297664564801186f05b25741dc36c394a769dd8e2",
+    "reports/sar_resource_v1/KI_SOURCE_EXPECTED.json": "a09db5ab6c6b6184f0382e28f036dfc92a1740ca2239207f69c22c64590a6c12"
+  },
+  "new_budget_preflight_rule": "3 operations per fixed task + at most74 per acquisition task +100 reserved engineering operations <=25000. All scores and5000 paired draws reserved before any predictor. All CPU stages aggregate under8h.",
+  "previous_budgets_preserved": {
+    "old_offline_operations": "14013/20000",
+    "old_CPU_charged_hours": "35.9065/48",
+    "strict_scaffold": "Qualification passed; frozen-budget preflight blocked; no fitted predictor or score"
+  }
+}

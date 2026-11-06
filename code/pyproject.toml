@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sar-transport-resource"
+version = "1.0.0"
+description = "Paired-assay benchmark tasks, measurement budgets and evaluation"
+requires-python = ">=3.10"
+dependencies = []
+license = {text = "MIT"}
+authors = [
+  {name = "Siyuan Tong", email = "siyuan294994@gmail.com"},
+  {name = "Yuxuan Wang", email = "z5653501@ad.unsw.edu.au"}
+]
+
+[tool.setuptools.packages.find]
+include = ["sar_transport_resource*"]

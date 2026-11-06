@@ -1,0 +1,16 @@
+{
+  "resource_status": "Private prototype; one illustrative existing task; not a new benchmark result",
+  "result_commit": "0b22c0af92a5b9369da987e3e850a275e56949cf",
+  "activity_source_commit": "0a77cdd28abf40a1562aadce727d032cd668815c",
+  "source_paper_doi": "10.1186/s13321-025-00956-y",
+  "task_selection": "Fixed existing task ID, not selected by performance",
+  "legacy_task_id": "CHEMBL1000620__CHEMBL1000621",
+  "query_signature": "76cfc2a8efdfab93ae1e88c5b81728d900a16cda696eb81625a16a385fe5cec4",
+  "reference_count": 8,
+  "query_count": 27,
+  "query_edge_count": 295,
+  "new_scientific_fits": 0,
+  "new_model_predictions": 0,
+  "query_truth_in_TaskView": false,
+  "privacy_warning": "Query truth is intentionally separate but locally readable; not a security-sealed test server"
+}

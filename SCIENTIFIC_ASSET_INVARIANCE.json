@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scientific_result_commit": "d5d3227b8a0269e2a896056ba41abf7d502d768f",
+  "rc2_content_commit": "a21719a84edaab3176b65db1d8151ca335ac3a31",
+  "original_resource_data_files_checked": 2737,
+  "original_resource_data_mismatches": [],
+  "runtime_python_modules_checked": 8,
+  "runtime_python_mismatches": [],
+  "examples_fixtures_schemas_tests_unchanged": true,
+  "scientific_table_equation_blocks": {
+    "main_tabular": true,
+    "main_tabularx": true,
+    "main_equation": true,
+    "main_align": true,
+    "SI_tabular": true,
+    "SI_tabularx": true,
+    "SI_equation": true,
+    "SI_align": true
+  },
+  "original_figures_unchanged": true,
+  "new_scientific_computation": 0,
+  "changes": [
+    "authors, declarations and acknowledgments",
+    "abstract comparator wording precision",
+    "licence and version metadata",
+    "packaging, publication documentation and receipts"
+  ],
+  "scope": "Byte comparison and static packaging checks; no rerun of science or the 15 accepted RC2 tests."
+}

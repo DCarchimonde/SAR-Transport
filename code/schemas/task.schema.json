@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "track_id",
+    "legacy_task_id",
+    "group_id",
+    "source_assay",
+    "target_assay",
+    "endpoint",
+    "potency_unit",
+    "target_chembl_id",
+    "compounds",
+    "reference_pool_ids",
+    "reference_labels",
+    "query_ids",
+    "query_edges"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "track_id": {
+      "type": "string",
+      "enum": [
+        "fixed_c8_v1",
+        "acquisition_sentinel_v1"
+      ]
+    },
+    "legacy_task_id": {
+      "type": "string"
+    },
+    "group_id": {
+      "type": "string"
+    },
+    "source_assay": {
+      "type": "string"
+    },
+    "target_assay": {
+      "type": "string"
+    },
+    "endpoint": {
+      "type": "string",
+      "enum": [
+        "IC50",
+        "Ki"
+      ]
+    },
+    "potency_unit": {
+      "type": "string",
+      "enum": [
+        "pIC50",
+        "pKi"
+      ]
+    },
+    "target_chembl_id": {
+      "type": "string"
+    },
+    "compounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "compound_id",
+          "canonical_smiles",
+          "source_potency"
+        ],
+        "properties": {
+          "compound_id": {
+            "type": "string"
+          },
+          "canonical_smiles": {
+            "type": "string"
+          },
+          "source_potency": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "reference_pool_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reference_labels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "compound_id",
+          "target_potency"
+        ],
+        "properties": {
+          "compound_id": {
+            "type": "string"
+          },
+          "target_potency": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "query_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "query_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "compound_a",
+          "compound_b",
+          "weight"
+        ],
+        "properties": {
+          "compound_a": {
+            "type": "string"
+          },
+          "compound_b": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sar-transport:task-view:1",
+  "title": "SAR-Transport observable task view"
+}

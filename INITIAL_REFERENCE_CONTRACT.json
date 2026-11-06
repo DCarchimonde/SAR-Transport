@@ -1,0 +1,1807 @@
+{
+  "protocol_id": "sar_transport_acquisition_common_c4_total8_v1",
+  "task_contracts": 128,
+  "tasks_by_endpoint": {
+    "IC50": 64,
+    "Ki": 64
+  },
+  "saved_trajectories_checked": 1152,
+  "ids_reselected": false,
+  "scientific_predictions_or_scores_changed": false,
+  "formal_runner": "sar_transport_resource.FormalAcquisitionRunner",
+  "schema": "code/schemas/acquisition_contract.schema.json",
+  "tasks": [
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3749261__CHEMBL3749262",
+      "initial_reference_ids": [
+        "CHEMBL3745816",
+        "CHEMBL3746595",
+        "CHEMBL3746776",
+        "CHEMBL3746953"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "03fb0afc01aae7a782c0223c2de447a5b98437300097d94ba0068e71d89a86d4",
+      "query_signature": "c768f7fe0528f18ed732c2d0d5a8b35353e7be54b6fe50fddb25b3ca2a32dc51"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL5045728__CHEMBL5045729",
+      "initial_reference_ids": [
+        "CHEMBL5075715",
+        "CHEMBL5085739",
+        "CHEMBL5088717",
+        "CHEMBL5087845"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "e88bd9b598f2b733724f480227ac82f90f13e410ff87cc1dc006a445f296c9ff",
+      "query_signature": "0253c3e9d11cf521bef2b3b123a96bfdb24c4e46d34e251a7011cedfd3dae501"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3395726__CHEMBL3395727",
+      "initial_reference_ids": [
+        "CHEMBL3393343",
+        "CHEMBL3393442",
+        "CHEMBL3393356",
+        "CHEMBL3393354"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "bc0b43f6c7686abd2a621f43665a8bbdc98e944e67bbbf90c7c2f868a1332f6f",
+      "query_signature": "b584457ace4621dd062da49eeef34abd5cf61e4b91d7cf54b8b1c0b6d0819139"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL856253__CHEMBL881508",
+      "initial_reference_ids": [
+        "CHEMBL194969",
+        "CHEMBL196474",
+        "CHEMBL436486",
+        "CHEMBL196797"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "6bec90785b2dc7efb48038353f504d31568375b7f6ddb2af06e40b2d3a00f052",
+      "query_signature": "b9fb0c72174050caf5fac2164320d7711478deb36cda5006fb6063fb0a25cc24"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2439742__CHEMBL2439743",
+      "initial_reference_ids": [
+        "CHEMBL2435866",
+        "CHEMBL2435874",
+        "CHEMBL2435898",
+        "CHEMBL2435878"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "0d4c5e4852d6c7d6bef08f9856d141f35de96477cdb164555f717ec5d2af6a7b",
+      "query_signature": "84abe712665525f93c1d820222a5923fd5f98978648708a1e8aed4323422607e"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2049561__CHEMBL2049563",
+      "initial_reference_ids": [
+        "CHEMBL2047888",
+        "CHEMBL2048063",
+        "CHEMBL2047896",
+        "CHEMBL2047901"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "d74f39f20b81306d28fd2d6d87b313c3d517c2628f32369c01ab1f1a496ea19b",
+      "query_signature": "8299f701fb32124628d27b01828dc285c5983ab00ceecafd913138720522106c"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3226233__CHEMBL3226234",
+      "initial_reference_ids": [
+        "CHEMBL3218821",
+        "CHEMBL3218844",
+        "CHEMBL3218841",
+        "CHEMBL3218830"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "fb58e7c08cae2301adb553cb7b218547d0b0bbc469c8f5359a2af7bc7d9f6352",
+      "query_signature": "69669525ee290a5c04935d49d8463d80b07b4a5cf33c3d04c029c99617234912"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1920063__CHEMBL1920064",
+      "initial_reference_ids": [
+        "CHEMBL1915751",
+        "CHEMBL1916007",
+        "CHEMBL1916169",
+        "CHEMBL1915994"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "f9c36d9aa3dc2a8411b04bf38dcc927b31e0c920a72f01b92f6ed6861b99a7ef",
+      "query_signature": "37173f5da5094d0a652c163ce023260b9618cd7b38b2641540f8cc1ba9aadc06"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4360761__CHEMBL4360763",
+      "initial_reference_ids": [
+        "CHEMBL4443301",
+        "CHEMBL4549778",
+        "CHEMBL4561893",
+        "CHEMBL4518260"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "19e6322dc06035f5d9f8ec8c1d360084ac91601b9829fd2e95cc4ab9a256ac03",
+      "query_signature": "b9392fd8f71c94bec50c31acd0fc2c69a67bbecfcb3988e8da9810fcdeefdfb8"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL960944__CHEMBL960948",
+      "initial_reference_ids": [
+        "CHEMBL254760",
+        "CHEMBL455655",
+        "CHEMBL462667",
+        "CHEMBL462835"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "9553dfa48b3a1e37a4084a87112efbcdd2052a3c257af4fdead0da7598b90593",
+      "query_signature": "43b0895e33340542b833d62728cfcc84c04c5ad07761f0d70a2ab465537eed36"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4380517__CHEMBL4380518",
+      "initial_reference_ids": [
+        "CHEMBL4435393",
+        "CHEMBL4521346",
+        "CHEMBL4459120",
+        "CHEMBL4566796"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "46c90501ffd9014c094084c16f70b787066f9ee0434d977ae73602f062b27ce5",
+      "query_signature": "f10f3f1328ddf41c3c077d6fee8d697ea30a66acd4ccccfc19f85da26f9f1c81"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3776150__CHEMBL3776153",
+      "initial_reference_ids": [
+        "CHEMBL3774447",
+        "CHEMBL3774652",
+        "CHEMBL3775242",
+        "CHEMBL3775908"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "457eae2d3328b59afa2fb7c3d292d22c1480b11f597ec2715f3f49d368b4c9ee",
+      "query_signature": "28f4add0b89bcebf094dcb5740637b626298869f142dae4a2e9f0e401e9c8464"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL691937__CHEMBL691938",
+      "initial_reference_ids": [
+        "CHEMBL104044",
+        "CHEMBL322656",
+        "CHEMBL317854",
+        "CHEMBL321564"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "1db6edb9f6fa801ce8b9fda684825d2857ecc2a98f09cb657fd3c75b82cf6073",
+      "query_signature": "8fc8e70423e58d4db17376d8252b1c124175f0b92d77fadfca1b1ee375636852"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL928515__CHEMBL928516",
+      "initial_reference_ids": [
+        "CHEMBL256073",
+        "CHEMBL256908",
+        "CHEMBL401930",
+        "CHEMBL257116"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "ff18c5b762eaf6824fa3317c6688ccfaa4dbf713c5b3e0bfd747e68057abf76d",
+      "query_signature": "c0ae11b08398b40b23adfe597bebf521d7159ac2a9b73f7f1bf97ef20b1becd7"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2034460__CHEMBL2034480",
+      "initial_reference_ids": [
+        "CHEMBL2031221",
+        "CHEMBL2031223",
+        "CHEMBL2031242",
+        "CHEMBL2031232"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "cb1ffc4ee9f3da6aade06362c94c889332d27950ed6cb319f8fe497097932243",
+      "query_signature": "015236a2948e88f9beb8ac1bb74241490f3c752c008e3a3465a2e24ff9c7f3df"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4843798__CHEMBL4843806",
+      "initial_reference_ids": [
+        "CHEMBL2017286",
+        "CHEMBL4855373",
+        "CHEMBL4869970",
+        "CHEMBL4875479"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "859ac114078d6ac9ec754a68b89cee4d22e6e2e232cc02f08efeea49919164f3",
+      "query_signature": "c6dc9380585bb5cee62c261394ae2e21fae0b36d7a7235f55bfa63d0f7b37df5"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4622222__CHEMBL4622225",
+      "initial_reference_ids": [
+        "CHEMBL4632520",
+        "CHEMBL4647602",
+        "CHEMBL4634366",
+        "CHEMBL4632846"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "1f3341274db489715f58060e9ba0f00150794d68c276f3e78e447100f3d5c2e0",
+      "query_signature": "7c4d5da8db161b0853713f8198f78349362bc16b80d2433425b311b73c8f45cd"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL637692__CHEMBL645897",
+      "initial_reference_ids": [
+        "CHEMBL287842",
+        "CHEMBL295979",
+        "CHEMBL40516",
+        "CHEMBL42395"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "50f44c4a7eb79a5c58a742f2d81f47c4354f3ed774badaec82eeeab253143047",
+      "query_signature": "a58c4791a36ab3db8ec327feb0c0e3fcbf45c72dfc093a6a77e5f0a283e15a17"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2437506__CHEMBL684119",
+      "initial_reference_ids": [
+        "CHEMBL155694",
+        "CHEMBL17370",
+        "CHEMBL348401",
+        "CHEMBL160690"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "a0d94e1c3bac3db82ca39534506c8bc50ab9e11bf52c76a10263de250f381a0d",
+      "query_signature": "d7884837094c9c91c82d02b5d23ce813e4a4624006e903045b53249efe5fbc1f"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4672439__CHEMBL4672440",
+      "initial_reference_ids": [
+        "CHEMBL3545842",
+        "CHEMBL4758660",
+        "CHEMBL4744064",
+        "CHEMBL4756850"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "9370bf68e87cd99603b4fd789a0dc5aeab26513abe12bc4c3b92ba85270b9e8f",
+      "query_signature": "27ea49166008c0302cdffbd7ed4b9da8d489ba1f000b9e16a8bc45b7e542dc03"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL5054519__CHEMBL5054520",
+      "initial_reference_ids": [
+        "CHEMBL5072265",
+        "CHEMBL5087138",
+        "CHEMBL5085796",
+        "CHEMBL5081841"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "144b52b6d095e8b889f9d68a153e5a9e44bfa464f7952efa4d5a8b7894e5c424",
+      "query_signature": "4ec8e8e0c4e913dc6eed4d2cafd8063ca66d82bdec7f612d05439027576528fb"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2404055__CHEMBL2404057",
+      "initial_reference_ids": [
+        "CHEMBL210602",
+        "CHEMBL2402412",
+        "CHEMBL2402428",
+        "CHEMBL2402420"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "63091d729924d1a619ea912c2e9264a7d798368526897dab5de848eef9dfb5cb",
+      "query_signature": "b8a1f133523de42c4770c283c70920933d74689ebdc9f1bfdd9ade358dde672e"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1120739__CHEMBL1120740",
+      "initial_reference_ids": [
+        "CHEMBL1082458",
+        "CHEMBL1084042",
+        "CHEMBL1085338",
+        "CHEMBL1083741"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "d0a2eaf11061b94a437832cdd1d015b01ef8d31e581d35c1487be47fa0cc693e",
+      "query_signature": "36f821023a6df5ca65fac258646cbe150195448acb7a5f9d9db8817680ed4f42"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4409428__CHEMBL4409429",
+      "initial_reference_ids": [
+        "CHEMBL4444067",
+        "CHEMBL4470532",
+        "CHEMBL4553096",
+        "CHEMBL4567884"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "555af211c2aed423cf96c968988b63c7b6f6c5d168b205130883580515ff4269",
+      "query_signature": "ea65e0d0f535ab60975494d68b34e10c6d41ece72ff09a6754b69859eac2874a"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4398582__CHEMBL4398583",
+      "initial_reference_ids": [
+        "CHEMBL4442915",
+        "CHEMBL4451681",
+        "CHEMBL4585567",
+        "CHEMBL4529342"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "7b06ffe942830c86e42ba69b33f46ec87296e08ac88d905cac357d5fb49bdfd0",
+      "query_signature": "f6ab3c737893bc49449878fbb74a3c8d1ce54d4d158b1a0ad5524f9cfda4d013"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3110728__CHEMBL3110729",
+      "initial_reference_ids": [
+        "CHEMBL3108785",
+        "CHEMBL3109216",
+        "CHEMBL3109200",
+        "CHEMBL3109194"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c5e9f6fd327a7ed3f8f73be3f727078c87c4ab92d37c8feaacfb7dc86f50d484",
+      "query_signature": "684e05e3869717c05feda25322400e50b8a96c657e20268b2c6926099f3e6d1f"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2352939__CHEMBL2352940",
+      "initial_reference_ids": [
+        "CHEMBL2346670",
+        "CHEMBL2347170",
+        "CHEMBL2347165",
+        "CHEMBL2347178"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "18d9ff7d6b4e34a463ae329669b877233fc478253aecdc34b2fd46a6fdd796bf",
+      "query_signature": "55bea0f72f3ee29676d811819d940d1143e2c176395f5094a384efecec6078af"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL800926__CHEMBL800928",
+      "initial_reference_ids": [
+        "CHEMBL122343",
+        "CHEMBL331684",
+        "CHEMBL421246",
+        "CHEMBL262633"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "238741c906907a0be7e011b2453414c049f8b63c8eb1c3cca587ae2a50177784",
+      "query_signature": "9ea6094d2bd70c71f014d95300152c625765f309c58a31e85f0dc1b13ee07e8d"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4688262__CHEMBL4688263",
+      "initial_reference_ids": [
+        "CHEMBL4748132",
+        "CHEMBL4789269",
+        "CHEMBL4777447",
+        "CHEMBL4785988"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "a4c574d72ea9ce33d8306dbe846acd69de2be489d51faf6167b0adfb65337868",
+      "query_signature": "ab8c36a8d159b22fc731e6ed165c33ecb1f4786fa5028f5f61dd97cd9c1a05de"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4026982__CHEMBL4026983",
+      "initial_reference_ids": [
+        "CHEMBL4063127",
+        "CHEMBL4067302",
+        "CHEMBL4096351",
+        "CHEMBL4102501"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "78ce774afe9c39e9d9bbcfdd8e79f4f16cc908d5d7db5b5b2212a0e3a763d072",
+      "query_signature": "2b49d2cd0083ebbc1bc336082471cea7452bb24dcd3e83c3bb778e49d879a937"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3124055__CHEMBL3124056",
+      "initial_reference_ids": [
+        "CHEMBL3120474",
+        "CHEMBL3348817",
+        "CHEMBL3120490",
+        "CHEMBL3120478"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "f2a9a3d7be89d3e1aa3b33221430650bfa6fb2dcc98d9a639eea676615715125",
+      "query_signature": "0e9f1a6ca9cd7ef7bdd9f5ed2fbd5a136a3b68f4977d3afedcbd447d3972e63a"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL933957__CHEMBL933958",
+      "initial_reference_ids": [
+        "CHEMBL256629",
+        "CHEMBL258364",
+        "CHEMBL439062",
+        "CHEMBL272283"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "98bdeae01a17e71ad605b93010e9eaa7bde3ee0f129b3699aff0d3809851e564",
+      "query_signature": "2e920d4b30de8d794b894489b1f6d64031ff1044329e28f60f7f06c3606e392d"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4833634__CHEMBL4833635",
+      "initial_reference_ids": [
+        "CHEMBL4847202",
+        "CHEMBL4858107",
+        "CHEMBL4878548",
+        "CHEMBL4852135"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "bf930eac0ffa13c1c4b1451d4232e0324cd12dc609294feef8078fb49406c231",
+      "query_signature": "63d366022f7310f1fc60e109ff8663b8dbb2fa790c755f2f10a2d0fd4012b3f5"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1013099__CHEMBL1013112",
+      "initial_reference_ids": [
+        "CHEMBL479412",
+        "CHEMBL492433",
+        "CHEMBL521832",
+        "CHEMBL479809"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "5b0a2bd568dc86b2ed5b9e406966b2100d2611f313fb044f480c8f85107badaf",
+      "query_signature": "e572c899bfd60b52d9c55bd9a40fa12edc29a5e1c230ae723eec9e1a3abd174c"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL696131__CHEMBL816967",
+      "initial_reference_ids": [
+        "CHEMBL146694",
+        "CHEMBL276711",
+        "CHEMBL147761",
+        "CHEMBL149243"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "08126ee86b059c76b4ae1aace6f70bf76944c8744ed7eac4e09b4d871c6bc694",
+      "query_signature": "5271565a9378582827e0ccbe0bf7496bb322799123ae5d2460129c53bd4c17e9"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3588430__CHEMBL3588435",
+      "initial_reference_ids": [
+        "CHEMBL3586313",
+        "CHEMBL3586362",
+        "CHEMBL3586341",
+        "CHEMBL3586359"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "432e78ac30e5ebfa038d0fbd8fce9dc9785bf9f80dbb5ed31cf6e67e29edc0f0",
+      "query_signature": "77bd8d328d08b36c4b3aabcb620bc5a008c55e57115282a9184ffd643b90a8b4"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL830989__CHEMBL874565",
+      "initial_reference_ids": [
+        "CHEMBL183279",
+        "CHEMBL362138",
+        "CHEMBL360343",
+        "CHEMBL183977"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "a7384463dcea8a39be9635588abaf610a03ba0a77680942201a4634b054de4e3",
+      "query_signature": "856d42d5abaa8ebd7c7ec57acb79111c944f8e839008728d9f4351827e45095e"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL863917__CHEMBL863945",
+      "initial_reference_ids": [
+        "CHEMBL199435",
+        "CHEMBL380806",
+        "CHEMBL199593",
+        "CHEMBL199680"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c1cbd26bd8a1fc882c268d402a953d8c1836ad22779d3fdc7ce14a21f9808934",
+      "query_signature": "b174b35570eb2f1b9ae8f694bf2077e5827a346860606a454a172f06216ad38b"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL820102__CHEMBL820103",
+      "initial_reference_ids": [
+        "CHEMBL118186",
+        "CHEMBL120849",
+        "CHEMBL120053",
+        "CHEMBL120875"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "18362a991ea36d1d07e7bfc01176c39b900094af650e81d62fbdd840e4e9326b",
+      "query_signature": "1b99fb42617f56d5d4d49ea5eb885480b9d6161d9d2ea6052f7c2197d3dcae9e"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3887238__CHEMBL3887239",
+      "initial_reference_ids": [
+        "CHEMBL3890050",
+        "CHEMBL4111735",
+        "CHEMBL3900742",
+        "CHEMBL3937363"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "2fdc40cb6f794325f0c94706733503ebe05b9eae50440e6274d085cebcdfb81a",
+      "query_signature": "2570f21427b6e8e6927dac9e7ce59fd6623619f752c82ed2308cb9f796a77118"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3607640__CHEMBL3607641",
+      "initial_reference_ids": [
+        "CHEMBL3604631",
+        "CHEMBL3604655",
+        "CHEMBL3604644",
+        "CHEMBL3604639"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "890eb36e2f02c65deee5f1b3c6ca37043939b8e51aaceb1b02a3e3d1c6732323",
+      "query_signature": "8530fa77278d9d5f2ff0208dee7fcf4c07dee7c4c882ab8f523f2981cd58e72d"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1120481__CHEMBL1120487",
+      "initial_reference_ids": [
+        "CHEMBL1082834",
+        "CHEMBL1085308",
+        "CHEMBL1083176",
+        "CHEMBL569998"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c4c5e73161eb5c82a6e2a9e3265a21aa3d143ef6a425ac631327b2659329cb85",
+      "query_signature": "557bb8a489f58cde29ab80dec7a3db72e3d1c196b4c122434b364f6197d65637"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1810319__CHEMBL1810320",
+      "initial_reference_ids": [
+        "CHEMBL1808995",
+        "CHEMBL1809043",
+        "CHEMBL1809034",
+        "CHEMBL1809018"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "602e1bd178e1352185c7f590942f0b3e9a8bb1279fb84d962a3adf198bff1542",
+      "query_signature": "24088c36fa79b5545eb1ff22923403110012a46e1678f6592576ee0c7049e0a0"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL887681__CHEMBL887682",
+      "initial_reference_ids": [
+        "CHEMBL228925",
+        "CHEMBL389457",
+        "CHEMBL230255",
+        "CHEMBL231103"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "968ccc3474365271f102cabff20b6fac6d7c8b3268c3612ea12df1675ae575de",
+      "query_signature": "3582e587272716b0ed6c2ee0ba0a9de2f516cc0251712d71f1dd8e0343998151"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1274251__CHEMBL1274252",
+      "initial_reference_ids": [
+        "CHEMBL1236772",
+        "CHEMBL1271186",
+        "CHEMBL1269858",
+        "CHEMBL1271393"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8d682392e3aa12289f092299a009933a48f51fee3a86ffa6ce9df1360a7f732d",
+      "query_signature": "72187a5b93c23427956be146c59cd69a396cd4515c0462efdb0961d6f15446e1"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3999296__CHEMBL3999297",
+      "initial_reference_ids": [
+        "CHEMBL3786997",
+        "CHEMBL4065561",
+        "CHEMBL4089558",
+        "CHEMBL4088857"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "7a897f4a3b280b45835dc6493495b1c48807feca1bf435175e5c719308a4b00b",
+      "query_signature": "d7209852473ba08b59b23643abf802945c0ced4facdebe44bbb2b6a6a0fe32be"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL803754__CHEMBL803916",
+      "initial_reference_ids": [
+        "CHEMBL116207",
+        "CHEMBL442395",
+        "CHEMBL433022",
+        "CHEMBL119409"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8ee85fcf9788cd12f212b758217a4fd7f73e1d9460720e15e550e68dc7548c41",
+      "query_signature": "ad28c4b9ba1b8dfa4ff74adcbc2067f11f6e8a4f9a5c0829d868d7987d54412e"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1832317__CHEMBL1832324",
+      "initial_reference_ids": [
+        "CHEMBL1213903",
+        "CHEMBL1829299",
+        "CHEMBL1829305",
+        "CHEMBL1214066"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "df1b253e487211856615fbdad7ee3e95697d53c915cb072bfd8083974a66ae8e",
+      "query_signature": "b4a5b704f2682ea91918d090b51db11172d0264c5311e792f030f617eef1b5ee"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL673925__CHEMBL677216",
+      "initial_reference_ids": [
+        "CHEMBL135142",
+        "CHEMBL138940",
+        "CHEMBL138691",
+        "CHEMBL345077"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "22c61a793be28c6f0587f84be60798ea0072ada3d0a16d839261513d1221704b",
+      "query_signature": "9455c8da62edf5bf8aa1ad10b21d2e374e647b1e5003dbb1694c6f49db80b82a"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4192178__CHEMBL4192179",
+      "initial_reference_ids": [
+        "CHEMBL1434292",
+        "CHEMBL4207078",
+        "CHEMBL4204350",
+        "CHEMBL4206138"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "ae372bbf2206feee590c400d8704f0e5d40ccf41a290252589c64eb40bafbea0",
+      "query_signature": "ce60f91c45bb47c9dc86cfad0d17045a7db8d00ed08fb5d8089fc2e19e0e3241"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3887468__CHEMBL3887469",
+      "initial_reference_ids": [
+        "CHEMBL3360855",
+        "CHEMBL3945718",
+        "CHEMBL3918857",
+        "CHEMBL3701041"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "393f79a72e751c0a9008576c64026afd2aafff306e1abeda25e52e4d6537a84a",
+      "query_signature": "2556d8e3c59b12440a40d2444254724c0ff0cbfced9e25910acc550f1cfd5799"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3888410__CHEMBL3888411",
+      "initial_reference_ids": [
+        "CHEMBL3891953",
+        "CHEMBL4109002",
+        "CHEMBL3920518",
+        "CHEMBL3933714"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "6e4467ea943fda84c3026a12230127e879b4c64cfae9d33f6c58af4133cbef66",
+      "query_signature": "38279b484eb756efde1f4af0e32c3ad40001ab012a4c6a6df8577cd30d461387"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL672113__CHEMBL673205",
+      "initial_reference_ids": [
+        "CHEMBL159250",
+        "CHEMBL164162",
+        "CHEMBL349121",
+        "CHEMBL159982"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c23738651a497fb7e3951a8cf1cd225ec15d9b353063fe05787cbae683326180",
+      "query_signature": "4a5091ac27997fa593a09f725f4fa246e47471657e71e411368dd67f7ac27235"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3088372__CHEMBL3705109",
+      "initial_reference_ids": [
+        "CHEMBL3085828",
+        "CHEMBL3085973",
+        "CHEMBL3085974",
+        "CHEMBL3085977"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "b30ccb7009302ef92487e50a7505a4329f6d7221be87e1133f151ddc17611300",
+      "query_signature": "363173ceb589411988a1a31c1e5698bd08bc84feee8a9dcc34c931fd3732754b"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1961066__CHEMBL1961074",
+      "initial_reference_ids": [
+        "CHEMBL1957648",
+        "CHEMBL1957666",
+        "CHEMBL1957670",
+        "CHEMBL1957651"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "0f5dd8818e73f2cb62449ea56f604e090694be76406bd7331a81b65484805d8a",
+      "query_signature": "502eab9fd1e1db08eddc0b0b6e00f9220225e6f5ba62468e969070c1c9a5cc3b"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3880350__CHEMBL3880352",
+      "initial_reference_ids": [
+        "CHEMBL3890126",
+        "CHEMBL3902581",
+        "CHEMBL3928646",
+        "CHEMBL3931421"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c5d5654e17d37304a6dfc1c8b8401d69c9e350b94a3da63ae227de411ae82053",
+      "query_signature": "2e42ef58c81d2672b478cc137bd654bccc0d4b9d049b95acb314305c5c2f23d1"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4032997__CHEMBL4033007",
+      "initial_reference_ids": [
+        "CHEMBL4066193",
+        "CHEMBL4096821",
+        "CHEMBL4079092",
+        "CHEMBL4102140"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "a228813e07e6358b83e14f84686adbecdd13b4f494447b920eab794479001c4a",
+      "query_signature": "7c56fcea8dac4c5690382fc815986f66fae159232f726fef938ed6209083717f"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL942802__CHEMBL942804",
+      "initial_reference_ids": [
+        "CHEMBL249372",
+        "CHEMBL249772",
+        "CHEMBL250770",
+        "CHEMBL250569"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "7eca0253de9187ccecc006dc77a250e3acc9e913de0ded11ede4b53f2046910f",
+      "query_signature": "45aff84875df0a3b58b1c848ebf4c1fbf32cdfdd654bf1e19da70035831460ca"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4670192__CHEMBL4670194",
+      "initial_reference_ids": [
+        "CHEMBL4740423",
+        "CHEMBL4752240",
+        "CHEMBL4746190",
+        "CHEMBL4752359"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "ea535894bb96a2f282f227319d091de174a54a23ef2ad482e777ec6e78fc76ed",
+      "query_signature": "7c25c1db31fd41305d0b63f633ffd70827b6a1b5376b00db1faf340ae164e309"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL673659__CHEMBL682167",
+      "initial_reference_ids": [
+        "CHEMBL327320",
+        "CHEMBL328716",
+        "CHEMBL327471",
+        "CHEMBL94225"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "4ccee40a809fe1b3619c9320d73e71265fd1c100176f4d4c92fdf5cc943d8cb1",
+      "query_signature": "3aa2a3dc8df58287707747dfab9d7a05f56497f8ec2615122b8fc31f2e469911"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL800589__CHEMBL802599",
+      "initial_reference_ids": [
+        "CHEMBL142659",
+        "CHEMBL57",
+        "CHEMBL143107",
+        "CHEMBL142837"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "04a6f65e15b6c21016202ce48b1f0995346a863795725765f86209804b60474b",
+      "query_signature": "7cae36b03501f41004b8b3c04dd6b8fd1b5c13e1724b24135767c676c157ba3c"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4266702__CHEMBL4266710",
+      "initial_reference_ids": [
+        "CHEMBL4277448",
+        "CHEMBL4283871",
+        "CHEMBL4283051",
+        "CHEMBL4290728"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8c1ed2c393ba5a0db62a9bc806dd2d128535ddc22fa0cc28a251680ab9539a44",
+      "query_signature": "2146395f7d24f00b61ddbe96b5c0232e53e8238eec2a71de4e8b8e0a56d7fa53"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2318071__CHEMBL2318072",
+      "initial_reference_ids": [
+        "CHEMBL2312663",
+        "CHEMBL2312679",
+        "CHEMBL2313000",
+        "CHEMBL2312667"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "68d39f21e431e14d491bc1bd17bab8669c63ad7a221ec1fec977484843bbc42f",
+      "query_signature": "b78b12b48ebcd25d2bc4f70afbb780bc35b13761b8fc1d10e4533329ca7471d0"
+    },
+    {
+      "endpoint": "IC50",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4333225__CHEMBL4333226",
+      "initial_reference_ids": [
+        "CHEMBL4438803",
+        "CHEMBL4542522",
+        "CHEMBL4459213",
+        "CHEMBL4579712"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "1bf6057b48c87d7eccac72b1acd3289ee94c31e8c4d3aae67593ff66c35ad93a",
+      "query_signature": "7e2d7e06b81c9dc5a9f2fe77dd68f1b7cacf537d359220d1b48429bd406eb60e"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1017265__CHEMBL1017266",
+      "initial_reference_ids": [
+        "CHEMBL461158",
+        "CHEMBL487896",
+        "CHEMBL519916",
+        "CHEMBL502156"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "9babdd8416ec5d10c19c79162d8781d8cf910dec58b02c46b1ac6afc6ca62783",
+      "query_signature": "1ac1d9fb0f9ab736b40f1c847b9b7bf26143311688cf83dfc663e83cb13534c4"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1024689__CHEMBL1024690",
+      "initial_reference_ids": [
+        "CHEMBL1688601",
+        "CHEMBL492272",
+        "CHEMBL2372215",
+        "CHEMBL523665"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c1c783bbdc11be64cdded09cf70a0d4b68ccf1fb9b3a8d55649766f5edfbb5c7",
+      "query_signature": "912159764e8481fae50473d37d1087568d33928df621f8562bf0ac2dc849a528"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1050572__CHEMBL1050573",
+      "initial_reference_ids": [
+        "CHEMBL565618",
+        "CHEMBL567502",
+        "CHEMBL566874",
+        "CHEMBL566437"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "0890b72c98be6febe539d555719e23614dcbcded71738445a7593da1e79ec035",
+      "query_signature": "3631ee6e8c0d10c4eaecdc6153a245ca7f6da3d8eb05626fe544c4826fdd0be3"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1261459__CHEMBL1261460",
+      "initial_reference_ids": [
+        "CHEMBL1256171",
+        "CHEMBL1257689",
+        "CHEMBL1258383",
+        "CHEMBL1257810"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "31dc52ecad02075f296513ca2fca035d57721782597f6dcd7a1f57ad407f6e0e",
+      "query_signature": "7c2c4bc49b76e9ab7e59a0e083c8ce84c29fb048cbaef4d59760b5bedcb66c6a"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1285944__CHEMBL811267",
+      "initial_reference_ids": [
+        "CHEMBL10333",
+        "CHEMBL9645",
+        "CHEMBL275316",
+        "CHEMBL429951"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "2e8e9959085749aefb4c2c06d4f3d2c261cbd60677accce4ece31f9db9079f33",
+      "query_signature": "c624d1876563f6569abfb406e12fb98a22b49c8800491b8f71a517718ad93631"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1645710__CHEMBL1645711",
+      "initial_reference_ids": [
+        "CHEMBL1643997",
+        "CHEMBL1644014",
+        "CHEMBL1644006",
+        "CHEMBL1644017"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "b68991682a353b731ff8fa758b51da8988a933c1cb422bf9a5f04d9977fe7cdc",
+      "query_signature": "f1a28005dbc8880279a5ed0168f2ea937b68548932d5d06c2cfadb5785febca6"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1645710__CHEMBL1645712",
+      "initial_reference_ids": [
+        "CHEMBL1643997",
+        "CHEMBL1644014",
+        "CHEMBL1644006",
+        "CHEMBL1644017"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "2695548b8f2b17e39ae925e02c1435926ece7cbf95ab1e6170a279236d31bc63",
+      "query_signature": "f1a28005dbc8880279a5ed0168f2ea937b68548932d5d06c2cfadb5785febca6"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1645711__CHEMBL1645712",
+      "initial_reference_ids": [
+        "CHEMBL1643997",
+        "CHEMBL1644014",
+        "CHEMBL1644006",
+        "CHEMBL1644017"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8bfc48f6a908a9e28cc381278aed75943185bb9d5c0ea12d50288f41906b9d69",
+      "query_signature": "f1a28005dbc8880279a5ed0168f2ea937b68548932d5d06c2cfadb5785febca6"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1803422__CHEMBL1803423",
+      "initial_reference_ids": [
+        "CHEMBL1617609",
+        "CHEMBL1621001",
+        "CHEMBL1625449",
+        "CHEMBL1622024"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "fdaab7469dc3e0a4eacc5f2dac56bd54059c2d25fe921f6a755a27068c49449e",
+      "query_signature": "06fbc7475ef021ff8ea93b0ef3987a2790f00cc0b938f0393373914126bd99c6"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1805966__CHEMBL1805967",
+      "initial_reference_ids": [
+        "CHEMBL1800087",
+        "CHEMBL1801258",
+        "CHEMBL1801264",
+        "CHEMBL1801259"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "639e685e788896cc75bc0b360c9a7cfa56d71a71a72cbb88b59092fbbde4c3e5",
+      "query_signature": "40a2139b3cbfbc2f66e89f4a2928dda7ee9baeff1d40dc919c5a368057e6b836"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1931471__CHEMBL811267",
+      "initial_reference_ids": [
+        "CHEMBL10333",
+        "CHEMBL9645",
+        "CHEMBL275316",
+        "CHEMBL429951"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "6797e033821d969c6c21cccd50a6c502398d2e2256401d27bf701b250c20fd54",
+      "query_signature": "c624d1876563f6569abfb406e12fb98a22b49c8800491b8f71a517718ad93631"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL1942322__CHEMBL1942324",
+      "initial_reference_ids": [
+        "CHEMBL1940187",
+        "CHEMBL1940379",
+        "CHEMBL1940208",
+        "CHEMBL1940373"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "802a0e0a516064a55d6de7b2f1235f56dd9e4753ffcf26c418e24d88500dda6f",
+      "query_signature": "b76d365bd29960ca6a0338271106ae7ff87962fbf03f9eff39599562a1b7a9ee"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2065576__CHEMBL2065579",
+      "initial_reference_ids": [
+        "CHEMBL2063235",
+        "CHEMBL2063247",
+        "CHEMBL2063248",
+        "CHEMBL2063239"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "b9a95c9af4bdc12a7e05e7e65df473b3e648273a117c4f626d5febbf733bae59",
+      "query_signature": "7323cad156ab82319fc12c6a7b66d10d9890939645d522d00a580b2c3be75013"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2399912__CHEMBL2399913",
+      "initial_reference_ids": [
+        "CHEMBL1165511",
+        "CHEMBL2397807",
+        "CHEMBL2397815",
+        "CHEMBL412298"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "f130c7a608e196149ba3c0f7b09dc0892bc69b4517e4b323867f5ef75c55434a",
+      "query_signature": "b2a3c7765cf8f97fd6357edd7d486820cea2cfe1e4878149a19fbd7986279f01"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL2406570__CHEMBL2406571",
+      "initial_reference_ids": [
+        "CHEMBL1617819",
+        "CHEMBL1624713",
+        "CHEMBL2401761",
+        "CHEMBL1621070"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "60dd24fdf3d92dc4d5cbcfb8357c9b62956fa0d55ccea20d2d7c3d86a9cf2eee",
+      "query_signature": "fad9a752be71e9821c1d8661d55ee60e33c5209e1d6f3f4625b5bfb3dad6910f"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3089621__CHEMBL3089622",
+      "initial_reference_ids": [
+        "CHEMBL3086880",
+        "CHEMBL3086896",
+        "CHEMBL3087054",
+        "CHEMBL3087055"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "82b36bd51e693b62e13d05df0107dc391d6d82c27d9f5fce865a3bd3dffc859b",
+      "query_signature": "21c7dd1a0bcb5936e041b2bea0a112b74833688a77c6ddb637b0712b2e973b71"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3137056__CHEMBL3137057",
+      "initial_reference_ids": [
+        "CHEMBL122270",
+        "CHEMBL3133797",
+        "CHEMBL3133787",
+        "CHEMBL3133696"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "03b9998935f7343fe212c09e16f2542c19917004a65ba5ba52f26c58e7f2debb",
+      "query_signature": "ed470333c3e384fbb6db55a60ffb0baed95bd2714bcd98eb3a8c227cab1b4b20"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3379229__CHEMBL3379231",
+      "initial_reference_ids": [
+        "CHEMBL3299002",
+        "CHEMBL3323525",
+        "CHEMBL3323509",
+        "CHEMBL3323523"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c200e97160816b97b663710588ba3ea9599dde8f6391fb02dde0774b08ac945d",
+      "query_signature": "8d93808b20891caf99b2162332300f6f0a91e23523d61146fc77b8f111f97db8"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3394956__CHEMBL3396875",
+      "initial_reference_ids": [
+        "CHEMBL3393746",
+        "CHEMBL3393758",
+        "CHEMBL3393755",
+        "CHEMBL3393748"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "a65c3a1d17d42c0412766b391b5595ae936f5263c437b04e52f5b1c5e0f6fe3e",
+      "query_signature": "06b95d55c8d3e12ab62a738ee09de48b5ac027449ad1325b625a97ec9ca33606"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3394957__CHEMBL3396876",
+      "initial_reference_ids": [
+        "CHEMBL3393746",
+        "CHEMBL3393758",
+        "CHEMBL3393755",
+        "CHEMBL3393748"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "1a64c0bb3e23a74ec634afddae4c9ece5be9d663ea88a626f95b2f6501b471ad",
+      "query_signature": "06b95d55c8d3e12ab62a738ee09de48b5ac027449ad1325b625a97ec9ca33606"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3614290__CHEMBL913685",
+      "initial_reference_ids": [
+        "CHEMBL139600",
+        "CHEMBL425285",
+        "CHEMBL385289",
+        "CHEMBL59725"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "6c8ddcc9ace5ebe2ac574e1aec9e789370c1c290779c475572ff975a23ec6183",
+      "query_signature": "273b4adebe1cedff1c270c3da0476b529333c9953c37c70a9abb458f1d825d5a"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3736640__CHEMBL3739124",
+      "initial_reference_ids": [
+        "CHEMBL3734774",
+        "CHEMBL3735710",
+        "CHEMBL3735549",
+        "CHEMBL3736390"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "d21c2a3b6a5ee62eba80a034b5667e0c39f9e1f2d3383c2683b6fa11b6a33399",
+      "query_signature": "8f2519e1af0c5615560ea734e7bdbd58105971231faeaa4ff707cf8638c47e61"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3772448__CHEMBL3772450",
+      "initial_reference_ids": [
+        "CHEMBL2177429",
+        "CHEMBL3770852",
+        "CHEMBL3770191",
+        "CHEMBL3770908"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "fe2d0f9b07d149da9ea3c7e4470dc0777f7372d826e416b5a29a29fe226f4662",
+      "query_signature": "15b46b7db26594314fd0120a1fb7d3956e0807b0e54d7f587edd6d4545ec2080"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3804653__CHEMBL3804654",
+      "initial_reference_ids": [
+        "CHEMBL17354",
+        "CHEMBL3797869",
+        "CHEMBL3799457",
+        "CHEMBL3799033"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "7510942a72ad5debc0742eb8f96fafcab33e0d4472a8cc365dc1348ecc1aa479",
+      "query_signature": "4ea96d34fe3268ccffa232233fdee094f59c086d3b7185a3980c67b173387405"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3810652__CHEMBL3810653",
+      "initial_reference_ids": [
+        "CHEMBL3808467",
+        "CHEMBL3808559",
+        "CHEMBL3810390",
+        "CHEMBL3809073"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8f1724b4ab28829a11b7b216888387c8f6fd69aaff3881ab91e048dcaa272fd7",
+      "query_signature": "e8ac768edd3cb782ed6f0d4772521164b91fdd14d7c383027d7db93501c09f8a"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3855275__CHEMBL3855277",
+      "initial_reference_ids": [
+        "CHEMBL3894853",
+        "CHEMBL3926847",
+        "CHEMBL3913849",
+        "CHEMBL3905582"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "0d921bc3c0e4119f5f0ab4038dee21f085103841d355fd60e40c2087a3e8aa63",
+      "query_signature": "5a970e9d5afb7396767d13540faf1aa65ae278e7eb12e01527b226a9338c0b38"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3855278__CHEMBL3855280",
+      "initial_reference_ids": [
+        "CHEMBL3894853",
+        "CHEMBL3926847",
+        "CHEMBL3948167",
+        "CHEMBL3905582"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "3eb06bb9e874112e7a098e7b016fe8380e9e1ca0e2cedd9c3572474256b464db",
+      "query_signature": "de0ad7230351a975c398ecc953264749fbaae39ecb72dd4ca7f376d0fd754930"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3887451__CHEMBL3887452",
+      "initial_reference_ids": [
+        "CHEMBL3891120",
+        "CHEMBL4108209",
+        "CHEMBL4113473",
+        "CHEMBL4110036"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "761fdbafe32cc8fe5931109c092581971c701bc8d1bbac951c14af9719d792b5",
+      "query_signature": "391b1299a4ff12ed78f93ab8889e181624813a2393d59d7280161716ef73eeb5"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3889000__CHEMBL3889003",
+      "initial_reference_ids": [
+        "CHEMBL3889934",
+        "CHEMBL3973275",
+        "CHEMBL3943520",
+        "CHEMBL3932535"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "82cc3bcad6aef4d3e00d8bb9625623f417ed316e15dbb67123a8d038c7e931fb",
+      "query_signature": "f5a83ec6450cf8d7103d1bb009f4db43c28058985bdcc7924504d54aa282586d"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL3889001__CHEMBL3889004",
+      "initial_reference_ids": [
+        "CHEMBL3895202",
+        "CHEMBL3953312",
+        "CHEMBL3898674",
+        "CHEMBL3938324"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "109055bc80ead8fb62ff30c25db24af6846c1e58fcf0825e99955a790d1b7a62",
+      "query_signature": "98ec103e5cbdef6000e93a00848f16be7eaf5bd84bfa5e109f9e3df0422e075a"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4010153__CHEMBL4010156",
+      "initial_reference_ids": [
+        "CHEMBL4063235",
+        "CHEMBL4097330",
+        "CHEMBL4091155",
+        "CHEMBL4096353"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "695a6c879367d13071883645b575e80b1d766c659d99ccc0944ea5eb2249254e",
+      "query_signature": "0f0a6ec9f132315657afbf5390e56fd6252853d25744c0ba48b6448a02d5765f"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4051151__CHEMBL4051152",
+      "initial_reference_ids": [
+        "CHEMBL3734774",
+        "CHEMBL4065064",
+        "CHEMBL4105376",
+        "CHEMBL4062302"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "e29c77aaed99fbd9c998f0179896e9254747323f68117e09734b0becba167839",
+      "query_signature": "64c6e8d4c0627890e9fb438c66796e194c728066a55b120eb83781b14e6afc41"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4323478__CHEMBL4323479",
+      "initial_reference_ids": [
+        "CHEMBL4437233",
+        "CHEMBL4572646",
+        "CHEMBL4583596",
+        "CHEMBL4472580"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "da258dd8210ea167625de745267d791cd5b7fb9a7cf37e60f89bb7d81c6e4f80",
+      "query_signature": "950269a0552beb9c028a2719575309733798b20e2f72f047f78be3d9facb49a3"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4363360__CHEMBL4363361",
+      "initial_reference_ids": [
+        "CHEMBL4435678",
+        "CHEMBL4450601",
+        "CHEMBL4456035",
+        "CHEMBL4551390"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "bc0cb97d54fe89e5242c099c7af4db13f4d4feeaf10cf714afc24b26bd8a80e5",
+      "query_signature": "0a9455eebc8face84d6bf423158c12afdb4637bee7ccbf4efad0fcb17309ab20"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4385917__CHEMBL4385918",
+      "initial_reference_ids": [
+        "CHEMBL4087084",
+        "CHEMBL4451337",
+        "CHEMBL4542624",
+        "CHEMBL4515994"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "3b53ccdf576c4ffd584762634532316a4e1651b11765259d64f72e688594761b",
+      "query_signature": "f350c41f71bd31fab6085e318815cf81f6b3443eb06a5702f701b95701669379"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL4831247__CHEMBL4831248",
+      "initial_reference_ids": [
+        "CHEMBL4068777",
+        "CHEMBL4846677",
+        "CHEMBL4866496",
+        "CHEMBL4848870"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "12a03f92e2edefd00cb2c56aa8b0a0aed7005b7cab2ee87bba28215b2f45fa0a",
+      "query_signature": "a60600124c31d5babbc9f00c0e522346bf024915caa40ec5064126df7543ba63"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL617384__CHEMBL617385",
+      "initial_reference_ids": [
+        "CHEMBL293760",
+        "CHEMBL299044",
+        "CHEMBL58555",
+        "CHEMBL8165"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "73db3101d727075e64773457b5f54e8742c412beaf3a153c29bf872d1ac5e57a",
+      "query_signature": "fd06958109c420cd3b04774199f48fb96d7b09d945ee248e0e6c0a284f756e08"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL639492__CHEMBL642332",
+      "initial_reference_ids": [
+        "CHEMBL103150",
+        "CHEMBL323288",
+        "CHEMBL418797",
+        "CHEMBL329293"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "2160109093fb0d80275cc5723711bdd91a05dcc2056ad8c001d6965a18c77add",
+      "query_signature": "ce8225d93d19416ba82c9fa1d6f00e995d6a5d5515953ac88b6c6d497e7212e8"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL658892__CHEMBL658893",
+      "initial_reference_ids": [
+        "CHEMBL2111564",
+        "CHEMBL328970",
+        "CHEMBL558341",
+        "CHEMBL93879"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "00a4187d99043c37a0f9d4b1d4ae382fc0f7b94912198730035f49e245da897c",
+      "query_signature": "4643799e318f86f5c098d23a495fe31bf1e4dea7195de65411d0cb37b64bdef6"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL663871__CHEMBL858266",
+      "initial_reference_ids": [
+        "CHEMBL300465",
+        "CHEMBL54632",
+        "CHEMBL54950",
+        "CHEMBL57397"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "a002eec5df777976414485171cec9800b33337c3a5b3da935cbd486a7f920b11",
+      "query_signature": "cdfe8c9fd45fd8db1146b65d1200a54726068b9832bd2097a90c5d64764d128a"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL672579__CHEMBL673073",
+      "initial_reference_ids": [
+        "CHEMBL2111525",
+        "CHEMBL64376",
+        "CHEMBL59702",
+        "CHEMBL293645"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "49a7ea94d39a02e8d2a507b9d5580acdb6c636c43470adbf16ed1502c7d19569",
+      "query_signature": "c8cfe6b629996fcbb6db8aed037d0dd01d2f27d8a81410a39dc874ce99ed0b7a"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL675973__CHEMBL676134",
+      "initial_reference_ids": [
+        "CHEMBL292253",
+        "CHEMBL64283",
+        "CHEMBL64509",
+        "CHEMBL61671"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "85e2888a40a66015006adf320a151782238d5e30f7ebacc57e08fe89d05a96c4",
+      "query_signature": "9ebeb4a4f6e832c783029ee420d69b131c81c231eaad436490366a355846f7fb"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL690973__CHEMBL698412",
+      "initial_reference_ids": [
+        "CHEMBL16056",
+        "CHEMBL273549",
+        "CHEMBL16108",
+        "CHEMBL277537"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "14d75fd0e90c9faa7e2f997ed9d745602b81956c096d2cbaac769be3874628ad",
+      "query_signature": "fa49ec07d333da823126dd29c523f5a1c03ab67b0b21027b5c38d927caa97438"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL748259__CHEMBL872655",
+      "initial_reference_ids": [
+        "CHEMBL105457",
+        "CHEMBL433912",
+        "CHEMBL2021361",
+        "CHEMBL168609"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "c6efc1f39a31dab51dcf04083765d700ed1f4d484fd16aa0869b53251957d1cd",
+      "query_signature": "ce4798fbc005e31cc07e35c0d62172ce4bfae781dc23757ffdea1145a7776c1f"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL751113__CHEMBL751673",
+      "initial_reference_ids": [
+        "CHEMBL145865",
+        "CHEMBL433541",
+        "CHEMBL433550",
+        "CHEMBL146436"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8f69f1390a3829d6e3ff8cdb1930e04784f6ee419401eb157f99047854c8d322",
+      "query_signature": "69cc6e9ab5ce62a553f5cad528bc7144249d8f3b617dca56f5800adbd44a2502"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL818586__CHEMBL818587",
+      "initial_reference_ids": [
+        "CHEMBL314290",
+        "CHEMBL49429",
+        "CHEMBL96255",
+        "CHEMBL421180"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "40ece089619cfa26baf57e40e8c034b928afec0739a0c8dadccbbe6732ea0045",
+      "query_signature": "5505b92e52256f684cdebf62d0e17e87125226560b0e0769246ae9bd7ebcc0e5"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL823999__CHEMBL874095",
+      "initial_reference_ids": [
+        "CHEMBL317766",
+        "CHEMBL98403",
+        "CHEMBL93614",
+        "CHEMBL94856"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "240b615e948968446bee05c5c2ff3f7c9b7bbeb30ac4c59a8209ab8debb203a3",
+      "query_signature": "bb0894c5eb9fdc1190ed48d321c47d81cf72ca21be106fc85c38654d1630f060"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL827427__CHEMBL829825",
+      "initial_reference_ids": [
+        "CHEMBL178680",
+        "CHEMBL359663",
+        "CHEMBL360351",
+        "CHEMBL179697"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "816868be5c845f8b2665e6cbfc79d5c31d7c8f4211f0561ab7309d674b027913",
+      "query_signature": "83210d2b093cde15cc441bced3516910bc0b9753114db029d366b2b63ecbeb34"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL839598__CHEMBL839599",
+      "initial_reference_ids": [
+        "CHEMBL178099",
+        "CHEMBL179868",
+        "CHEMBL179321",
+        "CHEMBL178460"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "4755b22c43b214d96beb24c250fa9684f5c83a2dcf98671f4e8634f6e796c87b",
+      "query_signature": "be12870fa2214d45654f175d9781273fe3e36b06d12fbc7aa3f9b952649344d2"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL839598__CHEMBL840090",
+      "initial_reference_ids": [
+        "CHEMBL178099",
+        "CHEMBL179868",
+        "CHEMBL179321",
+        "CHEMBL178460"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "9815c901fea54f938825fd7c2f74b4a9504f1209c97a6d2964c4dd83630fe047",
+      "query_signature": "be12870fa2214d45654f175d9781273fe3e36b06d12fbc7aa3f9b952649344d2"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL839599__CHEMBL840090",
+      "initial_reference_ids": [
+        "CHEMBL178099",
+        "CHEMBL179868",
+        "CHEMBL179321",
+        "CHEMBL178460"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "3e8dbe7678f29d5ce616a2af7f6bc2b8689b05be3a48a6c89988778408bd94d1",
+      "query_signature": "be12870fa2214d45654f175d9781273fe3e36b06d12fbc7aa3f9b952649344d2"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL841871__CHEMBL874098",
+      "initial_reference_ids": [
+        "CHEMBL13591",
+        "CHEMBL14154",
+        "CHEMBL13955",
+        "CHEMBL13918"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "544203425ecafdffd78907974715c1341a4a67b1398c6601b46f14d655774941",
+      "query_signature": "1e8f8fdabb2c8806fa6224b6a9a7d8b890e3727462677292bd9b4e7250fcb90c"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL859053__CHEMBL859054",
+      "initial_reference_ids": [
+        "CHEMBL192571",
+        "CHEMBL434952",
+        "CHEMBL202509",
+        "CHEMBL382648"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "5ad672da917612ac3e9af73d08ad7f478446a7290434d0aee85c44ba9d5f8264",
+      "query_signature": "dcbffdd7d0be5f538a119c5558f569cebbd4e0af469981e764ecc9c3ac38d0e6"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL861560__CHEMBL862664",
+      "initial_reference_ids": [
+        "CHEMBL17",
+        "CHEMBL220491",
+        "CHEMBL19",
+        "CHEMBL268439"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "2c5ca327cfe9c95b4722a0643c46de15039307e56dd47734043b5dd49b7cc06d",
+      "query_signature": "61296b8876769f08ba0f001374cd9c42f36e6446b68b5d8d436f957740ddf028"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL866799__CHEMBL866800",
+      "initial_reference_ids": [
+        "CHEMBL140099",
+        "CHEMBL212160",
+        "CHEMBL207543",
+        "CHEMBL7927"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "888acee751f18241152af8214e2f98a1b792b26919e0e527942da1432e591dd0",
+      "query_signature": "86bde28b3dbd58dcbb7cd5184b23bc477400eb092ac2794a5fa45db2f908f78c"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL886725__CHEMBL886726",
+      "initial_reference_ids": [
+        "CHEMBL238750",
+        "CHEMBL391285",
+        "CHEMBL391669",
+        "CHEMBL240412"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "777159df54a6d962585504a961a314a622ccb2e32c399232eeb0077830dbc3ea",
+      "query_signature": "fb7faa5170db8fd1642dd5b510a27d9a860bee75a2d93952ab0ab0b73883ea7d"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL900566__CHEMBL900568",
+      "initial_reference_ids": [
+        "CHEMBL236161",
+        "CHEMBL240769",
+        "CHEMBL393696",
+        "CHEMBL239126"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "1c5664b4697f81173a4d8db756d954dfb1c35c2a07dd2be2d0657bef8e435e02",
+      "query_signature": "c9875e4afa6dd6ae6ade1c4d34fca6c832945a02c7ba0a78406b33d86d891ab8"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL900566__CHEMBL900569",
+      "initial_reference_ids": [
+        "CHEMBL236161",
+        "CHEMBL240769",
+        "CHEMBL393696",
+        "CHEMBL239126"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "5c1aec4a5656714a384dd7fe5b9ae27e8bf99c32e637316444f3a3ef1db2c64c",
+      "query_signature": "a648e1b92931d7a2c3d92a20106c8d427ff17e9168d718eee54e930331e2e793"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL900568__CHEMBL900569",
+      "initial_reference_ids": [
+        "CHEMBL236161",
+        "CHEMBL240769",
+        "CHEMBL393696",
+        "CHEMBL239126"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "9460c22ad2f5295729484278fcb84483bb9423836b5d1e4c2fc9905717eedd18",
+      "query_signature": "c9875e4afa6dd6ae6ade1c4d34fca6c832945a02c7ba0a78406b33d86d891ab8"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL901716__CHEMBL901717",
+      "initial_reference_ids": [
+        "CHEMBL234998",
+        "CHEMBL395907",
+        "CHEMBL238218",
+        "CHEMBL394673"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "404b079b7a2fed19b0f6e42a4f09b58f7993375856f17772ca2dc32653e75be8",
+      "query_signature": "6008be988a9b9a66bed23f941ed4bb34415690ba45ca626de004678a9e73e0cb"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL923928__CHEMBL923929",
+      "initial_reference_ids": [
+        "CHEMBL249819",
+        "CHEMBL440963",
+        "CHEMBL398845",
+        "CHEMBL400402"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "7319d36881bbab92534c9bfccb1800bd5cd2bbae569fbea0f4ae50802bbd2ee3",
+      "query_signature": "e7d24f269e799bf914321555b6014988678731fefea1cecc684a70be9e6b3b23"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL926238__CHEMBL926241",
+      "initial_reference_ids": [
+        "CHEMBL253393",
+        "CHEMBL254665",
+        "CHEMBL254456",
+        "CHEMBL400674"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "022a16dfecbc8c98647b023f8a311d188461a0056612b2101a1a4cd0475f7399",
+      "query_signature": "2f3e0a961a7279fe6be293d58f3dd93692bf78c2ba861e5c89be524dba42492c"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL934070__CHEMBL934071",
+      "initial_reference_ids": [
+        "CHEMBL218699",
+        "CHEMBL401795",
+        "CHEMBL256220",
+        "CHEMBL404199"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "00280ad76496074775721447a35fde2057045693d52f984641607fc871f2be90",
+      "query_signature": "ff047d4890cbda06a2f8f375df9dafe28c7f5014dd54e5c7626f50652af706b9"
+    },
+    {
+      "endpoint": "Ki",
+      "task_id": "acquisition_sentinel_v1::CHEMBL950162__CHEMBL950163",
+      "initial_reference_ids": [
+        "CHEMBL247234",
+        "CHEMBL403173",
+        "CHEMBL272789",
+        "CHEMBL257461"
+      ],
+      "formal_trajectories_checked": 9,
+      "identical_initial_ids": true,
+      "protocol_signature": "8abcea5f0ff1521b5ba0cf3381e7fa36b0b067e0dca794d1002da88240b64a1a",
+      "query_signature": "873bf707f5ed4ee91ff83f3c6ba4624c18b146e4bf852280aa73e23cdb06a75d"
+    }
+  ]
+}

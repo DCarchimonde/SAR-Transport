@@ -1,0 +1,6 @@
+{"event": "start", "task_id": "acquisition_sentinel_v0::synthetic_demo", "budget": 1, "query_signature": "dfbd1de13bac7844e121f4c441325b85a3d61dc401f9db3dfa205235f0e9d774"}
+{"compound_id": "p1", "cost": 1, "event": "revealed", "remaining": 0, "spent": 1, "target_potency": 4.0, "task_id": "acquisition_sentinel_v0::synthetic_demo"}
+{"compound_id": "p1", "cost": 0, "event": "cached", "remaining": 0, "spent": 1, "task_id": "acquisition_sentinel_v0::synthetic_demo"}
+{"compound_id": "q1", "event": "rejected", "reason": "query_is_not_measurement_pool", "remaining": 0, "spent": 1, "task_id": "acquisition_sentinel_v0::synthetic_demo"}
+{"compound_id": "unknown", "event": "rejected", "reason": "unknown_pool_id", "remaining": 0, "spent": 1, "task_id": "acquisition_sentinel_v0::synthetic_demo"}
+{"compound_id": "p2", "event": "rejected", "reason": "budget_exhausted", "remaining": 0, "spent": 1, "task_id": "acquisition_sentinel_v0::synthetic_demo"}

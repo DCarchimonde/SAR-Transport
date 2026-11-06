@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sar-transport:acquisition-contract:rc2",
+  "title": "Saved common-C4 acquisition sidecar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_id",
+    "task_id",
+    "endpoint",
+    "initial_reference_ids",
+    "total_budget",
+    "additional_unique_references",
+    "query_signature",
+    "task_definition_sha256",
+    "source_file",
+    "source_sha256",
+    "protocol_signature"
+  ],
+  "properties": {
+    "protocol_id": {
+      "const": "sar_transport_acquisition_common_c4_total8_v1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "initial_reference_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "total_budget": {
+      "const": 8
+    },
+    "additional_unique_references": {
+      "const": 4
+    },
+    "query_signature": {
+      "type": "string"
+    },
+    "task_definition_sha256": {
+      "type": "string"
+    },
+    "source_file": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string"
+    },
+    "protocol_signature": {
+      "type": "string"
+    }
+  }
+}
