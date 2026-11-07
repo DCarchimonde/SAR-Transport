@@ -3,13 +3,13 @@
   "files": [
     {
       "path": "README.md",
-      "size_bytes": 7813,
-      "sha256": "0ad6f73da184b663e9aa61f48d7d4aee1fcc14f24c31df111633fe7a592a66bc"
+      "size_bytes": 5309,
+      "sha256": "63a47fce32727ea2cf01a04ef9d63a7b3a8ee938f52fb4882f537d7ffb3cf15e"
     },
     {
       "path": "REPRODUCIBILITY_ASSET_MAP.tsv",
-      "size_bytes": 7095,
-      "sha256": "4cfa6ce043c9fcfcfe0e61813d284742871dea55a491c7f8acf99c318146438b"
+      "size_bytes": 7188,
+      "sha256": "fe81e150cd7dd556a27be6bade0da5335e77772d322c32519c1d44caf2a3c152"
     },
     {
       "path": "RESTORE_MAP.tsv",
