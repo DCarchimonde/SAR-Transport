@@ -1,0 +1,12 @@
+{
+  "updated_utc": "2026-11-03T06:36:29.573921+00:00",
+  "reason": "Pre-run correction: plan explicitly permits unknown-source metadata. Missing current assay/document metadata must be flagged, not turned into an invented completeness requirement. Original source target/endpoint still required; any explicit current target conflict excluded.",
+  "scientific_results_seen": false,
+  "eligibility_runs_before_correction": 0,
+  "prior_freeze": "IMPLEMENTATION_FREEZE.json",
+  "current_script_sha256": "50742e9b3d7841da0767128c1875124cb1037a3026c4b7233523e7fd656c3b75",
+  "metadata_missing_assay_ids": [
+    "CHEMBL3705713"
+  ],
+  "other_rules_changed": false
+}

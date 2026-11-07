@@ -1,0 +1,10 @@
+{
+  "supplement": "repro1",
+  "date": "2026-11-07",
+  "base_release": "v1.0.0",
+  "base_public_commit": "cfdec99e4f77abe8af996a7991a4dc5417b14ecf",
+  "scientific_result_commit": "d5d3227b8a0269e2a896056ba41abf7d502d768f",
+  "private_RC2_commit": "a21719a84edaab3176b65db1d8151ca335ac3a31",
+  "new_scientific_computation": 0,
+  "v1.0.0_assets_modified": false
+}

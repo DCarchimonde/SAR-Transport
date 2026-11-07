@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "frozen_scientific_code_unchanged": {
+    "scripts/run_sar_resource_ki.py": true,
+    "scripts/export_sar_resource_ic50.py": true,
+    "resources/sar_transport_v1/sar_transport_resource/core.py": true,
+    "resources/sar_transport_v1/sar_transport_resource/baselines.py": true,
+    "resources/sar_transport_v1/sar_transport_resource/__main__.py": true,
+    "resources/sar_transport_v1/sar_transport_resource/__init__.py": true,
+    "resources/sar_transport_v1/tests/test_core.py": true
+  },
+  "portable_table_counts": {
+    "OBSERVABLE_COMPOUNDS": 32781,
+    "REFERENCE_LABELS": 7984,
+    "QUERY_TRUTH": 23032,
+    "POOL_TRUTH": 1765,
+    "QUERY_EDGES": 206092
+  },
+  "portable_truth_scalar_and_cardinality_checks": true,
+  "scientific_reruns": 0,
+  "clean_environment_log": "CLEAN_ENVIRONMENT.json",
+  "scope": "New release interfaces and serialization only; no repeat of whole historical audits"
+}

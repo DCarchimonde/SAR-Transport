@@ -1,0 +1,36 @@
+{
+  "development_only_preprocessing": true,
+  "preprocessing_fits": {
+    "target_location_scale": 1,
+    "TFIDF": 1,
+    "SVD": 1,
+    "categorical_vocabulary": 1
+  },
+  "evaluation_target_values_loaded": false,
+  "evaluation_source_values_loaded": false,
+  "development_assays": 1025,
+  "development_targets": 218,
+  "unique_compounds": 19710,
+  "task_counts": {
+    "evaluation": 126,
+    "validation": 122,
+    "development": 686
+  },
+  "text_components": 128,
+  "condition_width": 650,
+  "common_target_name_width": 128,
+  "atom_features": 133,
+  "bond_features": 14,
+  "assay_parameters_not_inferred": true,
+  "target_name_available": 272,
+  "missing_structured_fields": [
+    "substrate",
+    "incubation_time",
+    "temperature"
+  ],
+  "wall_seconds": 51.560236988999804,
+  "cpu_seconds": 51.545515289,
+  "peak_rss_kib": 978656,
+  "dataset_sha256": "9b5e1fb6f8c024821192923d4e19bcbddf3c1e13a9aae3b191e62c961d15934d",
+  "preprocessors_sha256": "7b57389a843b8360afc1e857522e596eeb5eb1b39f8695de5f92080d15cf292c"
+}

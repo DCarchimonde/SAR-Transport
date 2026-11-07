@@ -1,0 +1,65 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 3905,
+    "sha256": "c7a04a1579d2f576bd8ba5ae653de4fec1aac2d771cf46d098dad04041208aca",
+    "downloaded_utc": "2026-11-03T06:27:48.911302+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/README.md"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1069,
+    "sha256": "386d6619967412fd2a41f7e1cd9d7011f23b8639dbde81d0602dd15479f218bb",
+    "downloaded_utc": "2026-11-03T06:27:56.734105+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/LICENSE"
+  },
+  {
+    "path": "environment.yml",
+    "bytes": 236,
+    "sha256": "34506328d32d5bc6e332c55461bcd587938719e7a583c93bede3d250eb923a22",
+    "downloaded_utc": "2026-11-03T06:28:04.697656+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/environment.yml"
+  },
+  {
+    "path": "ChEMBL32_MatchedPairsAnalysis.ipynb",
+    "bytes": 5528341,
+    "sha256": "1fd9450d7b78b3f1a771acd409f7e80faffec4a3f27464075ddc5c6346671197",
+    "downloaded_utc": "2026-11-03T06:28:13.352437+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/ChEMBL32_MatchedPairsAnalysis.ipynb"
+  },
+  {
+    "path": "IC50_MinimalCuration/IC50_MinimalCuration_Final.csv.gz",
+    "bytes": 5555705,
+    "sha256": "c5b687f5db4896cb8bffc52adf687d28344026ee80f594463c10affd15113d35",
+    "downloaded_utc": "2026-11-03T06:28:21.662204+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/IC50_MinimalCuration/IC50_MinimalCuration_Final.csv.gz"
+  },
+  {
+    "path": "IC50_MinimalCuration/IC50_MinimalCuration_assaysDict.pkl.gz",
+    "bytes": 742962,
+    "sha256": "2a5847e08e94428f90e690d2c472ece9d6cbd0b069b14ae24fe0609d8e55850f",
+    "downloaded_utc": "2026-11-03T06:28:29.629155+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/IC50_MinimalCuration/IC50_MinimalCuration_assaysDict.pkl.gz"
+  },
+  {
+    "path": "IC50_MinimalCuration/IC50_MinimalCuration_conditionsDict.pkl.gz",
+    "bytes": 794750,
+    "sha256": "228ce0c0474806f8b643488bc2e4f783dea997a540a0aebb1c8ecd2590efe631",
+    "downloaded_utc": "2026-11-03T06:28:37.763069+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/IC50_MinimalCuration/IC50_MinimalCuration_conditionsDict.pkl.gz"
+  },
+  {
+    "path": "IC50_MinimalCuration/IC50_MinimalCuration_pts.pkl.gz",
+    "bytes": 1528199,
+    "sha256": "80659e1f096b27ff5445a6a08177921c18961cade3e13cec19f832dabca68097",
+    "downloaded_utc": "2026-11-03T06:28:45.933249+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/IC50_MinimalCuration/IC50_MinimalCuration_pts.pkl.gz"
+  },
+  {
+    "path": "IC50_MinimalCuration/individual_targets.yml",
+    "bytes": 278523,
+    "sha256": "cf11c4fa57c877893a3f017444526df4162cb6431d874a43814aa1125b097470",
+    "downloaded_utc": "2026-11-03T06:28:53.954072+00:00",
+    "url": "https://raw.githubusercontent.com/Jnelen/ChEMBL_MatchedPairsAnalysis/0a77cdd28abf40a1562aadce727d032cd668815c/IC50_MinimalCuration/individual_targets.yml"
+  }
+]

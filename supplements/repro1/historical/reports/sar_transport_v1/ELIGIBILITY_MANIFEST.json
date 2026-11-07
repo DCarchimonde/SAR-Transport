@@ -1,0 +1,36 @@
+{
+  "inputs": {
+    "protocol/SAR_TRANSPORT_v1_PREFLIGHT.json": "79054b269503ba4d8b212f550739fad0b0e8b1a9b28545cc8da9a36eeaaeb021",
+    "scripts/sar_transport_eligibility.py": "50742e9b3d7841da0767128c1875124cb1037a3026c4b7233523e7fd656c3b75",
+    "data/sar_transport/metadata/ASSAYS.json": "a04e4bfae802f4513a5962e6f67d7ff3743354611b877b2bfd1e410d55d6951b",
+    "data/sar_transport/metadata/DOCUMENTS.json": "46058e13257903fc55fd6ebe7e66ab1441c2154eecc112ee5e3e027f86a9c492"
+  },
+  "outputs": {
+    "reports/sar_transport_v1/ALL_ELIGIBLE_EDGES.tsv.gz": "d6332c57c16b7577aabbc291f15c9291ddeaae9e518a67fbf9571645375be811",
+    "reports/sar_transport_v1/ASSAY_SOURCE_MAPPING.tsv": "a83f29f5d36bae4636b4e73b479f2bb047ff37f0f69e250c53bd8608457b4567",
+    "reports/sar_transport_v1/C8.tsv": "144d07c9d416e5c6dbed425e926477a26b1bc968cca17f0f103bb73221560bee",
+    "reports/sar_transport_v1/CACHE_MAPPING_CHECK.json": "4f60fef451dc4d4ebcc396e51309f791c09b28320057b3a397e710b824652f58",
+    "reports/sar_transport_v1/COMPOUND_IDENTITY.tsv": "632ed5434ff1b2c3131566b65fa272f7f87fd13e857fb8094711b4ad95171022",
+    "reports/sar_transport_v1/ELIGIBILITY_CHECKS.json": "6ea9a3270704363ec717464e60e14a49276b648e30c352236f7309519aea43df",
+    "reports/sar_transport_v1/ELIGIBILITY_SUMMARY.json": "e97359b2eddab967b4676174535624981729f9d7012f7c92e7e696b18a52c964",
+    "reports/sar_transport_v1/GROUPS.tsv": "1ec2b61ef631704c957ad7079ab723d4303fc2e4722484f91c3092c03f4caa10",
+    "reports/sar_transport_v1/IMPLEMENTATION_FREEZE.json": "c72a07a881c1e759e06a6359583ffdd252abb1211c5475482cdbbae498f1b8d5",
+    "reports/sar_transport_v1/IMPLEMENTATION_FREEZE_METADATA_FALLBACK.json": "5e868f5b69f38f474a16947d11dd7a4adefb1c278b2e0ba27df0aa33c2e18ce0",
+    "reports/sar_transport_v1/IMPLEMENTATION_TESTS.json": "53e292d679464643cfa51b9c584705148cf3d56a634d59ac263112f16b283377",
+    "reports/sar_transport_v1/METADATA_RUN.log": "992f43953d4d80ec06c230df170b361c0827b352434e8194ad2a731b0aab58f2",
+    "reports/sar_transport_v1/OBSERVATION_ELIGIBILITY.tsv": "f8bec09cfd7d4755252ab775f622ed5c6ef2c639a410be34a3888f397b613ed0",
+    "reports/sar_transport_v1/PREFLIGHT_FREEZE.json": "2375b2a4305e2efe75d53235d431f64417e3f279431cd53dd754ea22e52947a7",
+    "reports/sar_transport_v1/QUERY_EDGES.tsv.gz": "f435d9c724bdc90f7c329d4a2f8088854eca0266a6438bd098e644690b37a32c",
+    "reports/sar_transport_v1/QUERY_POINTS.tsv": "8757b8e2db06d3995c4d00cd8f94e9e9bf3114589bf2ad5ca21b174cb279df26",
+    "reports/sar_transport_v1/SOURCE_GIT_IDENTITY.json": "9a3a64bc29625f53a0a9cd8eefb2fac30d19e564a2b3e68c8e0515f9ca731b7c",
+    "reports/sar_transport_v1/SOURCE_MERGE_WITNESSES.tsv": "24475f5b97041bcb6d3d0fc37a7665af4eeca2ad943422814456da3ec59e0f04",
+    "reports/sar_transport_v1/SOURCE_ROW_ELIGIBILITY.tsv.gz": "11eaa1065e5aaa46aa2680b40b8be5da895c0ea5a5a39e4bd74d4348c5c1da7a",
+    "reports/sar_transport_v1/TASKS.tsv": "5ff658047803f6a50be61a30abd5b207e5eaa50af1667fca970b66963714c18b",
+    "reports/sar_transport_v1/UNIQUE_OBSERVATION_IDENTITIES.tsv": "84c8fa8a100fa06863faeca21a00e4943aa15e48ad8ac106186a4b23ccb08fea"
+  },
+  "restricted_outputs": {
+    "data/sar_transport/restricted/CONFLICT_VALUES.tsv.gz": "bf7c2160080fabc31c15bd3fc4ea4017faf5a580feebfa3ce6b781c3fd9de9c0",
+    "data/sar_transport/restricted/UNIQUE_OBSERVATIONS.tsv.gz": "9a82aebc2659474ca51de8475854359cfbf0ba181c0eb6cd2d54e2404b7e085d"
+  },
+  "numeric_access": "All Final values and relevant same-key source-cache values read programmatically for exactness/conflicts; not used to select split/C8 or inspect scientific effects."
+}

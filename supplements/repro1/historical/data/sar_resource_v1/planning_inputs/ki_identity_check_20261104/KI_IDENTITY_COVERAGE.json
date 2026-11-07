@@ -1,0 +1,119 @@
+{
+  "source_commit": "0a77cdd28abf40a1562aadce727d032cd668815c",
+  "read_columns": [
+    "pair1_compoundID_1",
+    "pair1_compoundID_2",
+    "pair1_assay_ID",
+    "pair2_compoundID_1",
+    "pair2_compoundID_2",
+    "pair2_assay_ID",
+    "Target_Name"
+  ],
+  "potency_columns_materialized_or_analyzed": false,
+  "note": "Compressed network stream was projected to identity columns; no raw activity stream saved. Group exclusions are identity-only availability counts, not finalized scientific eligibility.",
+  "Ki_MinimalCuration_Unpruned": {
+    "path": "Ki_MinimalCuration_Unpruned/Ki_MinimalCuration_Unpruned_Final.csv.gz",
+    "identity_rows": 36189,
+    "targets": 85,
+    "assays": 382,
+    "assay_pairs": 584,
+    "compounds": 2636,
+    "assay_components": 140,
+    "assay_plus_exact_compound_components": 114,
+    "pair_common_participants_at_least": {
+      "8": 274,
+      "12": 166,
+      "16": 143,
+      "20": 103,
+      "24": 66,
+      "30": 28,
+      "40": 22
+    },
+    "groups_with_at_least_one_pair_at_least_20": 64,
+    "overlap_with_IC50_Final": {
+      "assays": 5,
+      "compounds": 166,
+      "targets": 35,
+      "touched_Ki_assay_compound_groups": 13
+    },
+    "after_excluding_whole_Ki_groups_touching_IC50_assay_or_exact_compound_ID": {
+      "remaining_groups": 101,
+      "remaining_assay_pairs": 507,
+      "pairs_at_least_20": 69,
+      "groups_with_pair_at_least_20": 54
+    },
+    "largest_assay_compound_group_tasks": 364,
+    "qualification_not_applied": true,
+    "DOI_and_structure_alias_overlap_not_checked": true
+  },
+  "Ki_MinimalCuration_Pruned": {
+    "path": "Ki_MinimalCuration_Pruned/Ki_MinimalCuration_Pruned_Final.csv.gz",
+    "identity_rows": 32363,
+    "targets": 80,
+    "assays": 303,
+    "assay_pairs": 219,
+    "compounds": 2581,
+    "assay_components": 133,
+    "assay_plus_exact_compound_components": 112,
+    "pair_common_participants_at_least": {
+      "8": 184,
+      "12": 163,
+      "16": 142,
+      "20": 102,
+      "24": 65,
+      "30": 28,
+      "40": 22
+    },
+    "groups_with_at_least_one_pair_at_least_20": 63,
+    "overlap_with_IC50_Final": {
+      "assays": 5,
+      "compounds": 166,
+      "targets": 35,
+      "touched_Ki_assay_compound_groups": 13
+    },
+    "after_excluding_whole_Ki_groups_touching_IC50_assay_or_exact_compound_ID": {
+      "remaining_groups": 99,
+      "remaining_assay_pairs": 142,
+      "pairs_at_least_20": 68,
+      "groups_with_pair_at_least_20": 53
+    },
+    "largest_assay_compound_group_tasks": 57,
+    "qualification_not_applied": true,
+    "DOI_and_structure_alias_overlap_not_checked": true
+  },
+  "Ki_MinimalCuration_RefPruned": {
+    "path": "Ki_MinimalCuration_RefPruned/Ki_MinimalCuration_RefPruned_Final.csv.gz",
+    "identity_rows": 32398,
+    "targets": 81,
+    "assays": 305,
+    "assay_pairs": 220,
+    "compounds": 2592,
+    "assay_components": 134,
+    "assay_plus_exact_compound_components": 113,
+    "pair_common_participants_at_least": {
+      "8": 185,
+      "12": 163,
+      "16": 142,
+      "20": 102,
+      "24": 65,
+      "30": 28,
+      "40": 22
+    },
+    "groups_with_at_least_one_pair_at_least_20": 63,
+    "overlap_with_IC50_Final": {
+      "assays": 5,
+      "compounds": 166,
+      "targets": 35,
+      "touched_Ki_assay_compound_groups": 13
+    },
+    "after_excluding_whole_Ki_groups_touching_IC50_assay_or_exact_compound_ID": {
+      "remaining_groups": 100,
+      "remaining_assay_pairs": 143,
+      "pairs_at_least_20": 68,
+      "groups_with_pair_at_least_20": 53
+    },
+    "largest_assay_compound_group_tasks": 57,
+    "qualification_not_applied": true,
+    "DOI_and_structure_alias_overlap_not_checked": true
+  }
+}

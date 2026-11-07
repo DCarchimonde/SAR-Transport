@@ -30,3 +30,8 @@ python -m sar_transport_resource score-saved --data-root resource_data --manifes
 The explicit historical manifest above supplies unchanged evaluation membership; users should inspect the current catalogue first. Both seed metrics must be calculated separately before averaging; do not silently ensemble predictions. This capability is not a fresh independent validation. All underlying outputs are exposed.
 
 Historical P0 scripts and readmes are preserved as evidence, not advertised as standalone execution entry points. Their old project paths are not requirements for task loading or scoring. No third-party user or Windows validation is asserted.
+
+
+## Reproducibility supplement (7 November 2026)
+
+The independently versioned [repro1 supplement](supplements/repro1/README.md) adds the original historical training/qualification implementations, frozen configurations, prepared training inputs and a result-to-asset map. It documents the precise supported reproduction levels and the absence of original trained checkpoints. The v1.0.0 tag and release assets remain unchanged. No new scientific computations were run.

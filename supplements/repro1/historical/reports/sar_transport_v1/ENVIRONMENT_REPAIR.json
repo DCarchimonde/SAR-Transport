@@ -1,0 +1,10 @@
+{
+  "event": "torch optional import dependencies absent during Adam initialization",
+  "time_utc": "2026-11-03T06:54:57.195282+00:00",
+  "job": "fscap_seed17",
+  "optimizer_updates_before_failure": 0,
+  "STARTED_record_written": false,
+  "scientific_fit_restarts": 0,
+  "action": "Install declared torch dependencies before launching same first fit; do not change model or scientific settings",
+  "log": "FSCAP_17_RUN.log"
+}

@@ -1,0 +1,27 @@
+{
+  "frozen_utc": "2026-11-03T07:07:01.884538+00:00",
+  "files": {
+    "scripts/sar_transport_eligibility.py": "50742e9b3d7841da0767128c1875124cb1037a3026c4b7233523e7fd656c3b75",
+    "scripts/sar_transport_features.py": "87e77711f5c4e21ff6872a5d329136bd5b9a48a34a8fe418d2622cdc5cbc4e3f",
+    "scripts/sar_transport_methods.py": "2f3b8bfd94b23d287db6a48f5b8c1c8b584c27057c7e1f0447d1d43c1c352934",
+    "scripts/run_sar_transport.py": "570f706a7f50d3baeac818e8a6ff09f255847552679ad8573a2af4a01012da78",
+    "vendor/sar_transport/ActFound/inner_loop_optimizers.py": "3c9d1eaa7655c26005682906bf42266d3d5f873121814168944353e061dd3ce4",
+    "vendor/sar_transport/ActFound/main_reg.py": "f7d72666b30d6840cb06e606f2690c753c35dbff624e6c85d94c59ad8994be02",
+    "vendor/sar_transport/ActFound/models/meta_neural_network_architectures.py": "e88de14e09f354e3f5df2c1bac29abd8937f83518bf52029619cdc3c6803c5dc",
+    "vendor/sar_transport/ActFound/learning_system/system_actfound.py": "23ef70d95160929fca40f3b8c59d52a7c1911dc4b7e828e9d96ca916dfedb104",
+    "vendor/sar_transport/ActFound/learning_system/system_base.py": "14544b8173a662791f2b8f6aea6f9e01b70069c30b270ad00bba51b064ee3755"
+  },
+  "torch": "2.5.1+cpu",
+  "device": "cpu",
+  "test_checks": {
+    "affine_negative_slope_permitted": true,
+    "shift_exact_at_slope_one": true,
+    "tanimoto_self_and_disjoint": true
+  },
+  "test_optimizer_updates": 0,
+  "test_support_adaptations": 0,
+  "synthetic_algebraic_calibration_checks": 2,
+  "evaluation_queries_seen": false,
+  "engineering_reason": "FSCAP_ENGINEERING_RESTART.json",
+  "prior_freeze_retained": true
+}

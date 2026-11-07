@@ -1,0 +1,77 @@
+{
+  "study": "Relative SAR transport",
+  "version": "v1 preflight",
+  "frozen_utc": "2026-11-03T06:30:55.137204+00:00",
+  "planning_baseline": "5a276527a174274b508db3579553e7a98b773f39",
+  "head_comparison": "identical",
+  "source_repository": "Jnelen/ChEMBL_MatchedPairsAnalysis",
+  "source_commit": "0a77cdd28abf40a1562aadce727d032cd668815c",
+  "activity_file": "IC50_MinimalCuration/IC50_MinimalCuration_Final.csv.gz",
+  "source_manifest": "data/sar_transport/source/ACQUISITION.json",
+  "purpose": "Eligibility and identity freeze before any effect analysis or model fitting. Final protocol supplements with actual manifests; does not restore unseen status.",
+  "qualification": {
+    "endpoint": "IC50; pChEMBL exact finite, source SQL standard_relation = and nM; retain source minimal curation",
+    "value_identity": "Decimal numeric string equality; never round distinct values together",
+    "conflicts": "exclude canonical (assay,compound) key and all related edges when >1 distinct reported value; check Final and relevant same-key source cache values",
+    "identity": "RDKit 2025.03.5 sanitized canonical isomeric SMILES, preserve tautomer, formal charge, isotope and stereo; no neutralization or tautomer canonicalization. A single carbon-containing fragment may retain identity after removing only carbon-free disconnected counterions. Multiple carbon-containing fragments or ambiguous same-ID normalized structures excluded. No largest-organic-fragment picking.",
+    "pair": "authors original analogue edges only, undirected canonical IDs once; no effect-direction or magnitude filtering",
+    "assay_metadata": "only existing assay IDs official ChEMBL API; no activity endpoint; preserve returned API version/date; target mismatches exclude",
+    "canonical_id": "lexicographically smallest original CHEMBL ID for identical normalized isomeric SMILES",
+    "source_assay": "lexicographically smaller assay ID",
+    "cache_scope": "structure and consistency validation only for Final compound IDs and Final (assay,raw compound) keys; no extra observations added"
+  },
+  "grouping": {
+    "links": [
+      "shared assay",
+      "same canonical compound identity",
+      "same DOI normalized lowercase/doi-prefix stripped",
+      "document_chembl_id fallback if DOI missing"
+    ],
+    "components": "all eligible unique observation records before task-count/query filters; retain groups of ineligible tasks",
+    "id": "lexicographically smallest assay ID in each component",
+    "split": "numpy.random.default_rng(20261031).permutation(sorted group IDs); floor(.70 G) dev, floor(.15 G) val, rest eval; no retry",
+    "unknown_source": "missing DOI and document ID flagged, not independent literature"
+  },
+  "task": {
+    "minimum_common_participating_compounds": 20,
+    "c8": {
+      "n": 8,
+      "fingerprint": "Morgan radius2 2048 bits, includeChirality false (identity still preserves stereo)",
+      "first": "minimum canonical compound ID",
+      "iteration": "maximin Tanimoto distance to selected, tie minimum ID"
+    },
+    "query": "original unique edges both ends outside C8; point-level unique nodes of these edges; no query => excluded, no reference replacement",
+    "gate": {
+      "development_final_groups_at_least": 100,
+      "evaluation_final_groups_at_least": 30
+    },
+    "statistics": "edge reciprocal-degree weight normalized task, equal tasks per group, equal final groups; fixed direction only"
+  },
+  "no_outcome_view_before_freeze": "Qualification code reads values to validate exactness/conflicts; only aggregate eligibility counts shown, no query values or differences inspected. Cache opcode introspection incident separately logged.",
+  "fit_limits": {
+    "main_neural": 8,
+    "engineering_restarts": 2,
+    "rf": 2,
+    "offline_calibration_fits_including_sensitivity": 20000,
+    "main_gpu_hours": 40,
+    "main_cpu_hours": 48,
+    "memory_gb": 16,
+    "gpu_memory_gb": 8,
+    "sensitivity_neural": 8,
+    "sensitivity_rf": 2,
+    "sensitivity_gpu_hours": 32,
+    "sensitivity_cpu_hours": 16
+  },
+  "hard_stop": "If prescribed identity/source groups fail run gate, no model fits or effect analysis; deliver exact coverage and reusable task implementation, no repartition or relaxation.",
+  "history_preserved": [
+    "C1/C2 closed",
+    "R0 contracted",
+    "parallel v2 closed",
+    "v5/v6 failed",
+    "DIRECTION_UNAVAILABLE_DIAGNOSTIC_ONLY",
+    "irreversible exposures",
+    "JMGM fit-only desk rejection"
+  ],
+  "activity_sources_expanded": false,
+  "old_sealed_outcomes_accessed": false
+}

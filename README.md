@@ -103,3 +103,8 @@ Correspondence: z5653501@ad.unsw.edu.au. This research received no external
 funding. The authors declare no competing interests. `CITATION.cff` provides
 resource citation metadata. This resource distribution contains no paper
 manuscript, author-authorization record, or complete private research history.
+
+
+## Reproducibility supplement (7 November 2026)
+
+The independently versioned [repro1 supplement](supplements/repro1/README.md) adds the original historical training/qualification implementations, frozen configurations, prepared training inputs and a result-to-asset map. It documents the precise supported reproduction levels and the absence of original trained checkpoints. The v1.0.0 tag and release assets remain unchanged. No new scientific computations were run.

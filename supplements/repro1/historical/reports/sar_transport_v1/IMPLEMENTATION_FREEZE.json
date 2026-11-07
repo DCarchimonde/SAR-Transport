@@ -1,0 +1,8 @@
+{
+  "frozen_utc": "2026-11-03T06:35:50.502822+00:00",
+  "stage": "Before qualification value checks, no effect or model evaluation",
+  "scripts": {
+    "scripts/sar_transport_eligibility.py": "89096f1b9b63b7503884afbe08e0ea092a9f2f6e7e11644f6f22f81f9b4460dd",
+    "scripts/sar_transport_metadata.py": "2f94e54ec83f49c54a50fde0bd748d46fe5a3ea21aa6803a666222623a8b1425"
+  }
+}

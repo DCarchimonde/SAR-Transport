@@ -1,0 +1,10 @@
+{
+  "artifact": "SAR_TRANSPORT_inputs_v1.zip",
+  "files": 160,
+  "size_bytes": 37917918,
+  "sha256": "d2455054d2e5415bd3babe14fd098b23210481f982a4d4d865e0530d04100294",
+  "packaging_cpu_seconds": 8.189474978,
+  "contains_public_source_and_derived_inputs": true,
+  "query_labels_not_scored": true,
+  "code_and_reports_stored_separately_in_private_git": true
+}

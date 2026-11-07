@@ -1,0 +1,10 @@
+{
+  "stage": "frozen_prediction_inputs",
+  "source_observation_keys": 3567,
+  "context_target_keys": 915,
+  "task_query_target_keys": 2655,
+  "query_target_keys_also_authorized_in_other_task_roles": 227,
+  "task_local_query_targets_passed_to_predictors": false,
+  "global_numeric_unseen_claim": false,
+  "explanation": "Shared-assay observations can be source inputs or C8 labels in another task. Predictors receive only their own allowed source values and eight target references; no adaptation state is shared across tasks. Qualification already accessed values for eligibility."
+}

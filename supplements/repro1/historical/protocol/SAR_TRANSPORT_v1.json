@@ -1,0 +1,350 @@
+{
+  "study": "Relative SAR transport",
+  "version": "v1",
+  "frozen_utc": "2026-11-03T06:46:39.195208+00:00",
+  "planning_baseline": "5a276527a174274b508db3579553e7a98b773f39",
+  "head_comparison": "identical",
+  "source_repository": "Jnelen/ChEMBL_MatchedPairsAnalysis",
+  "source_commit": "0a77cdd28abf40a1562aadce727d032cd668815c",
+  "activity_file": "IC50_MinimalCuration/IC50_MinimalCuration_Final.csv.gz",
+  "source_manifest": "data/sar_transport/source/ACQUISITION.json",
+  "purpose": "Eligibility and identity freeze before any effect analysis or model fitting. Final protocol supplements with actual manifests; does not restore unseen status.",
+  "qualification": {
+    "endpoint": "IC50; pChEMBL exact finite, source SQL standard_relation = and nM; retain source minimal curation",
+    "value_identity": "Decimal numeric string equality; never round distinct values together",
+    "conflicts": "exclude canonical (assay,compound) key and all related edges when >1 distinct reported value; check Final and relevant same-key source cache values",
+    "identity": "RDKit 2025.03.5 sanitized canonical isomeric SMILES, preserve tautomer, formal charge, isotope and stereo; no neutralization or tautomer canonicalization. A single carbon-containing fragment may retain identity after removing only carbon-free disconnected counterions. Multiple carbon-containing fragments or ambiguous same-ID normalized structures excluded. No largest-organic-fragment picking.",
+    "pair": "authors original analogue edges only, undirected canonical IDs once; no effect-direction or magnitude filtering",
+    "assay_metadata": "only existing assay IDs official ChEMBL API; no activity endpoint; preserve returned API version/date; target mismatches exclude",
+    "canonical_id": "lexicographically smallest original CHEMBL ID for identical normalized isomeric SMILES",
+    "source_assay": "lexicographically smaller assay ID",
+    "cache_scope": "structure and consistency validation only for Final compound IDs and Final (assay,raw compound) keys; no extra observations added"
+  },
+  "grouping": {
+    "links": [
+      "shared assay",
+      "same canonical compound identity",
+      "same DOI normalized lowercase/doi-prefix stripped",
+      "document_chembl_id fallback if DOI missing"
+    ],
+    "components": "all eligible unique observation records before task-count/query filters; retain groups of ineligible tasks",
+    "id": "lexicographically smallest assay ID in each component",
+    "split": "numpy.random.default_rng(20261031).permutation(sorted group IDs); floor(.70 G) dev, floor(.15 G) val, rest eval; no retry",
+    "unknown_source": "missing DOI and document ID flagged, not independent literature"
+  },
+  "task": {
+    "minimum_common_participating_compounds": 20,
+    "c8": {
+      "n": 8,
+      "fingerprint": "Morgan radius2 2048 bits, includeChirality false (identity still preserves stereo)",
+      "first": "minimum canonical compound ID",
+      "iteration": "maximin Tanimoto distance to selected, tie minimum ID"
+    },
+    "query": "original unique edges both ends outside C8; point-level unique nodes of these edges; no query => excluded, no reference replacement",
+    "gate": {
+      "development_final_groups_at_least": 100,
+      "evaluation_final_groups_at_least": 30
+    },
+    "statistics": "edge reciprocal-degree weight normalized task, equal tasks per group, equal final groups; fixed direction only"
+  },
+  "no_outcome_view_before_freeze": "Qualification code reads values to validate exactness/conflicts; only aggregate eligibility counts shown, no query values or differences inspected. Cache opcode introspection incident separately logged.",
+  "fit_limits": {
+    "main_neural": 8,
+    "engineering_restarts": 2,
+    "rf": 2,
+    "offline_calibration_fits_including_sensitivity": 20000,
+    "main_gpu_hours": 40,
+    "main_cpu_hours": 48,
+    "memory_gb": 16,
+    "gpu_memory_gb": 8,
+    "sensitivity_neural": 8,
+    "sensitivity_rf": 2,
+    "sensitivity_gpu_hours": 32,
+    "sensitivity_cpu_hours": 16
+  },
+  "hard_stop": "If prescribed identity/source groups fail run gate, no model fits or effect analysis; deliver exact coverage and reusable task implementation, no repartition or relaxation.",
+  "history_preserved": [
+    "C1/C2 closed",
+    "R0 contracted",
+    "parallel v2 closed",
+    "v5/v6 failed",
+    "DIRECTION_UNAVAILABLE_DIAGNOSTIC_ONLY",
+    "irreversible exposures",
+    "JMGM fit-only desk rejection"
+  ],
+  "activity_sources_expanded": false,
+  "old_sealed_outcomes_accessed": false,
+  "stage": "Qualification complete; scientific definitions frozen before preprocessing and predictive fitting",
+  "eligibility_manifest_sha256": "daf2e2c37ea28ddb16761b0c7b7d5642f276df6e6c50f28c8728c34bb3069640",
+  "eligible_group_counts": {
+    "development": 400,
+    "validation": 81,
+    "evaluation": 92
+  },
+  "eligible_task_counts": {
+    "development": 686,
+    "validation": 122,
+    "evaluation": 126
+  },
+  "hypotheses": {
+    "H1": "Fixed Tanimoto residual kernel D improves held-out group-weighted analogue selection loss beyond validation-selected A-C no-structure calibration",
+    "H2": "Full conditional deep kernel I improves over H without assay conditioning; predictive information contrast, not causal assay mechanism"
+  },
+  "methods": {
+    "A": {
+      "name": "source",
+      "source_value": true
+    },
+    "B": {
+      "name": "affine",
+      "objective": "sum squared centered standardized residuals + lambda*(slope-1)^2",
+      "intercept": "unpenalized",
+      "slope": "unconstrained",
+      "lambda_grid": [
+        0.01,
+        0.1,
+        1,
+        10
+      ]
+    },
+    "B_aux": {
+      "name": "isotonic",
+      "formal_comparator": false,
+      "increasing_or_decreasing": "minimum C8 squared error; ties increasing",
+      "out_of_bounds": "clip"
+    },
+    "C": {
+      "name": "rbf",
+      "residual_inputs": "standardized source potency only",
+      "bandwidths": [
+        0.5,
+        1,
+        2
+      ],
+      "lambda_grid": [
+        0.01,
+        0.1,
+        1,
+        10
+      ]
+    },
+    "D": {
+      "name": "tanimoto",
+      "fingerprint": "radius2 2048 bits",
+      "residual_solver": "(K+lambda I)^-1 rC",
+      "lambda_grid": [
+        0.01,
+        0.1,
+        1,
+        10
+      ]
+    },
+    "E": {
+      "name": "rf",
+      "trees": 500,
+      "min_samples_leaf": 5,
+      "max_features": 0.3333333333333333,
+      "seeds": [
+        17,
+        43
+      ],
+      "episodes_per_dev_task": 8,
+      "weights": "each task total1; each episode equal; unique non-context nodes equal",
+      "inputs": [
+        "Morgan bits",
+        "standardized source value",
+        "source and target description/known conditions",
+        "common target name encoding",
+        "8 query-similarity-sorted (similarity,source context value,context residual) tuples",
+        "affine query prediction"
+      ],
+      "target": "absolute target pChEMBL"
+    },
+    "F": {
+      "name": "fscap",
+      "official_repository": "Rose-STL-Lab/FS-CAP",
+      "commit": "5eb9df1542e465c7cd9b8a0f81a6a521c5352a8b",
+      "adaptation": "separate query/context encoders, context fingerprint multiplied by target standardized value, mean aggregation; append source value, common target and assay descriptions; predict residual around common affine",
+      "encoder_hidden_layers": 5,
+      "encoder_width": 512,
+      "embedding_dim": 128,
+      "predictor_widths": [
+        512,
+        512,
+        512,
+        256,
+        256,
+        1
+      ],
+      "normalization": "per-layer batch norm in encoders, none in predictor",
+      "dropout": 0.1,
+      "note": "compact task adaptation; preserves original multiplication/context aggregation, not published benchmark reproduction"
+    },
+    "G": {
+      "name": "actfound",
+      "official_repository": "BFeng14/ActFound",
+      "commit": "c96f0559ea7a2504e797b9d65b9f1af1aa899ddd",
+      "backbone": "official FCNReLUNormNetworkQSAR, two hidden2048 stages, per-step batchnorm/leakyReLU and bias-free scalar head",
+      "adaptation": "append standardized source potency, common target name, source/target metadata; Tanimoto computed ONLY on original Morgan bits; native target units",
+      "outer_lr": 0.00015,
+      "min_outer_lr": 0.0001,
+      "outer_scheduler": "cosine over150epochs",
+      "inner_steps": 5,
+      "initial_inner_lr": 0.001,
+      "learn_step_lrs_on_development": true,
+      "adapted_parameters": "scalar final-layer weights only",
+      "native_objective": "sqrt(.25 robust query-pair error + .5 robust context-query error + point prediction MSE); nearest half by original fingerprint, embedding-softmax temperature.2",
+      "first_order_through_epoch": 10,
+      "second_order_after": 10,
+      "multi_step_loss_first_epochs": 5,
+      "learning_rate_penalty_from_epoch": 50,
+      "learning_rate_penalty_weight": 35,
+      "guard": "skip update if support loss >=10 times initial support loss; count attempted/applied steps",
+      "inference_scale": "max(.2, unbiased SD of8 context target values), native rule",
+      "disabled": [
+        "KNN-MAML",
+        "transfer fusion",
+        "inverse ensemble",
+        "pretraining",
+        "repeated supports",
+        "query-label access in prediction"
+      ],
+      "reset": "fresh saved initialization every task; evaluation once per task/seed/best"
+    },
+    "H": {
+      "name": "no_condition",
+      "same_as": "I",
+      "assay_condition_inputs": "replace assay vector by trainable task-invariant vector; same nominal modules and widths",
+      "shared_target_information": "same target-name encoding and development-ID/UNK embedding as I"
+    },
+    "I": {
+      "name": "conditional",
+      "kernel": "softplus(alpha)*Tanimoto + phi(x)^T phi(z)",
+      "DMPNN": {
+        "depth": 3,
+        "hidden": 128,
+        "pool": "mean atoms",
+        "dropout": 0
+      },
+      "phi_width": 64,
+      "condition": "small FiLM linear map; no auxiliary modules/losses",
+      "inputs": [
+        "molecular graph",
+        "source standardized potency",
+        "common target name encoding",
+        "target-ID development vocabulary plus UNK",
+        "source/target metadata for I only"
+      ],
+      "training_kernel_lambda": 1,
+      "inference_lambda_grid": [
+        0.01,
+        0.1,
+        1,
+        10
+      ]
+    }
+  },
+  "preprocessing": {
+    "fit_split": "development only",
+    "potency_scale": "unique eligible development observations mean/populationSD, common source/target scale",
+    "text": "TFIDF unigram/bigram max20000, SVD min(128,rank dimensions), random_state20261031; fit development assay descriptions and target names only",
+    "structured": "official categorical assay fields, unknown handling and explicit masks; no inferred substrate/time/temperature",
+    "ID_features": "assay/document/DOI forbidden; common target ID/name same in all learned models"
+  },
+  "global_training": {
+    "families": [
+      "fscap",
+      "actfound",
+      "no_condition",
+      "conditional"
+    ],
+    "seeds": [
+      17,
+      43
+    ],
+    "epochs_max": 150,
+    "patience": 20,
+    "batch_tasks": 8,
+    "context": 8,
+    "max_unique_queries": 16,
+    "task_sampling": "each development task once per epoch, shuffled by seed; context/query uniformly sampled without replacement from eligible unique participants",
+    "optimizer_except_ActFound": "Adam lr.001, no weight decay",
+    "selection": "best validation task-equal MAE; first epoch wins exact tie; last archived not selected",
+    "checkpoint_lambda_for_deep_kernels": 1,
+    "kernel_grid": "same saved best model, inference lambda grid only, no retraining; validation group-equal L picks configuration once",
+    "device": "CPU torch2.5.1+cpu, at most4 threads; no visible GPU",
+    "timing": "first official job is benchmark, no hidden pilot fit"
+  },
+  "validation_selection": {
+    "common_affine_lambda": "validation group-equal L, grid order breaks ties",
+    "per_kernel": "validation group-equal L, fixed grid order ties",
+    "strongest_no_structure": [
+      "A",
+      "B",
+      "C"
+    ],
+    "strongest_formal": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H"
+    ],
+    "random_models": "mean17/43 metrics, not ensemble predictions",
+    "isotonic_auxiliary_only": true
+  },
+  "evaluation": {
+    "two_step": "freeze best checkpoints, chosen hyperparameters/comparators, rules and metrics; then open evaluation C8 only to prediction program and hash all query predictions; only then score query target values",
+    "prediction_tie": "absolute predicted difference<=1e-8 choose smaller canonical compound ID",
+    "L": "max(target A,target B)-target of predicted higher-potency choice",
+    "edge_weight": "1/degreeA+1/degreeB normalized within each task",
+    "aggregation": "equal tasks per final group, equal final groups; calculate perseed then average seed metrics",
+    "primary_contrasts": [
+      "D minus validation-best A-C",
+      "I minus validation-best A-H",
+      "I minus H"
+    ],
+    "bootstrap": {
+      "draws": 5000,
+      "seed": 20261031,
+      "unit": "paired final group",
+      "family_size": 3,
+      "percentile_interval_percent": [
+        0.8333333333333334,
+        99.16666666666667
+      ],
+      "scope": "fixed fitted models; not training/selection uncertainty"
+    },
+    "auxiliary": [
+      "all method L",
+      "unique point MAE",
+      "edge-weighted deltaMSE",
+      "task wins/losses",
+      "source-gap strata [0,.3),[.3,.6),[.6,1),[1,infinity)",
+      "target strata",
+      "source-unknown strata",
+      "leave-one-group influence",
+      "observed reversals both gaps>=.3; only .6 sensitivity"
+    ],
+    "reverse_direction": "supplementary definition only, not an independent task or additional fits in main budget"
+  },
+  "rules": {
+    "maximum": 2,
+    "formation": "development/validation only, source gap/structural bridge coverage/C8 residual heterogeneity/available assay conditions; not query outcomes at inference",
+    "unavailable_allowed": true,
+    "separate_exploratory_testing": true
+  },
+  "strict_structure_sensitivity": {
+    "trigger_before_evaluation": "H1 family interval upper<0 and >=10% relative L decrease, OR model-line continuation criteria all met",
+    "procedure": "remove training records with same nonempty Murcko as evaluation query; same evaluation queries/C8 and models/hyperparameters; recheck100dev/30eval final-group gate; no repartition",
+    "allowance": "8 extra neural and2 RF, no restarts; CPU16h/GPU32h"
+  },
+  "decision": {
+    "model_continue": "I at least10% relative L improvement over bestA-H, family interval upper<0; I-H family interval upper<0; both seed differences negative, meaningful absolute effect",
+    "knowledge_continue": "fixed D supports H1 AND frozen conditions have useful held-out predictive/selection value beyond generic interpolation/small-gap/common errors",
+    "otherwise": "contract or stop; no model/seed/partition/source expansion; JCIM target retained"
+  }
+}

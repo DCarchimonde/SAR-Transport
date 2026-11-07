@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-03T11:19:40.278978+00:00",
+  "files": {
+    "scripts/run_sar_transport.py": "aaa77e5fe2c6642b8fdf809aff66feb10ebedd6e6656db800e0e29988a10e6c3",
+    "scripts/sar_transport_methods.py": "2f3b8bfd94b23d287db6a48f5b8c1c8b584c27057c7e1f0447d1d43c1c352934",
+    "scripts/monitor_sar_transport_budget.py": "4ae4886e1cedca8fa5d454173e4d95464196b26c6bf8f1dcc937be3be04ceec9"
+  },
+  "parent_freeze": "MODEL_IMPLEMENTATION_FREEZE_JOB_LOCK.json",
+  "authorization": "RF_RETRY_AUTHORIZATION_20261103.json",
+  "changes": [
+    "Atomic neural and forest checkpoint writes",
+    "RF43 authorized retry; same final500-tree forest built in ten50-tree warm-start segments",
+    "Restore ActFound43 optimizer/scheduler/RNG and complete adaptation log",
+    "CPU guard includes failed attempt, resumed CPU base and separately labelled conservative unobserved-gap charge"
+  ],
+  "scientific_model_parameters_changed": false,
+  "data_or_split_changed": false,
+  "rf_tree_seed_stream_equal_to_single_call_verified": true,
+  "new_fits_in_check": 0,
+  "optimizer_updates_in_check": 0,
+  "engineering_global_rf_retry_allowance": 1
+}

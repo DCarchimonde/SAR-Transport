@@ -1,0 +1,43 @@
+{
+  "utc": "2026-11-03T13:28:29.971301+00:00",
+  "status": "NOT_FITTED_FROZEN_BUDGET_PREFLIGHT_BLOCKED",
+  "coverage_passed": true,
+  "coverage": {
+    "passed": true,
+    "development_groups": 380,
+    "evaluation_groups": 92
+  },
+  "eligible_tasks": {
+    "development": 659,
+    "validation": 122,
+    "evaluation": 126
+  },
+  "main_trigger": "H1 family upper < 0 and relative improvement >= 10%",
+  "main_offline_fits": 14013,
+  "shared_offline_fit_cap": 20000,
+  "remaining_offline_fits": 5987,
+  "frozen_guard_required_reservation": 6528,
+  "reservation_components": {
+    "RF_development_context_affine_maps": 5272,
+    "one_job_validation_affine_reserve": 122,
+    "fixed_evaluation_affine_kernel_isotonic_reserve": 1134
+  },
+  "reservation_is_future_budget_not_consumed_fits": true,
+  "block_scope": "Frozen implementation accounting and its conservative reservation; not a claim that every possible implementation is computationally impossible. No post-result reclassification of already reported counts was made.",
+  "neural_global_fits_started": 0,
+  "RF_global_fits_started": 0,
+  "new_task_calibration_fits": 0,
+  "query_predictions_or_scoring": 0,
+  "development_preprocessing_fits": {
+    "target_location_scale": 1,
+    "TFIDF": 1,
+    "SVD": 1,
+    "categorical_vocabulary": 1
+  },
+  "recorded_preparation_cpu_seconds": 86.109250646,
+  "rejected_preflight_process_cpu_separately_metered": false,
+  "evaluation_lists_unchanged": true,
+  "scientific_eligibility_relaxed": false,
+  "new_scaffold_generalization_established": false,
+  "evidence": "BUDGET_PREFLIGHT_RUN.log"
+}

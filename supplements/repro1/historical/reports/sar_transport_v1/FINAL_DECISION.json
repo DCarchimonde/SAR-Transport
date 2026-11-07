@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-03T13:28:29.971301+00:00",
+  "main_result_decision_sha256": "3b0c75ba0619717ab58d15e2fc1f9ff17f6a47174d4a6618c895115468bc80b3",
+  "main_matrix_complete": true,
+  "main_H1_supported": true,
+  "model_line": "STOP_TESTED_CONDITIONED_DEEP_KERNEL_SUPERIORITY_CLAIM",
+  "H2": "NOT_ESTABLISHED_NOT_EQUIVALENCE",
+  "knowledge_line": "RETAIN_RESOURCE_SPECIFIC_STRUCTURE_CALIBRATION_BENEFIT_RULE_UNAVAILABLE",
+  "strict_structure_sensitivity": "NOT_FITTED_FROZEN_BUDGET_PREFLIGHT_BLOCKED",
+  "main_scope": "Held-out assay/compound/document groups in one curated resource",
+  "JCIM_submission_ready": false,
+  "next_automatic_experiment": false,
+  "JCIM_goal_retained": true,
+  "old_closed_studies_preserved": true,
+  "no_new_scientific_process_running": true
+}

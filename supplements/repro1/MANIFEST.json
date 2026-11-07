@@ -1,0 +1,295 @@
+{
+  "version": "repro1",
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 7813,
+      "sha256": "0ad6f73da184b663e9aa61f48d7d4aee1fcc14f24c31df111633fe7a592a66bc"
+    },
+    {
+      "path": "REPRODUCIBILITY_ASSET_MAP.tsv",
+      "size_bytes": 7095,
+      "sha256": "4cfa6ce043c9fcfcfe0e61813d284742871dea55a491c7f8acf99c318146438b"
+    },
+    {
+      "path": "RESTORE_MAP.tsv",
+      "size_bytes": 53539,
+      "sha256": "4cdbcc6d73d14ac8311ed9496ef62d452a69eebbe93e796a00e3fc11afa3ea55"
+    },
+    {
+      "path": "SOURCE_IDENTITY.tsv",
+      "size_bytes": 49122,
+      "sha256": "8dfea48e338257383168ee447875cdf94727546f3322b2ab09c6f760ac1aec26"
+    },
+    {
+      "path": "STATIC_CHECKS.json",
+      "size_bytes": 1558,
+      "sha256": "ea0bebfc574ba2e5dd5b72cbf387cad38f02c8eddb4be224e40416b627496e9b"
+    },
+    {
+      "path": "TRAINING_INPUTS.zip",
+      "size_bytes": 18524888,
+      "sha256": "61a2a6033eef4405a0da4bca9873bdddfd9beeafb406b0c571a98e1ec3e1491d"
+    },
+    {
+      "path": "TRAINING_INPUTS_MANIFEST.json",
+      "size_bytes": 899,
+      "sha256": "2cf181dd86f77433fb38835ead3915871fd1b77f8b26edfaf6dbd36fbb9fdd1a"
+    },
+    {
+      "path": "UPSTREAM_INPUTS.tsv",
+      "size_bytes": 2601,
+      "sha256": "7faabd538fda48bb026703687fc825bcfc48099dc131cc218d1b6d44eaa2369c"
+    },
+    {
+      "path": "VERSION.json",
+      "size_bytes": 361,
+      "sha256": "2a5aa75e50240fe4546df4435920486f27a7d9c922fe6fe87a061c068c022a00"
+    },
+    {
+      "path": "historical/data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/DATASET_LIST.json",
+      "size_bytes": 28295,
+      "sha256": "30f6f6def8d859ad037e347f5c8490994601d543440a90a2a1f509d4bf6e6d5e"
+    },
+    {
+      "path": "historical/data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/KI_IDENTITY_COVERAGE.json",
+      "size_bytes": 3654,
+      "sha256": "1332e800dce4d172eb69c1b92890bc129207d6f0d9e0514a9761628c9c4df5c4"
+    },
+    {
+      "path": "historical/data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/Ki_MinimalCuration_Pruned_IDENTITY_ONLY.tsv.gz",
+      "size_bytes": 205549,
+      "sha256": "d8df328ec724324c8288f0c440f6d2e70a55d837b8dde853502354c0a21e053c"
+    },
+    {
+      "path": "historical/data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/Ki_MinimalCuration_RefPruned_IDENTITY_ONLY.tsv.gz",
+      "size_bytes": 205765,
+      "sha256": "fb148c4ed446b29cb0c93f776099bb1907a7516a7b104e7039b5f91562be96d9"
+    },
+    {
+      "path": "historical/data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/Ki_MinimalCuration_Unpruned_IDENTITY_ONLY.tsv.gz",
+      "size_bytes": 227024,
+      "sha256": "41a3f52dca7dd6005dec084c4abbc3b5db99b133a9201cb409639f336c043b7f"
+    },
+    {
+      "path": "historical/data/sar_resource_v1/planning_inputs/ki_identity_check_20261104/provenance_precheck.py",
+      "size_bytes": 13526,
+      "sha256": "e207d475b94c6874e843853c46ed964ef4d3583126bd351e8ec87dfc61bf0fb2"
+    },
+    {
+      "path": "historical/data/sar_transport/source/ACQUISITION.json",
+      "size_bytes": 3462,
+      "sha256": "ac7441feec724c959a7d02fc9991906ace23237af79e3beb93595fd2bde969e0"
+    },
+    {
+      "path": "historical/protocol/SAR_TRANSPORT_v1.json",
+      "size_bytes": 15039,
+      "sha256": "b497cb4e41ee1950e161c423c01b42de2dffe97ef1f6b20439f1d65f7eeb82a8"
+    },
+    {
+      "path": "historical/protocol/SAR_TRANSPORT_v1_PREFLIGHT.json",
+      "size_bytes": 4551,
+      "sha256": "79054b269503ba4d8b212f550739fad0b0e8b1a9b28545cc8da9a36eeaaeb021"
+    },
+    {
+      "path": "historical/reports/sar_resource_v1/RELEASE_CHECKS.json",
+      "size_bytes": 924,
+      "sha256": "11f0c86c1a7141d10ca04e1cc8ead235892c84684a826fdada41a47a52814f5a"
+    },
+    {
+      "path": "historical/reports/sar_transport_strict_v1/STRICT_RESULT_STATUS.json",
+      "size_bytes": 1590,
+      "sha256": "74b6404bd039a0cc3d8ad2dd91f402d21c592d69bad65a09d6aff1360332fc89"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/ELIGIBILITY_MANIFEST.json",
+      "size_bytes": 3571,
+      "sha256": "daf2e2c37ea28ddb16761b0c7b7d5642f276df6e6c50f28c8728c34bb3069640"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/ELIGIBILITY_SUMMARY.json",
+      "size_bytes": 3169,
+      "sha256": "e97359b2eddab967b4676174535624981729f9d7012f7c92e7e696b18a52c964"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/ENVIRONMENT_REPAIR.json",
+      "size_bytes": 425,
+      "sha256": "284c597af929a2c4f71acc0ab76fc2ddebcb73c57d61abf2c40e0426d832840e"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/EVALUATION_FREEZE.json",
+      "size_bytes": 6824,
+      "sha256": "1a9875abef000a16a222702ff4d0eeb4682a1dad6480fa8f52213cab305f3b5b"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/EVALUATION_INPUT_ACCESS.json",
+      "size_bytes": 584,
+      "sha256": "cd0dcdbf28697196965a64e9b64b74487b61ac6e36786aec752e13933c56f118"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/EXECUTION_ENVIRONMENT.json",
+      "size_bytes": 412,
+      "sha256": "1e42db99bb1656ee4590feeb348828d86df105b6e45d29c661af72fa06ec9687"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/FEATURES.json",
+      "size_bytes": 1020,
+      "sha256": "d1205f2675897cea0fc746d1b3df9ebbda775feedc57b2f7dc7a24ae935a1240"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/FINAL_DECISION.json",
+      "size_bytes": 771,
+      "sha256": "ea096e2b68f3b2ef6aaf30e59b859dbe44295a4e156f7e114bee925ad3851e58"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/IMPLEMENTATION_FREEZE.json",
+      "size_bytes": 374,
+      "sha256": "c72a07a881c1e759e06a6359583ffdd252abb1211c5475482cdbbae498f1b8d5"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/IMPLEMENTATION_FREEZE_METADATA_FALLBACK.json",
+      "size_bytes": 659,
+      "sha256": "5e868f5b69f38f474a16947d11dd7a4adefb1c278b2e0ba27df0aa33c2e18ce0"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/INPUT_ARCHIVE.json",
+      "size_bytes": 358,
+      "sha256": "417e514b81f991770a956780ef2ff88e8c1c9e97ac6ceeb981d63db7db217858"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/METHOD_ADAPTATIONS.md",
+      "size_bytes": 6125,
+      "sha256": "f0207ac22e1110ec556dc2a91ba574a18529fab49b7280a4122e4400e7f2e111"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/MODEL_IMPLEMENTATION_FREEZE.json",
+      "size_bytes": 1513,
+      "sha256": "d911b414fbbc6bb263e75ecce25d090db4d59d124a1d028cc62bf8124531005d"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/MODEL_IMPLEMENTATION_FREEZE_FSCAP_FIX.json",
+      "size_bytes": 1604,
+      "sha256": "016100e7a25dedb7a88252cb505b3b9d9b56f8b45e0cf2d75ec03158ef4afa76"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/MODEL_IMPLEMENTATION_FREEZE_JOB_LOCK.json",
+      "size_bytes": 893,
+      "sha256": "c6f12d1fb813dbb8de0d012fdf9b5681b3cace732beb7b4d10f362123e87302c"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/MODEL_IMPLEMENTATION_FREEZE_RECOVERY.json",
+      "size_bytes": 1126,
+      "sha256": "958a8b99735c4d0562aaa712f075e596e621d7d86d8805b4efd06dbde02b66ab"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/PREFLIGHT_FREEZE.json",
+      "size_bytes": 189,
+      "sha256": "2375b2a4305e2efe75d53235d431f64417e3f279431cd53dd754ea22e52947a7"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/PROTOCOL_FREEZE.json",
+      "size_bytes": 249,
+      "sha256": "05598ce7879a54c304cf69dbdc0e4eb069bd218f56e51ca9c470acae0b65fc95"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/RECOVERY_CPU_CHARGES.json",
+      "size_bytes": 402,
+      "sha256": "04b163e6168dd28a1c1238161ca3642dfe1decc61aa3ea602c9f587c833e34fd"
+    },
+    {
+      "path": "historical/reports/sar_transport_v1/SOURCE_GIT_IDENTITY.json",
+      "size_bytes": 2983,
+      "sha256": "9a3a64bc29625f53a0a9cd8eefb2fac30d19e564a2b3e68c8e0515f9ca731b7c"
+    },
+    {
+      "path": "historical/resources/sar_transport_v1/sar_transport_resource/__init__.py",
+      "size_bytes": 375,
+      "sha256": "952106a4f951b8cde877eb7c973368b0fd27f0f8971ad6a9b2a402bd33c7409d"
+    },
+    {
+      "path": "historical/scripts/check_sar_transport_evaluation.py",
+      "size_bytes": 2405,
+      "sha256": "5e4fe8bc0e589d0cc5287b08cd0ca4b965a1dd3c4a7d81e4e44f32b50fd8ff4e"
+    },
+    {
+      "path": "historical/scripts/evaluate_sar_transport.py",
+      "size_bytes": 24099,
+      "sha256": "e47318ab799c4d27bf18ed04147a7c502f275fa5316054c50a4de75989552a1b"
+    },
+    {
+      "path": "historical/scripts/export_sar_rc2_contracts.py",
+      "size_bytes": 8226,
+      "sha256": "abff45bd81abb799ab3f67500944538ca7fcade6b5182301d5f0c2b06aef7768"
+    },
+    {
+      "path": "historical/scripts/export_sar_resource_ic50.py",
+      "size_bytes": 3722,
+      "sha256": "33a5f3920361b6c0ee568efbb418989e17974ba59ceb873601406c71a5a2fbf1"
+    },
+    {
+      "path": "historical/scripts/monitor_sar_transport_budget.py",
+      "size_bytes": 3852,
+      "sha256": "4ae4886e1cedca8fa5d454173e4d95464196b26c6bf8f1dcc937be3be04ceec9"
+    },
+    {
+      "path": "historical/scripts/prepare_sar_resource_rc2.py",
+      "size_bytes": 4022,
+      "sha256": "9051e5514203fa9c714331854d4a7f3e909358481f4bf58568ec956f85b6d074"
+    },
+    {
+      "path": "historical/scripts/render_sar_resource_figures.py",
+      "size_bytes": 5634,
+      "sha256": "46a23069471712fe4a07cafa6891d77f7aedeb2011ef09a3f8c5841570283a14"
+    },
+    {
+      "path": "historical/scripts/report_sar_transport.py",
+      "size_bytes": 10922,
+      "sha256": "9d22cafbf7f12736396ba977265e6474d981f5a952de2d2117cadaa369631e5c"
+    },
+    {
+      "path": "historical/scripts/run_sar_resource_ki.py",
+      "size_bytes": 21934,
+      "sha256": "00b10678b919a17e0be301bc66d6838cf4b5497f97151fc529767a558a842bb5"
+    },
+    {
+      "path": "historical/scripts/run_sar_transport.py",
+      "size_bytes": 17910,
+      "sha256": "aaa77e5fe2c6642b8fdf809aff66feb10ebedd6e6656db800e0e29988a10e6c3"
+    },
+    {
+      "path": "historical/scripts/sar_transport_eligibility.py",
+      "size_bytes": 25100,
+      "sha256": "50742e9b3d7841da0767128c1875124cb1037a3026c4b7233523e7fd656c3b75"
+    },
+    {
+      "path": "historical/scripts/sar_transport_features.py",
+      "size_bytes": 8873,
+      "sha256": "87e77711f5c4e21ff6872a5d329136bd5b9a48a34a8fe418d2622cdc5cbc4e3f"
+    },
+    {
+      "path": "historical/scripts/sar_transport_metadata.py",
+      "size_bytes": 4278,
+      "sha256": "2f94e54ec83f49c54a50fde0bd748d46fe5a3ea21aa6803a666222623a8b1425"
+    },
+    {
+      "path": "historical/scripts/sar_transport_methods.py",
+      "size_bytes": 16296,
+      "sha256": "2f3b8bfd94b23d287db6a48f5b8c1c8b584c27057c7e1f0447d1d43c1c352934"
+    },
+    {
+      "path": "historical/vendor/sar_transport/ActFound/LICENSE",
+      "size_bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "historical/vendor/sar_transport/ActFound/models/meta_neural_network_architectures.py",
+      "size_bytes": 30921,
+      "sha256": "e88de14e09f354e3f5df2c1bac29abd8937f83518bf52029619cdc3c6803c5dc"
+    },
+    {
+      "path": "stage_layout.py",
+      "size_bytes": 1959,
+      "sha256": "9ddb913f52149b4da6cb56e10d6d3be71973c404bb19b2019872327398547839"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-03T08:42:18.835664+00:00",
+  "files": {
+    "scripts/run_sar_transport.py": "ed3fac4636bd8ef08514765234c84207eaca962aa2d34abe8a6a0d7ce4858f0e",
+    "scripts/sar_transport_methods.py": "2f3b8bfd94b23d287db6a48f5b8c1c8b584c27057c7e1f0447d1d43c1c352934"
+  },
+  "parent_freeze": "MODEL_IMPLEMENTATION_FREEZE_FSCAP_FIX.json",
+  "change": "Atomic job-directory lock and completed-job reuse at CLI boundary; same original calibration, training and model functions. After RF43 completes, its lane runs the already-planned conditional17/43 jobs. The original queue waits or skips those jobs through the lock.",
+  "scientific_configuration_changes": 0,
+  "additional_fits": 0,
+  "model_restarts": 0,
+  "maximum_concurrent_heavy_jobs": 2,
+  "existing_actfound43_and_rf43_processes_untouched": true,
+  "original_runner": "implementation_history/run_sar_transport_before_job_lock.py"
+}
